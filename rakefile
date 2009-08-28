@@ -1,0 +1,25 @@
+require "rake/rdoctask"
+
+files = ["jface4ruby.rb", "LICENSE"] + Dir.glob("jface4ruby/lib/**/*.*") + Dir.glob("jface4ruby/fix/**/*.*")
+
+task :gemspec do
+  File.open("jface4ruby.gemspec", "w") do |file|
+    file.write Gem::Specification.new { |s|
+      s.name = "jface4ruby"
+      s.version = "1.0.0"
+      s.files = files
+      s.homepage = %q{http://github.com/neelance/jface4ruby/}
+      s.has_rdoc = false
+      s.require_paths = ["."]
+      s.summary = "Converted JFace."
+      s.add_dependency "neelance-java2ruby"
+      s.add_dependency "neelance-jre4ruby"
+      s.add_dependency "neelance-swt4ruby"
+    }.to_yaml
+  end
+end
+
+Rake::RDocTask.new do |rd|
+  rd.rdoc_files.include(*files.select { |file| file =~ /\.rb$/ })
+  rd.rdoc_dir = "doc"
+end
