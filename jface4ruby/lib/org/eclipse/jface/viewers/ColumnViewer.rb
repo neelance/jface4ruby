@@ -139,9 +139,9 @@ module Org::Eclipse::Jface::Viewers
             handle_mouse_down(e)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -231,7 +231,7 @@ module Org::Eclipse::Jface::Viewers
       if ((column_owner).nil? || column_owner.is_disposed)
         return nil
       end
-      viewer = column_owner.get_data(ViewerColumn::COLUMN_VIEWER_KEY)
+      viewer = column_owner.get_data(ViewerColumn.attr_column_viewer_key)
       if ((viewer).nil?)
         viewer = create_viewer_column(column_owner, CellLabelProvider.create_viewer_label_provider(self, get_label_provider))
         setup_editing_support(column_index, viewer)
@@ -315,9 +315,9 @@ module Org::Eclipse::Jface::Viewers
             return true
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -341,9 +341,9 @@ module Org::Eclipse::Jface::Viewers
         include_class_members ColumnViewer
         include ViewerColumn if ViewerColumn.class == Module
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -745,7 +745,7 @@ module Org::Eclipse::Jface::Viewers
         while i < count || (i).equal?(0)
           owner = get_column_viewer_owner(i)
           if (!(owner).nil? && !owner.is_disposed)
-            column = owner.get_data(ViewerColumn::COLUMN_VIEWER_KEY)
+            column = owner.get_data(ViewerColumn.attr_column_viewer_key)
             if (!(column).nil?)
               e = column.get_editing_support
               # Ensure that only EditingSupports are wiped that are

@@ -107,9 +107,9 @@ module Org::Eclipse::Jface::Viewers
               (get_control).set_list_visible(true)
             end
             
-            typesig { [] }
-            define_method :initialize do
-              super()
+            typesig { [Object] }
+            define_method :initialize do |*args|
+              super(*args)
             end
             
             private

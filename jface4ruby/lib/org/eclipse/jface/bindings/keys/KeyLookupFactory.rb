@@ -70,7 +70,7 @@ module Org::Eclipse::Jface::Bindings::Keys
         if ((default_lookup).nil?)
           raise NullPointerException.new("The look-up must not be null") # $NON-NLS-1$
         end
-        self.attr_default_lookup.attr_default_lookup = default_lookup
+        self.attr_default_lookup = default_lookup
       end
     }
     

@@ -249,9 +249,9 @@ module Org::Eclipse::Jface::Action
               end
             end
             
-            typesig { [] }
-            define_method :initialize do
-              super()
+            typesig { [Object] }
+            define_method :initialize do |*args|
+              super(*args)
             end
             
             private
@@ -273,9 +273,9 @@ module Org::Eclipse::Jface::Action
               end
             end
             
-            typesig { [] }
-            define_method :initialize do
-              super()
+            typesig { [Object] }
+            define_method :initialize do |*args|
+              super(*args)
             end
             
             private
@@ -293,9 +293,9 @@ module Org::Eclipse::Jface::Action
             handle_widget_dispose(event)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -474,9 +474,9 @@ module Org::Eclipse::Jface::Action
             end
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private

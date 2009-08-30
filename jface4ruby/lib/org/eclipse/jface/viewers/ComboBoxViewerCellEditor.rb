@@ -102,9 +102,9 @@ module Org::Eclipse::Jface::Viewers
           key_release_occured(e)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -130,9 +130,9 @@ module Org::Eclipse::Jface::Viewers
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -150,9 +150,9 @@ module Org::Eclipse::Jface::Viewers
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -168,9 +168,9 @@ module Org::Eclipse::Jface::Viewers
           @local_class_parent.focus_lost
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

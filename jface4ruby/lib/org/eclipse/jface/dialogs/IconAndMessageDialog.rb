@@ -149,9 +149,9 @@ module Org::Eclipse::Jface::Dialogs
           event.attr_result = accessible_message
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -288,9 +288,9 @@ module Org::Eclipse::Jface::Dialogs
           image[0] = display.get_system_image(image_id)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

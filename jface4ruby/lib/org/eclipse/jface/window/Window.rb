@@ -212,9 +212,9 @@ module Org::Eclipse::Jface::Window
             return parent
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -568,9 +568,9 @@ module Org::Eclipse::Jface::Window
           self.attr_resize_has_occurred = true
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -755,9 +755,9 @@ module Org::Eclipse::Jface::Window
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

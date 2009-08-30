@@ -423,9 +423,9 @@ module Org::Eclipse::Jface::Dialogs
             # No default behaviour
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -649,9 +649,9 @@ module Org::Eclipse::Jface::Dialogs
           button_pressed((event.attr_widget.get_data).int_value)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -1115,7 +1115,7 @@ module Org::Eclipse::Jface::Dialogs
       # @param blockedHandler
       # The blockedHandler for the dialogs.
       def set_blocked_handler(blocked_handler)
-        self.attr_blocked_handler.attr_blocked_handler = blocked_handler
+        self.attr_blocked_handler = blocked_handler
       end
     }
     

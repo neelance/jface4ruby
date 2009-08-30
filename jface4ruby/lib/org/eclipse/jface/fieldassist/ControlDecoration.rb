@@ -376,9 +376,9 @@ module Org::Eclipse::Jface::Fieldassist
               end
             end
             
-            typesig { [] }
-            define_method :initialize do
-              super()
+            typesig { [Object] }
+            define_method :initialize do |*args|
+              super(*args)
             end
             
             private
@@ -394,9 +394,9 @@ module Org::Eclipse::Jface::Fieldassist
               hide_hover
             end
             
-            typesig { [] }
-            define_method :initialize do
-              super()
+            typesig { [Object] }
+            define_method :initialize do |*args|
+              super(*args)
             end
             
             private
@@ -719,9 +719,9 @@ module Org::Eclipse::Jface::Fieldassist
           dispose
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -750,9 +750,9 @@ module Org::Eclipse::Jface::Fieldassist
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -775,9 +775,9 @@ module Org::Eclipse::Jface::Fieldassist
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -803,9 +803,9 @@ module Org::Eclipse::Jface::Fieldassist
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -860,9 +860,9 @@ module Org::Eclipse::Jface::Fieldassist
           # Nothing to do until a hover occurs.
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -896,9 +896,9 @@ module Org::Eclipse::Jface::Fieldassist
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

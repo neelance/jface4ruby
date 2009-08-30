@@ -97,9 +97,9 @@ module Org::Eclipse::Jface::Viewers
           fire_label_provider_changed(event)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

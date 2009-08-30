@@ -169,9 +169,9 @@ module Org::Eclipse::Jface::Operation
           get_wrapped_progress_monitor.begin_task(name, total_work)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -219,9 +219,9 @@ module Org::Eclipse::Jface::Operation
           get_wrapped_progress_monitor.done
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -260,9 +260,9 @@ module Org::Eclipse::Jface::Operation
           get_wrapped_progress_monitor.set_task_name(name)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -316,9 +316,9 @@ module Org::Eclipse::Jface::Operation
           Dialog.get_blocked_handler.clear_blocked
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -351,9 +351,9 @@ module Org::Eclipse::Jface::Operation
           Dialog.get_blocked_handler.show_blocked(pm, reason, self.attr_current_task)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

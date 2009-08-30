@@ -470,9 +470,9 @@ module Org::Eclipse::Jface::Wizard
           cancel_pressed
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -615,9 +615,9 @@ module Org::Eclipse::Jface::Wizard
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -818,10 +818,10 @@ module Org::Eclipse::Jface::Wizard
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
+        typesig { [Object] }
+        define_method :initialize do |*args|
           @current_task = nil
-          super()
+          super(*args)
           @current_task = nil
         end
         
@@ -908,9 +908,9 @@ module Org::Eclipse::Jface::Wizard
           return super | SWT::SHEET
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -1298,9 +1298,9 @@ module Org::Eclipse::Jface::Wizard
             update_for_page(final_page)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -1622,9 +1622,9 @@ module Org::Eclipse::Jface::Wizard
             l.page_changed(event)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -1682,9 +1682,9 @@ module Org::Eclipse::Jface::Wizard
             l.handle_page_changing(event)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private

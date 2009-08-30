@@ -372,9 +372,9 @@ module Org::Eclipse::Jface::Preference
               value_changed
             end
             
-            typesig { [] }
-            define_method :initialize do
-              super()
+            typesig { [Object] }
+            define_method :initialize do |*args|
+              super(*args)
             end
             
             private
@@ -393,9 +393,9 @@ module Org::Eclipse::Jface::Preference
               value_changed
             end
             
-            typesig { [] }
-            define_method :initialize do
-              super()
+            typesig { [Object] }
+            define_method :initialize do |*args|
+              super(*args)
             end
             
             private
@@ -412,9 +412,9 @@ module Org::Eclipse::Jface::Preference
               clear_error_message
             end
             
-            typesig { [] }
-            define_method :initialize do
-              super()
+            typesig { [Object] }
+            define_method :initialize do |*args|
+              super(*args)
             end
             
             private
@@ -436,9 +436,9 @@ module Org::Eclipse::Jface::Preference
               clear_error_message
             end
             
-            typesig { [] }
-            define_method :initialize do
-              super()
+            typesig { [Object] }
+            define_method :initialize do |*args|
+              super(*args)
             end
             
             private
@@ -457,9 +457,9 @@ module Org::Eclipse::Jface::Preference
             self.attr_text_field = nil
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private

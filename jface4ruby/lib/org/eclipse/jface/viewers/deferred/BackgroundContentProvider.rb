@@ -187,9 +187,9 @@ module Org::Eclipse::Jface::Viewers::Deferred
           @local_class_parent.update(changed)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

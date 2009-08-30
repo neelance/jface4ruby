@@ -401,9 +401,9 @@ module Org::Eclipse::Jface::Viewers
             l.apply_editor_value
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -433,9 +433,9 @@ module Org::Eclipse::Jface::Viewers
             l.cancel_editor
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -468,9 +468,9 @@ module Org::Eclipse::Jface::Viewers
             l.editor_value_changed(old_valid_state, new_valid_state)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -500,9 +500,9 @@ module Org::Eclipse::Jface::Viewers
             l.property_change(self.class::PropertyChangeEvent.new(self, action_id, nil, nil))
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private

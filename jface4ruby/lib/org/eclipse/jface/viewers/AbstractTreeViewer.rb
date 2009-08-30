@@ -815,9 +815,9 @@ module Org::Eclipse::Jface::Viewers
             end
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -1084,9 +1084,9 @@ module Org::Eclipse::Jface::Viewers
               l.tree_collapsed(event)
             end
             
-            typesig { [] }
-            define_method :initialize do
-              super()
+            typesig { [Object] }
+            define_method :initialize do |*args|
+              super(*args)
             end
             
             private
@@ -1124,9 +1124,9 @@ module Org::Eclipse::Jface::Viewers
               l.tree_expanded(event)
             end
             
-            typesig { [] }
-            define_method :initialize do
-              super()
+            typesig { [Object] }
+            define_method :initialize do |*args|
+              super(*args)
             end
             
             private
@@ -1499,9 +1499,9 @@ module Org::Eclipse::Jface::Viewers
           handle_tree_collapse(event)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -1531,9 +1531,9 @@ module Org::Eclipse::Jface::Viewers
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -2224,9 +2224,9 @@ module Org::Eclipse::Jface::Viewers
           internal_remove(elements_or_tree_paths)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -2269,9 +2269,9 @@ module Org::Eclipse::Jface::Viewers
           internal_remove(parent, elements)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -2486,9 +2486,9 @@ module Org::Eclipse::Jface::Viewers
           return (element).hash_code(comparer)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

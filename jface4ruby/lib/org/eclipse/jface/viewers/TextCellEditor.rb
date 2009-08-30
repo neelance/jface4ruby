@@ -185,9 +185,9 @@ module Org::Eclipse::Jface::Viewers
           handle_default_selection(e)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -212,9 +212,9 @@ module Org::Eclipse::Jface::Viewers
           check_selectable
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -232,9 +232,9 @@ module Org::Eclipse::Jface::Viewers
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -255,9 +255,9 @@ module Org::Eclipse::Jface::Viewers
           check_selectable
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -273,9 +273,9 @@ module Org::Eclipse::Jface::Viewers
           @local_class_parent.focus_lost
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -371,9 +371,9 @@ module Org::Eclipse::Jface::Viewers
             edit_occured(e)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private

@@ -126,9 +126,9 @@ module Org::Eclipse::Jface::Fieldassist
                     end
                   end
                   
-                  typesig { [] }
-                  define_method :initialize do
-                    super()
+                  typesig { [Object] }
+                  define_method :initialize do |*args|
+                    super(*args)
                   end
                   
                   private
@@ -447,9 +447,9 @@ module Org::Eclipse::Jface::Fieldassist
                   @local_class_parent.local_class_parent.close
                 end
                 
-                typesig { [] }
-                define_method :initialize do
-                  super()
+                typesig { [Object] }
+                define_method :initialize do |*args|
+                  super(*args)
                 end
                 
                 private
@@ -646,9 +646,9 @@ module Org::Eclipse::Jface::Fieldassist
                 handle_set_data(event)
               end
               
-              typesig { [] }
-              define_method :initialize do
-                super()
+              typesig { [Object] }
+              define_method :initialize do |*args|
+                super(*args)
               end
               
               private
@@ -685,9 +685,9 @@ module Org::Eclipse::Jface::Fieldassist
               accept_current_proposal
             end
             
-            typesig { [] }
-            define_method :initialize do
-              super()
+            typesig { [Object] }
+            define_method :initialize do |*args|
+              super(*args)
             end
             
             private
@@ -737,9 +737,9 @@ module Org::Eclipse::Jface::Fieldassist
               end
             end
             
-            typesig { [] }
-            define_method :initialize do
-              super()
+            typesig { [Object] }
+            define_method :initialize do |*args|
+              super(*args)
             end
             
             private
@@ -976,9 +976,9 @@ module Org::Eclipse::Jface::Fieldassist
                               self.attr_info_popup = nil
                             end
                             
-                            typesig { [] }
-                            define_method :initialize do
-                              super()
+                            typesig { [Object] }
+                            define_method :initialize do |*args|
+                              super(*args)
                             end
                             
                             private
@@ -995,9 +995,9 @@ module Org::Eclipse::Jface::Fieldassist
                     end
                   end
                   
-                  typesig { [] }
-                  define_method :initialize do
-                    super()
+                  typesig { [Object] }
+                  define_method :initialize do |*args|
+                    super(*args)
                   end
                   
                   private
@@ -1005,9 +1005,9 @@ module Org::Eclipse::Jface::Fieldassist
                 end.new_local(self))
               end
               
-              typesig { [] }
-              define_method :initialize do
-                super()
+              typesig { [Object] }
+              define_method :initialize do |*args|
+                super(*args)
               end
               
               private
@@ -1065,9 +1065,9 @@ module Org::Eclipse::Jface::Fieldassist
                 recompute_proposals(filter_text)
               end
               
-              typesig { [] }
-              define_method :initialize do
-                super()
+              typesig { [Object] }
+              define_method :initialize do |*args|
+                super(*args)
               end
               
               private
@@ -1901,9 +1901,9 @@ module Org::Eclipse::Jface::Fieldassist
           return "[0x" + RJava.cast_to_string(JavaInteger.to_hex_string(i)) + RJava.cast_to_string(Character.new(?].ord)) # $NON-NLS-1$
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -1949,9 +1949,9 @@ module Org::Eclipse::Jface::Fieldassist
                 self.attr_popup = nil
               end
               
-              typesig { [] }
-              define_method :initialize do
-                super()
+              typesig { [Object] }
+              define_method :initialize do |*args|
+                super(*args)
               end
               
               private
@@ -2113,9 +2113,9 @@ module Org::Eclipse::Jface::Fieldassist
                 open_proposal_popup(true)
               end
               
-              typesig { [] }
-              define_method :initialize do
-                super()
+              typesig { [Object] }
+              define_method :initialize do |*args|
+                super(*args)
               end
               
               private
@@ -2123,9 +2123,9 @@ module Org::Eclipse::Jface::Fieldassist
             end.new_local(self))
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -2152,9 +2152,9 @@ module Org::Eclipse::Jface::Fieldassist
             end
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private

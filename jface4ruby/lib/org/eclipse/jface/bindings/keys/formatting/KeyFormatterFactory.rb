@@ -82,7 +82,7 @@ module Org::Eclipse::Jface::Bindings::Keys::Formatting
         if ((default_key_formatter).nil?)
           raise NullPointerException.new
         end
-        self.attr_default_key_formatter.attr_default_key_formatter = default_key_formatter
+        self.attr_default_key_formatter = default_key_formatter
       end
     }
     

@@ -382,9 +382,9 @@ module Org::Eclipse::Jface::Action
           handle_dispose
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -418,9 +418,9 @@ module Org::Eclipse::Jface::Action
           set_canceled(true)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -439,9 +439,9 @@ module Org::Eclipse::Jface::Action
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -489,9 +489,9 @@ module Org::Eclipse::Jface::Action
           @local_class_parent.start_task(timestamp, animated)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

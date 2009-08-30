@@ -90,7 +90,7 @@ module Org::Eclipse::Jface::Viewers
       @listener_registered = false
       @viewer = nil
       @viewer = viewer
-      column_owner.set_data(self.attr_column_viewer_key.attr_column_viewer_key, self)
+      column_owner.set_data(self.attr_column_viewer_key, self)
       @listener = Class.new(ILabelProviderListener.class == Class ? ILabelProviderListener : Object) do
         extend LocalClass
         include_class_members ViewerColumn
@@ -101,9 +101,9 @@ module Org::Eclipse::Jface::Viewers
           viewer.handle_label_provider_changed(event)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -119,9 +119,9 @@ module Org::Eclipse::Jface::Viewers
           handle_dispose(viewer)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

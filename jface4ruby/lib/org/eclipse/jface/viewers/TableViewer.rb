@@ -368,9 +368,9 @@ module Org::Eclipse::Jface::Viewers
           internal_refresh(element, update_labels)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

@@ -427,9 +427,9 @@ module Org::Eclipse::Jface::Util
                 end
               end
               
-              typesig { [] }
-              define_method :initialize do
-                super()
+              typesig { [Object] }
+              define_method :initialize do |*args|
+                super(*args)
               end
               
               private
@@ -512,9 +512,9 @@ module Org::Eclipse::Jface::Util
                       end
                     end
                     
-                    typesig { [] }
-                    define_method :initialize do
-                      super()
+                    typesig { [Object] }
+                    define_method :initialize do |*args|
+                      super(*args)
                     end
                     
                     private
@@ -525,9 +525,9 @@ module Org::Eclipse::Jface::Util
                 end
               end
               
-              typesig { [] }
-              define_method :initialize do
-                super()
+              typesig { [Object] }
+              define_method :initialize do |*args|
+                super(*args)
               end
               
               private
@@ -593,8 +593,8 @@ module Org::Eclipse::Jface::Util
           fire_post_selection_event(sel_event)
         end
         
-        typesig { [] }
-        define_method :initialize do
+        typesig { [Object] }
+        define_method :initialize do |*args|
           @timer_started = false
           @mouse_up_event = nil
           @mouse_move_event = nil
@@ -606,7 +606,7 @@ module Org::Eclipse::Jface::Util
           @start_time = 0
           @collapse_occurred = false
           @expand_occurred = false
-          super()
+          super(*args)
           @timer_started = false
           @mouse_up_event = nil
           @mouse_move_event = nil

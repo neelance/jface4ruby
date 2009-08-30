@@ -191,9 +191,9 @@ module Org::Eclipse::Jface::Preference
             fire_value_changed(VALUE, old_value, self.attr_f_value)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private

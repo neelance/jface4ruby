@@ -201,9 +201,9 @@ module Org::Eclipse::Jface::Resource
           dispose
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -275,9 +275,9 @@ module Org::Eclipse::Jface::Resource
               image[0] = self.attr_display.get_system_image(id)
             end
             
-            typesig { [] }
-            define_method :initialize do
-              super()
+            typesig { [Object] }
+            define_method :initialize do |*args|
+              super(*args)
             end
             
             private

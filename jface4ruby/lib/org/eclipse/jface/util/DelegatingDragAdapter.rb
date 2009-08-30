@@ -150,9 +150,9 @@ module Org::Eclipse::Jface::Util
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -183,9 +183,9 @@ module Org::Eclipse::Jface::Util
             self.attr_current_listener.drag_set_data(event)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -223,9 +223,9 @@ module Org::Eclipse::Jface::Util
             listener.drag_start(event)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private

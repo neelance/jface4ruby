@@ -97,9 +97,9 @@ module Org::Eclipse::Jface::Viewers
             define_method :key_released do |e|
             end
             
-            typesig { [] }
-            define_method :initialize do
-              super()
+            typesig { [Object] }
+            define_method :initialize do |*args|
+              super(*args)
             end
             
             private

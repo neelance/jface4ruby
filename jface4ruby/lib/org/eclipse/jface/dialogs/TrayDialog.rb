@@ -323,9 +323,9 @@ module Org::Eclipse::Jface::Dialogs
           cursor.dispose
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -344,9 +344,9 @@ module Org::Eclipse::Jface::Dialogs
           help_pressed
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -374,9 +374,9 @@ module Org::Eclipse::Jface::Dialogs
           help_pressed
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -501,9 +501,9 @@ module Org::Eclipse::Jface::Dialogs
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

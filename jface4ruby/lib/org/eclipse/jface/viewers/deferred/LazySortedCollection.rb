@@ -306,9 +306,9 @@ module Org::Eclipse::Jface::Viewers::Deferred
           return "Lazy removal flag" # $NON-NLS-1$
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

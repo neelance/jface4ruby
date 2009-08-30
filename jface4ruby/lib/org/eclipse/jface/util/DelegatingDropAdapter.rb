@@ -183,9 +183,9 @@ module Org::Eclipse::Jface::Util
             new_listener.drag_operation_changed(event)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -220,9 +220,9 @@ module Org::Eclipse::Jface::Util
             new_listener.drag_over(event)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -252,9 +252,9 @@ module Org::Eclipse::Jface::Util
             get_current_listener.drop(event)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -283,9 +283,9 @@ module Org::Eclipse::Jface::Util
             get_current_listener.drop_accept(event)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -382,9 +382,9 @@ module Org::Eclipse::Jface::Util
             self.attr_current_listener.drag_leave(event)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -405,9 +405,9 @@ module Org::Eclipse::Jface::Util
             self.attr_current_listener.drag_enter(event)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private

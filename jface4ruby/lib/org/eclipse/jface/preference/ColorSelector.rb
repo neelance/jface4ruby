@@ -114,9 +114,9 @@ module Org::Eclipse::Jface::Preference
           open
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -139,9 +139,9 @@ module Org::Eclipse::Jface::Preference
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -160,9 +160,9 @@ module Org::Eclipse::Jface::Preference
           e.attr_result = JFaceResources.get_string("ColorSelector.Name") # $NON-NLS-1$
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

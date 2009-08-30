@@ -73,9 +73,9 @@ module Org::Eclipse::Jface::Viewers
           return (cell.get_viewer_row.get_visual_index(cell.get_column_index)).equal?(0)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

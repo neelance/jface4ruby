@@ -667,9 +667,9 @@ module Org::Eclipse::Jface::Dialogs
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -695,9 +695,9 @@ module Org::Eclipse::Jface::Dialogs
           end
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -719,9 +719,9 @@ module Org::Eclipse::Jface::Dialogs
             end
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -739,9 +739,9 @@ module Org::Eclipse::Jface::Dialogs
           handle_dispose
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -762,9 +762,9 @@ module Org::Eclipse::Jface::Dialogs
           close
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -997,9 +997,9 @@ module Org::Eclipse::Jface::Dialogs
           show_dialog_menu
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private
@@ -1016,9 +1016,9 @@ module Org::Eclipse::Jface::Dialogs
           show_dialog_menu
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

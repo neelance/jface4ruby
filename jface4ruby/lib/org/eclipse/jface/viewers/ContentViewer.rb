@@ -131,10 +131,10 @@ module Org::Eclipse::Jface::Viewers
           @local_class_parent.handle_label_provider_changed(event)
         end
         
-        typesig { [] }
-        define_method :initialize do
+        typesig { [Object] }
+        define_method :initialize do |*args|
           @log_when_disposed = false
-          super()
+          super(*args)
           @log_when_disposed = true
         end
         
@@ -251,9 +251,9 @@ module Org::Eclipse::Jface::Viewers
           handle_dispose(event)
         end
         
-        typesig { [] }
-        define_method :initialize do
-          super()
+        typesig { [Object] }
+        define_method :initialize do |*args|
+          super(*args)
         end
         
         private

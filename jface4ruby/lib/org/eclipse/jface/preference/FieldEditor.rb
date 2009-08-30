@@ -414,9 +414,9 @@ module Org::Eclipse::Jface::Preference
             self.attr_label = nil
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private

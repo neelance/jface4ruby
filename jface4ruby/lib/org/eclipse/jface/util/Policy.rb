@@ -150,9 +150,9 @@ module Org::Eclipse::Jface::Util
             end
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -246,9 +246,9 @@ module Org::Eclipse::Jface::Util
                       self.attr_dialog = nil
                     end
                     
-                    typesig { [] }
-                    define_method :initialize do
-                      super()
+                    typesig { [Object] }
+                    define_method :initialize do |*args|
+                      super(*args)
                     end
                     
                     private
@@ -261,9 +261,9 @@ module Org::Eclipse::Jface::Util
                 end
               end
               
-              typesig { [] }
-              define_method :initialize do
-                super()
+              typesig { [Object] }
+              define_method :initialize do |*args|
+                super(*args)
               end
               
               private
@@ -276,10 +276,10 @@ module Org::Eclipse::Jface::Util
             end
           end
           
-          typesig { [] }
-          define_method :initialize do
+          typesig { [Object] }
+          define_method :initialize do |*args|
             @dialog = nil
-            super()
+            super(*args)
           end
           
           private
@@ -314,9 +314,9 @@ module Org::Eclipse::Jface::Util
             return ((s1) <=> s2)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private

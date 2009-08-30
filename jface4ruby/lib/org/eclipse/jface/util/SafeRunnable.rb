@@ -172,9 +172,9 @@ module Org::Eclipse::Jface::Util
             code.handle_exception(e)
           end
           
-          typesig { [] }
-          define_method :initialize do
-            super()
+          typesig { [Object] }
+          define_method :initialize do |*args|
+            super(*args)
           end
           
           private
@@ -190,7 +190,7 @@ module Org::Eclipse::Jface::Util
       # default runner
       # @since 3.1
       def set_runner(runner)
-        self.attr_runner.attr_runner = runner
+        self.attr_runner = runner
       end
       
       typesig { [ISafeRunnable] }

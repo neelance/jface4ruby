@@ -240,10 +240,10 @@ module Org::Eclipse::Jface::Action
           # Do nothing here as we let the modal context handle it
         end
         
-        typesig { [] }
-        define_method :initialize do
+        typesig { [Object] }
+        define_method :initialize do |*args|
           @progress_delegate = nil
-          super()
+          super(*args)
           @progress_delegate = get_progress_monitor_delegate
         end
         
