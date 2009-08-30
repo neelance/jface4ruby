@@ -1,8 +1,9 @@
 require "rjava"
 require "jre4ruby"
+require "swt4ruby"
 
-lib_path = "#{File.dirname(__FILE__)}/antlr4ruby/lib"
-fix_path = "#{File.dirname(__FILE__)}/antlr4ruby/fix"
+lib_path = "#{File.dirname(__FILE__)}/jface4ruby/lib"
+fix_path = "#{File.dirname(__FILE__)}/jface4ruby/fix"
 
 add_class_loader { |package_path|
   dirs, names = list_paths "#{lib_path}/#{package_path}"
@@ -14,9 +15,37 @@ add_class_loader { |package_path|
   names.each do |name|
     file_path = "#{package_path}/#{name}.rb"
     if File.exist?("#{fix_path}/#{file_path}")
-      import_class name, "antlr4ruby/lib/#{file_path}", "antlr4ruby/fix/#{file_path}"
+      import_class name, "jface4ruby/lib/#{file_path}", "jface4ruby/fix/#{file_path}"
     else
-      import_class name, "antlr4ruby/lib/#{file_path}"
+      import_class name, "jface4ruby/lib/#{file_path}"
     end
   end
 }
+
+class Swt4Ruby
+  module NewWidgetMethods
+    def new_checkbox_table_viewer(*styles, &block)
+      Org::Eclipse::Jface::Viewers::CheckboxTableViewer.create find_composite, styles, &block
+    end
+
+    def new_checkbox_tree_viewer(*styles, &block)
+      Org::Eclipse::Jface::Viewers::CheckboxTreeViewer.create find_composite, styles, &block
+    end
+
+    def new_combo_viewer(*styles, &block)
+      Org::Eclipse::Jface::Viewers::ComboViewer.create find_composite, styles, &block
+    end
+
+    def new_list_viewer(*styles, &block)
+      Org::Eclipse::Jface::Viewers::ListViewer.create find_composite, styles, &block
+    end
+
+    def new_table_viewer(*styles, &block)
+      Org::Eclipse::Jface::Viewers::TableViewer.create find_composite, styles, &block
+    end
+
+    def new_tree_viewer(*styles, &block)
+      Org::Eclipse::Jface::Viewers::TreeViewer.create find_composite, styles, &block
+    end
+  end
+end
