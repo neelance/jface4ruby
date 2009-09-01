@@ -127,7 +127,7 @@ module Org::Eclipse::Jface::Preference
               end
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end
@@ -323,7 +323,7 @@ module Org::Eclipse::Jface::Preference
             end
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -341,7 +341,7 @@ module Org::Eclipse::Jface::Preference
             self.attr_change_font_button = nil
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -409,7 +409,7 @@ module Org::Eclipse::Jface::Preference
             self.attr_value_control = nil
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end

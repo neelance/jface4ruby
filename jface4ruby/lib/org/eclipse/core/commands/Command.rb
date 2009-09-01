@@ -518,7 +518,7 @@ module Org::Eclipse::Core::Commands
             listener.command_changed(command_event)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -988,7 +988,7 @@ module Org::Eclipse::Core::Commands
             fire_command_changed(self.class::CommandEvent.new(@local_class_parent, false, false, false, handled_changed, false, false, false, false, enabled_changed))
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end

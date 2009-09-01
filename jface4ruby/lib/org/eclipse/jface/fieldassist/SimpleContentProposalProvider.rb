@@ -151,7 +151,7 @@ module Org::Eclipse::Jface::Fieldassist
           return proposal.length
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

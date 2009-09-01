@@ -115,7 +115,7 @@ module Org::Eclipse::Jface::Dialogs
           on_paint(e)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -155,7 +155,7 @@ module Org::Eclipse::Jface::Dialogs
           return size
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

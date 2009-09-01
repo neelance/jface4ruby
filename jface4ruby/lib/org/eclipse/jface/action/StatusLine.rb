@@ -382,7 +382,7 @@ module Org::Eclipse::Jface::Action
           handle_dispose
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -418,7 +418,7 @@ module Org::Eclipse::Jface::Action
           set_canceled(true)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -439,7 +439,7 @@ module Org::Eclipse::Jface::Action
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -489,7 +489,7 @@ module Org::Eclipse::Jface::Action
           @local_class_parent.start_task(timestamp, animated)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

@@ -376,7 +376,7 @@ module Org::Eclipse::Jface::Fieldassist
               end
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end
@@ -394,7 +394,7 @@ module Org::Eclipse::Jface::Fieldassist
               hide_hover
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end
@@ -719,7 +719,7 @@ module Org::Eclipse::Jface::Fieldassist
           dispose
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -750,7 +750,7 @@ module Org::Eclipse::Jface::Fieldassist
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -775,7 +775,7 @@ module Org::Eclipse::Jface::Fieldassist
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -803,7 +803,7 @@ module Org::Eclipse::Jface::Fieldassist
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -860,7 +860,7 @@ module Org::Eclipse::Jface::Fieldassist
           # Nothing to do until a hover occurs.
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -896,7 +896,7 @@ module Org::Eclipse::Jface::Fieldassist
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

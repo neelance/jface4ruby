@@ -173,7 +173,7 @@ module Org::Eclipse::Jface::Action
               return true
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end
@@ -190,7 +190,7 @@ module Org::Eclipse::Jface::Action
               return true
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end
@@ -226,7 +226,7 @@ module Org::Eclipse::Jface::Action
               return true
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end
@@ -415,7 +415,7 @@ module Org::Eclipse::Jface::Action
                   end
                 end
                 
-                typesig { [Object] }
+                typesig { [Vararg.new(Object)] }
                 define_method :initialize do |*args|
                   super(*args)
                 end

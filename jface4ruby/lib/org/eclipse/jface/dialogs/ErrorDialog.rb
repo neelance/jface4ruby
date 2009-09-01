@@ -348,7 +348,7 @@ module Org::Eclipse::Jface::Dialogs
           copy_to_clipboard
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

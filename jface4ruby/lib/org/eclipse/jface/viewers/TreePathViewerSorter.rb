@@ -109,7 +109,7 @@ module Org::Eclipse::Jface::Viewers
           return @local_class_parent.compare(viewer, parent_path, a, b)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

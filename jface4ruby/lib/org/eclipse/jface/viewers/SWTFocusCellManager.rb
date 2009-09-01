@@ -85,7 +85,7 @@ module Org::Eclipse::Jface::Viewers
           set_focus_cell(nil)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -191,7 +191,7 @@ module Org::Eclipse::Jface::Viewers
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -214,7 +214,7 @@ module Org::Eclipse::Jface::Viewers
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -250,7 +250,7 @@ module Org::Eclipse::Jface::Viewers
           event.attr_result = label_provider.get_text(element)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

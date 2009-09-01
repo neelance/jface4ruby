@@ -891,7 +891,7 @@ module Org::Eclipse::Jface::Viewers
             l.double_click(event)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -926,7 +926,7 @@ module Org::Eclipse::Jface::Viewers
             l.open(event)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -962,7 +962,7 @@ module Org::Eclipse::Jface::Viewers
             l.selection_changed(event)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -1291,7 +1291,7 @@ module Org::Eclipse::Jface::Viewers
           handle_double_select(e)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -1309,7 +1309,7 @@ module Org::Eclipse::Jface::Viewers
           handle_post_select(e)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -1327,7 +1327,7 @@ module Org::Eclipse::Jface::Viewers
           @local_class_parent.handle_open(e)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -1580,7 +1580,7 @@ module Org::Eclipse::Jface::Viewers
           internal_refresh(element)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -1619,7 +1619,7 @@ module Org::Eclipse::Jface::Viewers
           internal_refresh(element, update_labels)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -2203,7 +2203,7 @@ module Org::Eclipse::Jface::Viewers
             self.attr_refresh_occurred = true
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end

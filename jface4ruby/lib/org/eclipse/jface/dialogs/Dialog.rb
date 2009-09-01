@@ -423,7 +423,7 @@ module Org::Eclipse::Jface::Dialogs
             # No default behaviour
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -649,7 +649,7 @@ module Org::Eclipse::Jface::Dialogs
           button_pressed((event.attr_widget.get_data).int_value)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

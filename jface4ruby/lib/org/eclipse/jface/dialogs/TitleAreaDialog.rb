@@ -291,7 +291,7 @@ module Org::Eclipse::Jface::Dialogs
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

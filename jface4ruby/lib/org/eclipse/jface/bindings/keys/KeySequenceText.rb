@@ -561,7 +561,7 @@ module Org::Eclipse::Jface::Bindings::Keys
             font.dispose
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -585,7 +585,7 @@ module Org::Eclipse::Jface::Bindings::Keys
           traversal_filter_manager.dispose
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

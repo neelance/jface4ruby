@@ -667,7 +667,7 @@ module Org::Eclipse::Jface::Dialogs
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -695,7 +695,7 @@ module Org::Eclipse::Jface::Dialogs
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -719,7 +719,7 @@ module Org::Eclipse::Jface::Dialogs
             end
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -739,7 +739,7 @@ module Org::Eclipse::Jface::Dialogs
           handle_dispose
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -762,7 +762,7 @@ module Org::Eclipse::Jface::Dialogs
           close
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -997,7 +997,7 @@ module Org::Eclipse::Jface::Dialogs
           show_dialog_menu
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -1016,7 +1016,7 @@ module Org::Eclipse::Jface::Dialogs
           show_dialog_menu
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

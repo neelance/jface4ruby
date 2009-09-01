@@ -240,7 +240,7 @@ module Org::Eclipse::Jface::Action
           # Do nothing here as we let the modal context handle it
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           @progress_delegate = nil
           super(*args)

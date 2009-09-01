@@ -427,7 +427,7 @@ module Org::Eclipse::Jface::Util
                 end
               end
               
-              typesig { [Object] }
+              typesig { [Vararg.new(Object)] }
               define_method :initialize do |*args|
                 super(*args)
               end
@@ -512,7 +512,7 @@ module Org::Eclipse::Jface::Util
                       end
                     end
                     
-                    typesig { [Object] }
+                    typesig { [Vararg.new(Object)] }
                     define_method :initialize do |*args|
                       super(*args)
                     end
@@ -525,7 +525,7 @@ module Org::Eclipse::Jface::Util
                 end
               end
               
-              typesig { [Object] }
+              typesig { [Vararg.new(Object)] }
               define_method :initialize do |*args|
                 super(*args)
               end
@@ -593,7 +593,7 @@ module Org::Eclipse::Jface::Util
           fire_post_selection_event(sel_event)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           @timer_started = false
           @mouse_up_event = nil

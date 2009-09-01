@@ -470,7 +470,7 @@ module Org::Eclipse::Jface::Wizard
           cancel_pressed
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -615,7 +615,7 @@ module Org::Eclipse::Jface::Wizard
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -818,7 +818,7 @@ module Org::Eclipse::Jface::Wizard
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           @current_task = nil
           super(*args)
@@ -908,7 +908,7 @@ module Org::Eclipse::Jface::Wizard
           return super | SWT::SHEET
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -1298,7 +1298,7 @@ module Org::Eclipse::Jface::Wizard
             update_for_page(final_page)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -1622,7 +1622,7 @@ module Org::Eclipse::Jface::Wizard
             l.page_changed(event)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -1682,7 +1682,7 @@ module Org::Eclipse::Jface::Wizard
             l.handle_page_changing(event)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end

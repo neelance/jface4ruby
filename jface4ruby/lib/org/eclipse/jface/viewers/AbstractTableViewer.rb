@@ -96,7 +96,7 @@ module Org::Eclipse::Jface::Viewers
               update_item(item, element)
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end
@@ -582,7 +582,7 @@ module Org::Eclipse::Jface::Viewers
             internal_refresh(get_root)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -835,7 +835,7 @@ module Org::Eclipse::Jface::Viewers
           internal_remove(elements)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

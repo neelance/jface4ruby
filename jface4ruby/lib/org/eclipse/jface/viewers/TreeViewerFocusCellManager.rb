@@ -73,7 +73,7 @@ module Org::Eclipse::Jface::Viewers
           return (cell.get_viewer_row.get_visual_index(cell.get_column_index)).equal?(0)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

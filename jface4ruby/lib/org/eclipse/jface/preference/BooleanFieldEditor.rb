@@ -227,7 +227,7 @@ module Org::Eclipse::Jface::Preference
             self.attr_was_selected = is_selected
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -245,7 +245,7 @@ module Org::Eclipse::Jface::Preference
             self.attr_check_box = nil
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end

@@ -468,7 +468,7 @@ module Org::Eclipse::Jface::Viewers
           internal_remove(elements)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

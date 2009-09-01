@@ -249,7 +249,7 @@ module Org::Eclipse::Jface::Action
               end
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end
@@ -273,7 +273,7 @@ module Org::Eclipse::Jface::Action
               end
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end
@@ -293,7 +293,7 @@ module Org::Eclipse::Jface::Action
             handle_widget_dispose(event)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -474,7 +474,7 @@ module Org::Eclipse::Jface::Action
             end
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end

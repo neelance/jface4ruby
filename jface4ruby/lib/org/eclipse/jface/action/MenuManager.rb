@@ -470,7 +470,7 @@ module Org::Eclipse::Jface::Action
               return nil
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end
@@ -537,7 +537,7 @@ module Org::Eclipse::Jface::Action
           handle_about_to_show
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

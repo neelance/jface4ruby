@@ -167,7 +167,7 @@ module Org::Eclipse::Jface::Util
           handle_selection_change
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -197,7 +197,7 @@ module Org::Eclipse::Jface::Util
           cell.set_text((cell.get_element).get_message)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -240,7 +240,7 @@ module Org::Eclipse::Jface::Util
         define_method :input_changed do |viewer, old_input, new_input|
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -283,7 +283,7 @@ module Org::Eclipse::Jface::Util
           return (message1 <=> message2)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

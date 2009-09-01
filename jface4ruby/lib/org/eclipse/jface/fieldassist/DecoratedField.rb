@@ -305,7 +305,7 @@ module Org::Eclipse::Jface::Fieldassist
               end
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end
@@ -323,7 +323,7 @@ module Org::Eclipse::Jface::Fieldassist
               hide_hover
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end
@@ -522,7 +522,7 @@ module Org::Eclipse::Jface::Fieldassist
             hide_hover
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -676,7 +676,7 @@ module Org::Eclipse::Jface::Fieldassist
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -699,7 +699,7 @@ module Org::Eclipse::Jface::Fieldassist
           control_focus_lost
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

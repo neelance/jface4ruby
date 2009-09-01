@@ -360,7 +360,7 @@ module Org::Eclipse::Jface::Preference
               end
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end
@@ -415,7 +415,7 @@ module Org::Eclipse::Jface::Preference
           clear_selected_node # Do not cache a node with problems
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -446,7 +446,7 @@ module Org::Eclipse::Jface::Preference
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -497,7 +497,7 @@ module Org::Eclipse::Jface::Preference
           select_saved_item
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -627,7 +627,7 @@ module Org::Eclipse::Jface::Preference
           self.attr_last_shell_size = get_shell.get_size
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -708,7 +708,7 @@ module Org::Eclipse::Jface::Preference
           update_message
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -739,7 +739,7 @@ module Org::Eclipse::Jface::Preference
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -757,7 +757,7 @@ module Org::Eclipse::Jface::Preference
           JFaceResources.get_font_registry.remove_listener(font_listener)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -864,7 +864,7 @@ module Org::Eclipse::Jface::Preference
                 end
               end
               
-              typesig { [Object] }
+              typesig { [Vararg.new(Object)] }
               define_method :initialize do |*args|
                 super(*args)
               end
@@ -875,7 +875,7 @@ module Org::Eclipse::Jface::Preference
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -899,7 +899,7 @@ module Org::Eclipse::Jface::Preference
           viewer.set_expanded_state(single_selection, !expanded)
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -952,7 +952,7 @@ module Org::Eclipse::Jface::Preference
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -1183,7 +1183,7 @@ module Org::Eclipse::Jface::Preference
           Policy.get_status_handler.show(self.class::Status.new(IStatus::ERROR, Policy::JFACE, message, e), JFaceResources.get_string("Error")) # $NON-NLS-1$
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           @error_occurred = false
           super(*args)
@@ -1439,7 +1439,7 @@ module Org::Eclipse::Jface::Preference
             create_page_control(self.attr_current_page, self.attr_page_container)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -1474,7 +1474,7 @@ module Org::Eclipse::Jface::Preference
           size_[0] = self.attr_current_page.compute_size
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -1735,7 +1735,7 @@ module Org::Eclipse::Jface::Preference
             l.page_changed(event)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end

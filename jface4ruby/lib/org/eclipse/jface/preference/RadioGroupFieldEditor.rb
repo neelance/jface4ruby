@@ -304,7 +304,7 @@ module Org::Eclipse::Jface::Preference
               fire_value_changed(VALUE, old_value, self.attr_value)
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end
@@ -325,7 +325,7 @@ module Org::Eclipse::Jface::Preference
             self.attr_radio_buttons = nil
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end

@@ -254,7 +254,7 @@ module Org::Eclipse::Jface::Preference
             value_changed
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -272,7 +272,7 @@ module Org::Eclipse::Jface::Preference
             self.attr_scale = nil
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end

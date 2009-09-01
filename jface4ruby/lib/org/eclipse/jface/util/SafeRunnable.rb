@@ -172,7 +172,7 @@ module Org::Eclipse::Jface::Util
             code.handle_exception(e)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end

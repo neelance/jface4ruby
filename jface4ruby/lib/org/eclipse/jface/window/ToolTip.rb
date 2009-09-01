@@ -200,7 +200,7 @@ module Org::Eclipse::Jface::Window
           deactivate
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -232,7 +232,7 @@ module Org::Eclipse::Jface::Window
                 end
               end
               
-              typesig { [Object] }
+              typesig { [Vararg.new(Object)] }
               define_method :initialize do |*args|
                 super(*args)
               end
@@ -243,7 +243,7 @@ module Org::Eclipse::Jface::Window
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -589,7 +589,7 @@ module Org::Eclipse::Jface::Window
             end
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -619,7 +619,7 @@ module Org::Eclipse::Jface::Window
             tool_tip_show(shell, event)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -641,7 +641,7 @@ module Org::Eclipse::Jface::Window
             tool_tip_hide(shell, nil)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -761,7 +761,7 @@ module Org::Eclipse::Jface::Window
               end
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end

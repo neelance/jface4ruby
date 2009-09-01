@@ -921,7 +921,7 @@ module Org::Eclipse::Core::Commands::Operations
             advanced_op.about_to_notify(event)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -952,7 +952,7 @@ module Org::Eclipse::Core::Commands::Operations
             listener.history_notification(event)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end

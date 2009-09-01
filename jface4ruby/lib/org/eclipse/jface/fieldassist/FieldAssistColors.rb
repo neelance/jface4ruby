@@ -167,7 +167,7 @@ module Org::Eclipse::Jface::Fieldassist
               dispose_colors(display)
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end

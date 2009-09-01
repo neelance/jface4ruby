@@ -323,7 +323,7 @@ module Org::Eclipse::Jface::Dialogs
           cursor.dispose
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -344,7 +344,7 @@ module Org::Eclipse::Jface::Dialogs
           help_pressed
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -374,7 +374,7 @@ module Org::Eclipse::Jface::Dialogs
           help_pressed
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end
@@ -501,7 +501,7 @@ module Org::Eclipse::Jface::Dialogs
           end
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

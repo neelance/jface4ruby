@@ -139,7 +139,7 @@ module Org::Eclipse::Jface::Viewers
             handle_mouse_down(e)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -315,7 +315,7 @@ module Org::Eclipse::Jface::Viewers
             return true
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -341,7 +341,7 @@ module Org::Eclipse::Jface::Viewers
         include_class_members ColumnViewer
         include ViewerColumn if ViewerColumn.class == Module
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

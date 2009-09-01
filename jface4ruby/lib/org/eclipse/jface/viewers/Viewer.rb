@@ -145,7 +145,7 @@ module Org::Eclipse::Jface::Viewers
                 handle_help_request(event)
               end
               
-              typesig { [Object] }
+              typesig { [Vararg.new(Object)] }
               define_method :initialize do |*args|
                 super(*args)
               end
@@ -205,7 +205,7 @@ module Org::Eclipse::Jface::Viewers
             l.selection_changed(event)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end

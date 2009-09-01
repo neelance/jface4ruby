@@ -454,7 +454,7 @@ module Org::Eclipse::Jface::Dialogs
           self.attr_toggle_state = button.get_selection
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

@@ -150,7 +150,7 @@ module Org::Eclipse::Jface::Util
             end
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -246,7 +246,7 @@ module Org::Eclipse::Jface::Util
                       self.attr_dialog = nil
                     end
                     
-                    typesig { [Object] }
+                    typesig { [Vararg.new(Object)] }
                     define_method :initialize do |*args|
                       super(*args)
                     end
@@ -261,7 +261,7 @@ module Org::Eclipse::Jface::Util
                 end
               end
               
-              typesig { [Object] }
+              typesig { [Vararg.new(Object)] }
               define_method :initialize do |*args|
                 super(*args)
               end
@@ -276,7 +276,7 @@ module Org::Eclipse::Jface::Util
             end
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             @dialog = nil
             super(*args)
@@ -314,7 +314,7 @@ module Org::Eclipse::Jface::Util
             return ((s1) <=> s2)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end

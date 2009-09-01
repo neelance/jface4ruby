@@ -357,7 +357,7 @@ module Org::Eclipse::Jface::Util
                 handle_move(self.attr_table, true)
               end
               
-              typesig { [Object] }
+              typesig { [Vararg.new(Object)] }
               define_method :initialize do |*args|
                 super(*args)
               end
@@ -378,7 +378,7 @@ module Org::Eclipse::Jface::Util
                 handle_move(self.attr_table, false)
               end
               
-              typesig { [Object] }
+              typesig { [Vararg.new(Object)] }
               define_method :initialize do |*args|
                 super(*args)
               end
@@ -409,7 +409,7 @@ module Org::Eclipse::Jface::Util
               handle_selection_changed(self.attr_table.index_of(event.attr_item))
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end
@@ -436,7 +436,7 @@ module Org::Eclipse::Jface::Util
               end
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end

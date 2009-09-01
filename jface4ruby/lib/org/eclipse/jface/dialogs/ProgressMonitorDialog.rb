@@ -433,7 +433,7 @@ module Org::Eclipse::Jface::Dialogs
             set_operation_cancel_button_enabled(b)
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
@@ -525,7 +525,7 @@ module Org::Eclipse::Jface::Dialogs
               set_message(self.attr_message, true)
             end
             
-            typesig { [Object] }
+            typesig { [Vararg.new(Object)] }
             define_method :initialize do |*args|
               super(*args)
             end
@@ -535,7 +535,7 @@ module Org::Eclipse::Jface::Dialogs
           end.new_local(self))
         end
         
-        typesig { [Object] }
+        typesig { [Vararg.new(Object)] }
         define_method :initialize do |*args|
           super(*args)
         end

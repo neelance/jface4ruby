@@ -92,7 +92,7 @@ module Org::Eclipse::Jface::Commands
             fire_handler_changed(self.class::HandlerEvent.new(@local_class_parent, (IAction::ENABLED == property), (IAction::HANDLED == property)))
           end
           
-          typesig { [Object] }
+          typesig { [Vararg.new(Object)] }
           define_method :initialize do |*args|
             super(*args)
           end
