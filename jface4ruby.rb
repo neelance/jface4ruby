@@ -28,7 +28,10 @@ add_class_loader { |package_path|
 class Swt4Ruby
   module NewWidgetMethods
     def new_checkbox_table_viewer(*styles, &block)
-      Org::Eclipse::Jface::Viewers::CheckboxTableViewer.create find_composite, styles, &block
+      style_mask = Swt4Ruby.replace_symbols(styles).inject(0) { |v, style| v | style }
+      widget = Org::Eclipse::Jface::Viewers::CheckboxTableViewer.new_check_list(find_composite, style_mask)
+      widget.instance_eval &block if block
+      widget
     end
 
     def new_checkbox_tree_viewer(*styles, &block)
