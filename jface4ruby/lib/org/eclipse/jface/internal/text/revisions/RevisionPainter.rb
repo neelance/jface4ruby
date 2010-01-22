@@ -31,7 +31,7 @@ module Org::Eclipse::Jface::Internal::Text::Revisions
       include_const ::Org::Eclipse::Swt::Events, :MouseTrackListener
       include_const ::Org::Eclipse::Swt::Graphics, :Color
       include_const ::Org::Eclipse::Swt::Graphics, :FontMetrics
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Graphics, :RGB
       include_const ::Org::Eclipse::Swt::Graphics, :Rectangle
@@ -922,7 +922,7 @@ module Org::Eclipse::Jface::Internal::Text::Revisions
       @f_parent_ruler = parent_ruler
     end
     
-    typesig { [GC, ILineRange] }
+    typesig { [SwtGC, ILineRange] }
     # Delegates the painting of the quick diff colors to this painter. The painter will draw the
     # color boxes onto the passed {@link GC} for all model (document) lines in
     # <code>visibleModelLines</code>.
@@ -1070,7 +1070,7 @@ module Org::Eclipse::Jface::Internal::Text::Revisions
       @f_revision_selection_provider.uninstall
     end
     
-    typesig { [RevisionRange, GC] }
+    typesig { [RevisionRange, SwtGC] }
     # Paints a single change region onto <code>gc</code>.
     # 
     # @param range the range to paint
@@ -1124,7 +1124,7 @@ module Org::Eclipse::Jface::Internal::Text::Revisions
       end
     end
     
-    typesig { [GC, ::Java::Int] }
+    typesig { [SwtGC, ::Java::Int] }
     # Returns the difference between the baseline of the widget and the
     # baseline as specified by the font for <code>gc</code>. When drawing
     # line numbers, the returned bias should be added to obtain text lined up

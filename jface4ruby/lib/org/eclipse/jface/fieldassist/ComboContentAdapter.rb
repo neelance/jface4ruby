@@ -14,7 +14,7 @@ module Org::Eclipse::Jface::Fieldassist
       include ::Java::Lang
       include ::Org::Eclipse::Jface::Fieldassist
       include_const ::Org::Eclipse::Jface::Util, :Util
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Graphics, :Rectangle
       include_const ::Org::Eclipse::Swt::Widgets, :Combo
@@ -99,7 +99,7 @@ module Org::Eclipse::Jface::Fieldassist
       combo = control
       position = combo.get_selection.attr_y
       contents = combo.get_text
-      gc = GC.new(combo)
+      gc = SwtGC.new(combo)
       gc.set_font(combo.get_font)
       extent = gc.text_extent(contents.substring(0, Math.min(position, contents.length)))
       gc.dispose

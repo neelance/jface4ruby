@@ -19,7 +19,7 @@ module Org::Eclipse::Jface::Contentassist
       include_const ::Org::Eclipse::Swt::Events, :ModifyListener
       include_const ::Org::Eclipse::Swt::Events, :SelectionEvent
       include_const ::Org::Eclipse::Swt::Events, :SelectionListener
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Widgets, :Combo
       include_const ::Org::Eclipse::Swt::Widgets, :Control
@@ -151,7 +151,7 @@ module Org::Eclipse::Jface::Contentassist
     # @see org.eclipse.jface.text.contentassist.IContentAssistSubjectControl#getLocationAtOffset(int)
     def get_location_at_offset(offset)
       combo_string = @f_combo.get_text
-      gc = GC.new(@f_combo)
+      gc = SwtGC.new(@f_combo)
       gc.set_font(@f_combo.get_font)
       extent = gc.text_extent(combo_string.substring(0, Math.min(offset, combo_string.length)))
       space_width = gc.text_extent(" ").attr_x # $NON-NLS-1$

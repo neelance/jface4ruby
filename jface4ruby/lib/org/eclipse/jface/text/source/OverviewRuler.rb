@@ -32,7 +32,7 @@ module Org::Eclipse::Jface::Text::Source
       include_const ::Org::Eclipse::Swt::Events, :PaintListener
       include_const ::Org::Eclipse::Swt::Graphics, :Color
       include_const ::Org::Eclipse::Swt::Graphics, :Cursor
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Image
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Graphics, :RGB
@@ -319,7 +319,7 @@ module Org::Eclipse::Jface::Text::Source
           @f_indicator_color = color
         end
         
-        typesig { [class_self::GC, ::Java::Int, ::Java::Int, ::Java::Int, ::Java::Int, class_self::Color, class_self::Color] }
+        typesig { [SwtGC, ::Java::Int, ::Java::Int, ::Java::Int, ::Java::Int, class_self::Color, class_self::Color] }
         def draw_bevel_rect(gc, x, y, w, h, top_left, bottom_right)
           gc.set_foreground((top_left).nil? ? @f_separator_color : top_left)
           gc.draw_line(x, y, x + w - 1, y)
@@ -809,7 +809,7 @@ module Org::Eclipse::Jface::Text::Source
       @f_layers_sorted_by_layer.clear
     end
     
-    typesig { [GC] }
+    typesig { [SwtGC] }
     # Double buffer drawing.
     # 
     # @param dest the GC to draw into
@@ -828,7 +828,7 @@ module Org::Eclipse::Jface::Text::Source
       if ((@f_buffer).nil?)
         @f_buffer = Image.new(@f_canvas.get_display, size.attr_x, size.attr_y)
       end
-      gc = GC.new(@f_buffer)
+      gc = SwtGC.new(@f_buffer)
       begin
         gc.set_background(@f_canvas.get_background)
         gc.fill_rectangle(0, 0, size.attr_x, size.attr_y)
@@ -844,7 +844,7 @@ module Org::Eclipse::Jface::Text::Source
       dest.draw_image(@f_buffer, 0, 0)
     end
     
-    typesig { [GC] }
+    typesig { [SwtGC] }
     # Draws this overview ruler.
     # 
     # @param gc the GC to draw into
@@ -948,7 +948,7 @@ module Org::Eclipse::Jface::Text::Source
       end
     end
     
-    typesig { [GC] }
+    typesig { [SwtGC] }
     # Draws this overview ruler. Uses <code>ITextViewerExtension5</code> for
     # its implementation. Will replace <code>doPaint(GC)</code>.
     # 
@@ -1061,7 +1061,7 @@ module Org::Eclipse::Jface::Text::Source
         return
       end
       if (!(@f_canvas).nil? && !@f_canvas.is_disposed)
-        gc = GC.new(@f_canvas)
+        gc = SwtGC.new(@f_canvas)
         double_buffer_paint(gc)
         gc.dispose
       end

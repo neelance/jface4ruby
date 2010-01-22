@@ -16,7 +16,7 @@ module Org::Eclipse::Jface::Internal::Text
       include_const ::Org::Eclipse::Swt, :SWT
       include_const ::Org::Eclipse::Swt::Custom, :StyleRange
       include_const ::Org::Eclipse::Swt::Graphics, :Color
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Image
       include_const ::Org::Eclipse::Swt::Graphics, :Rectangle
       include_const ::Org::Eclipse::Swt::Graphics, :TextLayout

@@ -26,7 +26,7 @@ module Org::Eclipse::Jface::Viewers
       include_const ::Org::Eclipse::Swt::Events, :SelectionEvent
       include_const ::Org::Eclipse::Swt::Events, :TraverseEvent
       include_const ::Org::Eclipse::Swt::Events, :TraverseListener
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Widgets, :Composite
       include_const ::Org::Eclipse::Swt::Widgets, :Control
     }
@@ -261,7 +261,7 @@ module Org::Eclipse::Jface::Viewers
         layout_data.attr_minimum_width = 60
       else
         # make the comboBox 10 characters wide
-        gc = GC.new(@combo_box)
+        gc = SwtGC.new(@combo_box)
         layout_data.attr_minimum_width = (gc.get_font_metrics.get_average_char_width * 10) + 10
         gc.dispose
       end

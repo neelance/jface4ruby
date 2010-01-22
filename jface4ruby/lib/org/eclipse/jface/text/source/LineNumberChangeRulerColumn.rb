@@ -14,7 +14,7 @@ module Org::Eclipse::Jface::Text::Source
       include ::Java::Lang
       include ::Org::Eclipse::Jface::Text::Source
       include_const ::Org::Eclipse::Swt::Graphics, :Color
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Widgets, :Composite
       include_const ::Org::Eclipse::Swt::Widgets, :Control
       include_const ::Org::Eclipse::Core::Runtime, :Assert
@@ -207,7 +207,7 @@ module Org::Eclipse::Jface::Text::Source
       raise UnsupportedOperationException.new
     end
     
-    typesig { [GC, ILineRange] }
+    typesig { [SwtGC, ILineRange] }
     # @see org.eclipse.jface.text.source.LineNumberRulerColumn#doPaint(org.eclipse.swt.graphics.GC)
     def do_paint(gc, visible_lines)
       foreground = gc.get_foreground

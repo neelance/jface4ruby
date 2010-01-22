@@ -19,7 +19,7 @@ module Org::Eclipse::Jface::Internal::Text::Html
       include_const ::Java::Util, :Iterator
       include_const ::Org::Eclipse::Swt::Custom, :StyleRange
       include_const ::Org::Eclipse::Swt::Graphics, :Drawable
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Widgets, :Display
       include_const ::Org::Eclipse::Jface::Internal::Text::Link::Contentassist, :LineBreakingReader
       include_const ::Org::Eclipse::Jface::Text, :DefaultInformationControl
@@ -130,7 +130,7 @@ module Org::Eclipse::Jface::Internal::Text::Html
       if ((hover_info).nil?)
         return nil
       end
-      gc = GC.new(drawable)
+      gc = SwtGC.new(drawable)
       begin
         buffer = StringBuffer.new
         max_number_of_lines = Math.round(max_height / gc.get_font_metrics.get_height)

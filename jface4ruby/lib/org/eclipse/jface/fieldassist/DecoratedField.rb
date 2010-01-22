@@ -25,7 +25,7 @@ module Org::Eclipse::Jface::Fieldassist
       include_const ::Org::Eclipse::Swt::Events, :MouseTrackListener
       include_const ::Org::Eclipse::Swt::Events, :PaintEvent
       include_const ::Org::Eclipse::Swt::Events, :PaintListener
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Image
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Graphics, :Region
@@ -408,7 +408,7 @@ module Org::Eclipse::Jface::Fieldassist
         typesig { [] }
         # Compute the extent of the hover for the current text.
         def get_extent
-          gc = self.class::GC.new(@hover_shell)
+          gc = SwtGC.new(@hover_shell)
           e = gc.text_extent(@text)
           gc.dispose
           e.attr_x += @hm * 2

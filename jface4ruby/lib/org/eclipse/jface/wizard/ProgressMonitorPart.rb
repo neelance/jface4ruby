@@ -22,7 +22,7 @@ module Org::Eclipse::Jface::Wizard
       include_const ::Org::Eclipse::Swt, :SWT
       include_const ::Org::Eclipse::Swt::Graphics, :Font
       include_const ::Org::Eclipse::Swt::Graphics, :FontMetrics
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Layout, :GridData
       include_const ::Org::Eclipse::Swt::Layout, :GridLayout
       include_const ::Org::Eclipse::Swt::Widgets, :Composite
@@ -230,7 +230,7 @@ module Org::Eclipse::Jface::Wizard
       @f_label = Label.new(self, SWT::LEFT)
       @f_label.set_layout_data(GridData.new(GridData::FILL_HORIZONTAL))
       if ((progress_indicator_height).equal?(SWT::DEFAULT))
-        gc = GC.new(@f_label)
+        gc = SwtGC.new(@f_label)
         fm = gc.get_font_metrics
         gc.dispose
         progress_indicator_height = fm.get_height

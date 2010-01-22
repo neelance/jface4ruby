@@ -23,7 +23,7 @@ module Org::Eclipse::Jface::Text
       include_const ::Org::Eclipse::Swt::Events, :PaintListener
       include_const ::Org::Eclipse::Swt::Graphics, :Color
       include_const ::Org::Eclipse::Swt::Graphics, :FontMetrics
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Point
     }
   end
@@ -93,7 +93,7 @@ module Org::Eclipse::Jface::Text
       @f_is_advanced_graphics_present = false
       @f_text_viewer = text_viewer
       @f_text_widget = text_viewer.get_text_widget
-      gc = GC.new(@f_text_widget)
+      gc = SwtGC.new(@f_text_widget)
       gc.set_advanced(true)
       @f_is_advanced_graphics_present = gc.get_advanced
       gc.dispose
@@ -166,7 +166,7 @@ module Org::Eclipse::Jface::Text
       end
     end
     
-    typesig { [GC, ::Java::Int, ::Java::Int, ::Java::Int, ::Java::Int] }
+    typesig { [SwtGC, ::Java::Int, ::Java::Int, ::Java::Int, ::Java::Int] }
     # Draw characters in view range.
     def handle_draw_request(gc, x, y, w, h)
       start_line = @f_text_widget.get_line_index(y)
@@ -183,7 +183,7 @@ module Org::Eclipse::Jface::Text
       end
     end
     
-    typesig { [GC, ::Java::Int, ::Java::Int, ::Java::Int, ::Java::Int] }
+    typesig { [SwtGC, ::Java::Int, ::Java::Int, ::Java::Int, ::Java::Int] }
     # Draw the given line range.
     # 
     # @param gc the GC
@@ -254,7 +254,7 @@ module Org::Eclipse::Jface::Text
       end
     end
     
-    typesig { [GC, ::Java::Int, ::Java::Int] }
+    typesig { [SwtGC, ::Java::Int, ::Java::Int] }
     # Draw characters of content range.
     # 
     # @param gc the GC
@@ -366,7 +366,7 @@ module Org::Eclipse::Jface::Text
       @f_text_widget.redraw
     end
     
-    typesig { [GC, ::Java::Int, String, Color] }
+    typesig { [SwtGC, ::Java::Int, String, Color] }
     # Draw string at widget offset.
     # 
     # @param gc the GC

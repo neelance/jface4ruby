@@ -20,7 +20,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
       include_const ::Org::Eclipse::Swt::Custom, :StyledTextContent
       include_const ::Org::Eclipse::Swt::Graphics, :Color
       include_const ::Org::Eclipse::Swt::Graphics, :FontMetrics
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Graphics, :RGB
       include_const ::Org::Eclipse::Swt::Widgets, :Display
@@ -89,7 +89,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
         include_class_members ProjectionSupport
         include AnnotationPainter::IDrawingStrategy
         
-        typesig { [class_self::Annotation, class_self::GC, class_self::StyledText, ::Java::Int, ::Java::Int, class_self::Color] }
+        typesig { [class_self::Annotation, SwtGC, class_self::StyledText, ::Java::Int, ::Java::Int, class_self::Color] }
         # @see org.eclipse.jface.text.source.AnnotationPainter.IDrawingStrategy#draw(org.eclipse.swt.graphics.GC, org.eclipse.swt.custom.StyledText, int, int, org.eclipse.swt.graphics.Color)
         def draw(annotation, gc, text_widget, offset, length, color)
           if (annotation.is_a?(self.class::ProjectionAnnotation))

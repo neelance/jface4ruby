@@ -18,6 +18,12 @@ class Swt4Ruby
       Org::Eclipse::Jface::Viewers::CheckboxTreeViewer.create find_composite, styles, &block
     end
 
+    def new_color_selector(&block)
+      widget = Org::Eclipse::Jface::Preference::ColorSelector.new find_composite
+      widget.instance_eval &block if block
+      widget
+    end
+
     def new_combo_viewer(*styles, &block)
       Org::Eclipse::Jface::Viewers::ComboViewer.create find_composite, styles, &block
     end

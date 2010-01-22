@@ -17,7 +17,7 @@ module Org::Eclipse::Jface::Text::Source
       include_const ::Org::Eclipse::Swt::Events, :PaintEvent
       include_const ::Org::Eclipse::Swt::Events, :PaintListener
       include_const ::Org::Eclipse::Swt::Graphics, :Color
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Graphics, :Rectangle
       include_const ::Org::Eclipse::Jface::Text, :BadLocationException
@@ -162,7 +162,7 @@ module Org::Eclipse::Jface::Text::Source
       end
     end
     
-    typesig { [GC] }
+    typesig { [SwtGC] }
     # Handles a redraw request.
     # 
     # @param gc the GC to draw into.
@@ -209,7 +209,7 @@ module Org::Eclipse::Jface::Text::Source
       end
     end
     
-    typesig { [GC, ::Java::Int, ::Java::Int] }
+    typesig { [SwtGC, ::Java::Int, ::Java::Int] }
     # Highlights the given widget region.
     # 
     # @param gc the GC to draw into

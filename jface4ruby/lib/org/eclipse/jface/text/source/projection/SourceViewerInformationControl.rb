@@ -23,7 +23,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
       include_const ::Org::Eclipse::Swt::Graphics, :Color
       include_const ::Org::Eclipse::Swt::Graphics, :Font
       include_const ::Org::Eclipse::Swt::Graphics, :FontData
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Graphics, :Rectangle
       include_const ::Org::Eclipse::Swt::Layout, :GridData
@@ -482,7 +482,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
     typesig { [::Java::Int, ::Java::Int] }
     # @see org.eclipse.jface.text.IInformationControlExtension5#computeSizeConstraints(int, int)
     def compute_size_constraints(width_in_chars, height_in_chars)
-      gc = GC.new(@f_text)
+      gc = SwtGC.new(@f_text)
       gc.set_font(@f_text_font)
       width = gc.get_font_metrics.get_average_char_width
       height = gc.get_font_metrics.get_height

@@ -836,7 +836,7 @@ module Org::Eclipse::Jface::Resource
       Assert.is_not_null(symbolic_name)
       Assert.is_not_null(font_data)
       existing = @string_to_font_data.get(symbolic_name)
-      if ((Arrays == existing))
+      if (Arrays.==(existing, font_data))
         return
       end
       old_font = @string_to_font_record.remove(symbolic_name)

@@ -17,7 +17,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
       include_const ::Java::Io, :IOException
       include_const ::Java::Io, :Reader
       include_const ::Com::Ibm::Icu::Text, :BreakIterator
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
     }
   end
   
@@ -67,7 +67,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
     alias_method :attr_f_break_words=, :f_break_words=
     undef_method :f_break_words=
     
-    typesig { [Reader, GC, ::Java::Int] }
+    typesig { [Reader, SwtGC, ::Java::Int] }
     # Creates a reader that breaks an input text to fit in a given width.
     # 
     # @param reader Reader of the input text

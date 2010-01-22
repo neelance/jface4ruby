@@ -23,7 +23,7 @@ module Org::Eclipse::Jface::Preference
       include_const ::Org::Eclipse::Swt::Events, :DisposeEvent
       include_const ::Org::Eclipse::Swt::Events, :DisposeListener
       include_const ::Org::Eclipse::Swt::Graphics, :FontMetrics
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Layout, :GridData
       include_const ::Org::Eclipse::Swt::Layout, :GridLayout
       include_const ::Org::Eclipse::Swt::Widgets, :Button
@@ -229,7 +229,7 @@ module Org::Eclipse::Jface::Preference
     # @param dlus the number of horizontal dialog units
     # @return the number of pixels
     def convert_horizontal_dlus_to_pixels(control, dlus)
-      gc = GC.new(control)
+      gc = SwtGC.new(control)
       gc.set_font(control.get_font)
       average_width = gc.get_font_metrics.get_average_char_width
       gc.dispose
@@ -248,7 +248,7 @@ module Org::Eclipse::Jface::Preference
     # @param dlus the number of vertical dialog units
     # @return the number of pixels
     def convert_vertical_dlus_to_pixels(control, dlus)
-      gc = GC.new(control)
+      gc = SwtGC.new(control)
       gc.set_font(control.get_font)
       height = gc.get_font_metrics.get_height
       gc.dispose
@@ -694,7 +694,7 @@ module Org::Eclipse::Jface::Preference
     def set_button_layout_data(button)
       data = GridData.new(GridData::HORIZONTAL_ALIGN_FILL)
       # Compute and store a font metric
-      gc = GC.new(button)
+      gc = SwtGC.new(button)
       gc.set_font(button.get_font)
       font_metrics = gc.get_font_metrics
       gc.dispose

@@ -30,7 +30,7 @@ module Org::Eclipse::Jface::Action
       include_const ::Org::Eclipse::Jface::Util, :PropertyChangeEvent
       include_const ::Org::Eclipse::Jface::Util, :Util
       include_const ::Org::Eclipse::Swt, :SWT
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Widgets, :Button
       include_const ::Org::Eclipse::Swt::Widgets, :Composite
@@ -1136,7 +1136,7 @@ module Org::Eclipse::Jface::Action
       if ((text_value).nil?)
         return nil
       end
-      gc = GC.new(item.get_parent)
+      gc = SwtGC.new(item.get_parent)
       max_width = item.get_image.get_bounds.attr_width * 4
       if (gc.text_extent(text_value).attr_x < max_width)
         gc.dispose

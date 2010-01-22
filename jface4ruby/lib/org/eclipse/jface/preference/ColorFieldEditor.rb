@@ -17,7 +17,7 @@ module Org::Eclipse::Jface::Preference
       include_const ::Org::Eclipse::Jface::Util, :IPropertyChangeListener
       include_const ::Org::Eclipse::Jface::Util, :PropertyChangeEvent
       include_const ::Org::Eclipse::Swt::Graphics, :Font
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Layout, :GridData
       include_const ::Org::Eclipse::Swt::Widgets, :Button
@@ -78,7 +78,7 @@ module Org::Eclipse::Jface::Preference
       # Make the image height as high as a corresponding character. This
       # makes sure that the button has the same size as a "normal" text
       # button.
-      gc = GC.new(window)
+      gc = SwtGC.new(window)
       f = JFaceResources.get_font_registry.get(JFaceResources::DEFAULT_FONT)
       gc.set_font(f)
       height = gc.get_font_metrics.get_height

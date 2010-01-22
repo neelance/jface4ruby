@@ -15,7 +15,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
       include ::Org::Eclipse::Jface::Text::Source::Projection
       include_const ::Org::Eclipse::Swt, :SWT
       include_const ::Org::Eclipse::Swt::Graphics, :FontMetrics
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Image
       include_const ::Org::Eclipse::Swt::Graphics, :Rectangle
       include_const ::Org::Eclipse::Swt::Widgets, :Canvas
@@ -142,7 +142,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
       @f_is_range_indication = range_indication
     end
     
-    typesig { [GC, Canvas, Rectangle] }
+    typesig { [SwtGC, Canvas, Rectangle] }
     def draw_range_indication(gc, canvas, r)
       margin = 3
       # cap the height - at least on GTK, large numbers are converted to
@@ -154,7 +154,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
       gc.draw_line(r.attr_x + 4, height, r.attr_x + r.attr_width - margin, height)
     end
     
-    typesig { [GC, Canvas, Rectangle] }
+    typesig { [SwtGC, Canvas, Rectangle] }
     # @see org.eclipse.jface.text.source.IAnnotationPresentation#paint(org.eclipse.swt.graphics.GC, org.eclipse.swt.widgets.Canvas, org.eclipse.swt.graphics.Rectangle)
     def paint(gc, canvas, rectangle)
       image = get_image(canvas.get_display)

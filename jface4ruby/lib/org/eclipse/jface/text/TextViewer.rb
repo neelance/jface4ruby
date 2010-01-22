@@ -52,7 +52,7 @@ module Org::Eclipse::Jface::Text
       include_const ::Org::Eclipse::Swt::Events, :VerifyEvent
       include_const ::Org::Eclipse::Swt::Events, :VerifyListener
       include_const ::Org::Eclipse::Swt::Graphics, :Color
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Graphics, :Rectangle
       include_const ::Org::Eclipse::Swt::Printing, :PrintDialog
@@ -3811,7 +3811,7 @@ module Org::Eclipse::Jface::Text
     # @return the width of the presentation of the given string
     # @deprecated use <code>getWidthInPixels(int, int)</code> instead
     def get_width_in_pixels(text)
-      gc = GC.new(@f_text_widget)
+      gc = SwtGC.new(@f_text_widget)
       gc.set_font(@f_text_widget.get_font)
       extent = gc.text_extent(text)
       gc.dispose

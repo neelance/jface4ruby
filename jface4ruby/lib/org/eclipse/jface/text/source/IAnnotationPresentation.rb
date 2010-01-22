@@ -13,7 +13,7 @@ module Org::Eclipse::Jface::Text::Source
     class_module.module_eval {
       include ::Java::Lang
       include ::Org::Eclipse::Jface::Text::Source
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Rectangle
       include_const ::Org::Eclipse::Swt::Widgets, :Canvas
     }
@@ -39,7 +39,7 @@ module Org::Eclipse::Jface::Text::Source
       raise NotImplementedError
     end
     
-    typesig { [GC, Canvas, Rectangle] }
+    typesig { [SwtGC, Canvas, Rectangle] }
     # Implement this method to draw a graphical representation
     # of this annotation within the given bounds.
     # <p>

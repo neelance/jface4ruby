@@ -22,7 +22,7 @@ module Org::Eclipse::Jface::Preference
       include_const ::Org::Eclipse::Swt::Events, :FocusEvent
       include_const ::Org::Eclipse::Swt::Events, :KeyAdapter
       include_const ::Org::Eclipse::Swt::Events, :KeyEvent
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Layout, :GridData
       include_const ::Org::Eclipse::Swt::Widgets, :Composite
@@ -267,7 +267,7 @@ module Org::Eclipse::Jface::Preference
       gd = GridData.new
       gd.attr_horizontal_span = num_columns - 1
       if (!(@width_in_chars).equal?(self.attr_unlimited))
-        gc = GC.new(@text_field)
+        gc = SwtGC.new(@text_field)
         begin
           extent = gc.text_extent("X") # $NON-NLS-1$
           gd.attr_width_hint = @width_in_chars * extent.attr_x

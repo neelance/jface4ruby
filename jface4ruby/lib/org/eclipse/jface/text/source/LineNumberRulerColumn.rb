@@ -28,7 +28,7 @@ module Org::Eclipse::Jface::Text::Source
       include_const ::Org::Eclipse::Swt::Graphics, :Color
       include_const ::Org::Eclipse::Swt::Graphics, :Font
       include_const ::Org::Eclipse::Swt::Graphics, :FontMetrics
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Image
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Graphics, :Rectangle
@@ -696,7 +696,7 @@ module Org::Eclipse::Jface::Text::Source
       if ((@f_canvas).nil? || @f_canvas.is_disposed)
         return
       end
-      gc = GC.new(@f_canvas)
+      gc = SwtGC.new(@f_canvas)
       begin
         gc.set_font(@f_canvas.get_font)
         @f_indentation = Array.typed(::Java::Int).new(@f_cached_number_of_digits + 1) { 0 }
@@ -826,7 +826,7 @@ module Org::Eclipse::Jface::Text::Source
       end
     end
     
-    typesig { [GC] }
+    typesig { [SwtGC] }
     # Double buffer drawing.
     # 
     # @param dest the GC to draw into
@@ -845,7 +845,7 @@ module Org::Eclipse::Jface::Text::Source
       if ((@f_buffer).nil?)
         @f_buffer = Image.new(@f_canvas.get_display, size.attr_x, size.attr_y)
       end
-      gc = GC.new(@f_buffer)
+      gc = SwtGC.new(@f_buffer)
       gc.set_font(@f_canvas.get_font)
       if (!(@f_foreground).nil?)
         gc.set_foreground(@f_foreground)
@@ -885,7 +885,7 @@ module Org::Eclipse::Jface::Text::Source
       return JFaceTextUtil.is_showing_entire_contents(@f_cached_text_widget)
     end
     
-    typesig { [GC, ILineRange] }
+    typesig { [SwtGC, ILineRange] }
     # Draws the ruler column.
     # 
     # @param gc the GC to draw into
@@ -929,7 +929,7 @@ module Org::Eclipse::Jface::Text::Source
       return JavaInteger.to_s(line + 1)
     end
     
-    typesig { [GC, ::Java::Int] }
+    typesig { [SwtGC, ::Java::Int] }
     # Returns the difference between the baseline of the widget and the
     # baseline as specified by the font for <code>gc</code>. When drawing
     # line numbers, the returned bias should be added to obtain text lined up
@@ -953,7 +953,7 @@ module Org::Eclipse::Jface::Text::Source
       return Math.max(0, baseline_bias)
     end
     
-    typesig { [::Java::Int, ::Java::Int, ::Java::Int, GC, Display] }
+    typesig { [::Java::Int, ::Java::Int, ::Java::Int, SwtGC, Display] }
     # Paints the line. After this method is called the line numbers are painted on top
     # of the result of this method.
     # 
@@ -998,7 +998,7 @@ module Org::Eclipse::Jface::Text::Source
         return
       end
       if (!(@f_cached_text_viewer).nil? && !(@f_canvas).nil? && !@f_canvas.is_disposed)
-        gc = GC.new(@f_canvas)
+        gc = SwtGC.new(@f_canvas)
         double_buffer_paint(gc)
         gc.dispose
       end

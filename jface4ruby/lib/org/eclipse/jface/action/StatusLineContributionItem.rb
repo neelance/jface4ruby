@@ -18,7 +18,7 @@ module Org::Eclipse::Jface::Action
       include_const ::Org::Eclipse::Swt, :SWT
       include_const ::Org::Eclipse::Swt::Custom, :CLabel
       include_const ::Org::Eclipse::Swt::Graphics, :FontMetrics
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Widgets, :Composite
       include_const ::Org::Eclipse::Swt::Widgets, :Label
@@ -119,7 +119,7 @@ module Org::Eclipse::Jface::Action
       sep = Label.new(parent, SWT::SEPARATOR)
       @label = CLabel.new(@status_line, SWT::SHADOW_NONE)
       if (@width_hint < 0)
-        gc = GC.new(@status_line)
+        gc = SwtGC.new(@status_line)
         gc.set_font(@status_line.get_font)
         fm = gc.get_font_metrics
         @width_hint = fm.get_average_char_width * @char_width

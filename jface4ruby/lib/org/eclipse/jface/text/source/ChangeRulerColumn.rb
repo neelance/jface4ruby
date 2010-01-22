@@ -24,7 +24,7 @@ module Org::Eclipse::Jface::Text::Source
       include_const ::Org::Eclipse::Swt::Events, :PaintListener
       include_const ::Org::Eclipse::Swt::Graphics, :Color
       include_const ::Org::Eclipse::Swt::Graphics, :Font
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Image
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Graphics, :Rectangle
@@ -368,7 +368,7 @@ module Org::Eclipse::Jface::Text::Source
       end
     end
     
-    typesig { [GC] }
+    typesig { [SwtGC] }
     # Double buffer drawing.
     # 
     # @param dest the GC to draw into
@@ -387,7 +387,7 @@ module Org::Eclipse::Jface::Text::Source
       if ((@f_buffer).nil?)
         @f_buffer = Image.new(@f_canvas.get_display, size.attr_x, size.attr_y)
       end
-      gc = GC.new(@f_buffer)
+      gc = SwtGC.new(@f_buffer)
       gc.set_font(@f_canvas.get_font)
       begin
         gc.set_background(get_background)
@@ -420,7 +420,7 @@ module Org::Eclipse::Jface::Text::Source
       return JFaceTextUtil.is_showing_entire_contents(@f_cached_text_widget)
     end
     
-    typesig { [GC] }
+    typesig { [SwtGC] }
     # Draws the ruler column.
     # 
     # @param gc the GC to draw into
@@ -442,7 +442,7 @@ module Org::Eclipse::Jface::Text::Source
     # @see IVerticalRulerColumn#redraw()
     def redraw
       if (!(@f_cached_text_viewer).nil? && !(@f_canvas).nil? && !@f_canvas.is_disposed)
-        gc = GC.new(@f_canvas)
+        gc = SwtGC.new(@f_canvas)
         double_buffer_paint(gc)
         gc.dispose
       end

@@ -26,7 +26,7 @@ module Org::Eclipse::Jface::Preference
       include_const ::Org::Eclipse::Swt::Events, :SelectionEvent
       include_const ::Org::Eclipse::Swt::Graphics, :Color
       include_const ::Org::Eclipse::Swt::Graphics, :Font
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Image
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Graphics, :RGB
@@ -99,13 +99,13 @@ module Org::Eclipse::Jface::Preference
       @f_button = Button.new(parent, SWT::PUSH)
       @f_extent = compute_image_size(parent)
       @f_image = Image.new(parent.get_display, @f_extent.attr_x, @f_extent.attr_y)
-      gc = GC.new(@f_image)
+      gc = SwtGC.new(@f_image)
       gc.set_background(@f_button.get_background)
       gc.fill_rectangle(0, 0, @f_extent.attr_x, @f_extent.attr_y)
       gc.dispose
       @f_button.set_image(@f_image)
       @f_button.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-        extend LocalClass
+        local_class_in ColorSelector
         include_class_members ColorSelector
         include SelectionAdapter if SelectionAdapter.class == Module
         
@@ -190,7 +190,7 @@ module Org::Eclipse::Jface::Preference
     # the window used to calculate
     # @return <code>Point</code>
     def compute_image_size(window)
-      gc = GC.new(window)
+      gc = SwtGC.new(window)
       f = JFaceResources.get_font_registry.get(JFaceResources::DIALOG_FONT)
       gc.set_font(f)
       height = gc.get_font_metrics.get_height
@@ -250,7 +250,7 @@ module Org::Eclipse::Jface::Preference
     # setting.
     def update_color_image
       display = @f_button.get_display
-      gc = GC.new(@f_image)
+      gc = SwtGC.new(@f_image)
       gc.set_foreground(display.get_system_color(SWT::COLOR_BLACK))
       gc.draw_rectangle(0, 2, @f_extent.attr_x - 1, @f_extent.attr_y - 4)
       if (!(@f_color).nil?)

@@ -22,7 +22,7 @@ module Org::Eclipse::Jface::Text::Source
       include_const ::Org::Eclipse::Swt::Events, :PaintListener
       include_const ::Org::Eclipse::Swt::Graphics, :Color
       include_const ::Org::Eclipse::Swt::Graphics, :Font
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Widgets, :Canvas
       include_const ::Org::Eclipse::Swt::Widgets, :Composite
       include_const ::Org::Eclipse::Swt::Widgets, :Control
@@ -570,7 +570,7 @@ module Org::Eclipse::Jface::Text::Source
       return LineRange.new(first_line, last_line - first_line + 1)
     end
     
-    typesig { [GC, ILineRange] }
+    typesig { [SwtGC, ILineRange] }
     # Paints the ruler. Note that <code>lines</code> reference widget line indices, and that
     # <code>lines</code> may not cover the entire viewport, but only the lines that need to be
     # painted. The lines may not be entirely visible.
@@ -598,7 +598,7 @@ module Org::Eclipse::Jface::Text::Source
       end
     end
     
-    typesig { [GC, ::Java::Int, ::Java::Int, ::Java::Int, ::Java::Int] }
+    typesig { [SwtGC, ::Java::Int, ::Java::Int, ::Java::Int, ::Java::Int] }
     # Paints the ruler representation of a single line.
     # <p>
     # Subclasses may replace or extend. The default implementation draws the text obtained by

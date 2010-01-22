@@ -18,7 +18,7 @@ module Org::Eclipse::Jface::Text
       include_const ::Org::Eclipse::Swt::Events, :PaintEvent
       include_const ::Org::Eclipse::Swt::Events, :PaintListener
       include_const ::Org::Eclipse::Swt::Graphics, :Color
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Rectangle
     }
   end
@@ -150,7 +150,7 @@ module Org::Eclipse::Jface::Text
     # Computes and remembers the x-offset of the margin column for the
     # current widget font.
     def compute_widget_x
-      gc = GC.new(@f_text_widget)
+      gc = SwtGC.new(@f_text_widget)
       pixels = gc.get_font_metrics.get_average_char_width
       gc.dispose
       @f_cached_widget_x = pixels * @f_margin_width

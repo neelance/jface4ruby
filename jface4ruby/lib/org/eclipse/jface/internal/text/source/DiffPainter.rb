@@ -18,7 +18,7 @@ module Org::Eclipse::Jface::Internal::Text::Source
       include_const ::Org::Eclipse::Swt::Events, :DisposeEvent
       include_const ::Org::Eclipse::Swt::Events, :DisposeListener
       include_const ::Org::Eclipse::Swt::Graphics, :Color
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :RGB
       include_const ::Org::Eclipse::Swt::Widgets, :Canvas
       include_const ::Org::Eclipse::Swt::Widgets, :Control
@@ -220,7 +220,7 @@ module Org::Eclipse::Jface::Internal::Text::Source
       @f_background = background
     end
     
-    typesig { [GC, ILineRange] }
+    typesig { [SwtGC, ILineRange] }
     # Delegates the painting of the quick diff colors to this painter. The painter will draw the
     # color boxes onto the passed {@link GC} for all model (document) lines in
     # <code>visibleModelLines</code>.
@@ -301,7 +301,7 @@ module Org::Eclipse::Jface::Internal::Text::Source
       end
     end
     
-    typesig { [::Java::Int, GC, ::Java::Int, Color] }
+    typesig { [::Java::Int, SwtGC, ::Java::Int, Color] }
     # Paints a single model line onto <code>gc</code>.
     # 
     # @param line the model line to paint

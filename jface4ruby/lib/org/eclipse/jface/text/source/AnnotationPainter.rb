@@ -30,7 +30,7 @@ module Org::Eclipse::Jface::Text::Source
       include_const ::Org::Eclipse::Swt::Events, :PaintEvent
       include_const ::Org::Eclipse::Swt::Events, :PaintListener
       include_const ::Org::Eclipse::Swt::Graphics, :Color
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Graphics, :Rectangle
       include_const ::Org::Eclipse::Swt::Graphics, :TextStyle
@@ -78,7 +78,7 @@ module Org::Eclipse::Jface::Text::Source
       const_set_lazy(:IDrawingStrategy) { Module.new do
         include_class_members AnnotationPainter
         
-        typesig { [Annotation, GC, StyledText, ::Java::Int, ::Java::Int, Color] }
+        typesig { [Annotation, SwtGC, StyledText, ::Java::Int, ::Java::Int, Color] }
         # Draws a decoration for an annotation onto the specified GC at the given text range. There
         # are two different invocation modes of the <code>draw</code> method:
         # <ul>
@@ -111,7 +111,7 @@ module Org::Eclipse::Jface::Text::Source
         include_class_members AnnotationPainter
         include IDrawingStrategy
         
-        typesig { [class_self::Annotation, class_self::GC, class_self::StyledText, ::Java::Int, ::Java::Int, class_self::Color] }
+        typesig { [class_self::Annotation, SwtGC, class_self::StyledText, ::Java::Int, ::Java::Int, class_self::Color] }
         # @see org.eclipse.jface.text.source.AnnotationPainter.IDrawingStrategy#draw(org.eclipse.jface.text.source.Annotation, org.eclipse.swt.graphics.GC, org.eclipse.swt.custom.StyledText, int, int, org.eclipse.swt.graphics.Color)
         # @since 3.0
         def draw(annotation, gc, text_widget, offset, length, color)
@@ -191,7 +191,7 @@ module Org::Eclipse::Jface::Text::Source
         include_class_members AnnotationPainter
         include IDrawingStrategy
         
-        typesig { [class_self::Annotation, class_self::GC, class_self::StyledText, ::Java::Int, ::Java::Int, class_self::Color] }
+        typesig { [class_self::Annotation, SwtGC, class_self::StyledText, ::Java::Int, ::Java::Int, class_self::Color] }
         # @see org.eclipse.jface.text.source.AnnotationPainter.IDrawingStrategy#draw(org.eclipse.jface.text.source.Annotation, org.eclipse.swt.graphics.GC, org.eclipse.swt.custom.StyledText, int, int, org.eclipse.swt.graphics.Color)
         # @since 3.0
         def draw(annotation, gc, text_widget, offset, length, color)
@@ -1526,7 +1526,7 @@ module Org::Eclipse::Jface::Text::Source
       end
     end
     
-    typesig { [Decoration, GC, Annotation, IRegion, IDocument] }
+    typesig { [Decoration, SwtGC, Annotation, IRegion, IDocument] }
     def draw_decoration(pp, gc, annotation, clipping_region, document)
       if ((clipping_region).nil?)
         return

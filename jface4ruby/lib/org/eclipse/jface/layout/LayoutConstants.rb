@@ -17,7 +17,7 @@ module Org::Eclipse::Jface::Layout
       include_const ::Org::Eclipse::Jface::Dialogs, :IDialogConstants
       include_const ::Org::Eclipse::Jface::Resource, :JFaceResources
       include_const ::Org::Eclipse::Swt::Graphics, :FontMetrics
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Widgets, :Display
     }
@@ -68,7 +68,7 @@ module Org::Eclipse::Jface::Layout
         if (!(self.attr_dialog_margins).nil?)
           return
         end
-        gc = GC.new(Display.get_current)
+        gc = SwtGC.new(Display.get_current)
         gc.set_font(JFaceResources.get_dialog_font)
         font_metrics = gc.get_font_metrics
         self.attr_dialog_margins = Point.new(Dialog.convert_horizontal_dlus_to_pixels(font_metrics, IDialogConstants::HORIZONTAL_MARGIN), Dialog.convert_vertical_dlus_to_pixels(font_metrics, IDialogConstants::VERTICAL_MARGIN))

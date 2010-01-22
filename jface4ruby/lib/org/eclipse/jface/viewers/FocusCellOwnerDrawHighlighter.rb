@@ -18,7 +18,7 @@ module Org::Eclipse::Jface::Viewers
       include_const ::Org::Eclipse::Core::Runtime, :Assert
       include_const ::Org::Eclipse::Swt, :SWT
       include_const ::Org::Eclipse::Swt::Graphics, :Color
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Rectangle
       include_const ::Org::Eclipse::Swt::Widgets, :Event
       include_const ::Org::Eclipse::Swt::Widgets, :Listener

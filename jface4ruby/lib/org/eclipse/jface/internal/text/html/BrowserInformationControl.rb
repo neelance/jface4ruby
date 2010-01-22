@@ -29,7 +29,7 @@ module Org::Eclipse::Jface::Internal::Text::Html
       include_const ::Org::Eclipse::Swt::Events, :KeyListener
       include_const ::Org::Eclipse::Swt::Graphics, :Color
       include_const ::Org::Eclipse::Swt::Graphics, :Font
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Graphics, :Rectangle
       include_const ::Org::Eclipse::Swt::Graphics, :TextLayout
@@ -730,7 +730,7 @@ module Org::Eclipse::Jface::Internal::Text::Html
       if ((@f_symbolic_font_name).nil?)
         return nil
       end
-      gc = GC.new(@f_browser)
+      gc = SwtGC.new(@f_browser)
       font = (@f_symbolic_font_name).nil? ? JFaceResources.get_dialog_font : JFaceResources.get_font(@f_symbolic_font_name)
       gc.set_font(font)
       width = gc.get_font_metrics.get_average_char_width

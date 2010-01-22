@@ -17,7 +17,7 @@ module Org::Eclipse::Jface::Viewers
       include_const ::Org::Eclipse::Swt::Custom, :TableTree
       include_const ::Org::Eclipse::Swt::Graphics, :Color
       include_const ::Org::Eclipse::Swt::Graphics, :FontMetrics
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Image
       include_const ::Org::Eclipse::Swt::Graphics, :ImageData
       include_const ::Org::Eclipse::Swt::Graphics, :PaletteData
@@ -155,7 +155,7 @@ module Org::Eclipse::Jface::Viewers
     # @param w the control
     # @param color the color
     def create_color_image(w, color)
-      gc = GC.new(w)
+      gc = SwtGC.new(w)
       fm = gc.get_font_metrics
       size = fm.get_ascent
       gc.dispose

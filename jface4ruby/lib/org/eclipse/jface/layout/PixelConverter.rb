@@ -15,7 +15,7 @@ module Org::Eclipse::Jface::Layout
       include ::Org::Eclipse::Jface::Layout
       include_const ::Org::Eclipse::Swt::Graphics, :Font
       include_const ::Org::Eclipse::Swt::Graphics, :FontMetrics
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Widgets, :Control
       include_const ::Org::Eclipse::Jface::Dialogs, :Dialog
     }
@@ -63,7 +63,7 @@ module Org::Eclipse::Jface::Layout
     # the font that should be used for pixel conversions.
     def initialize(font)
       @font_metrics = nil
-      gc = GC.new(font.get_device)
+      gc = SwtGC.new(font.get_device)
       gc.set_font(font)
       @font_metrics = gc.get_font_metrics
       gc.dispose

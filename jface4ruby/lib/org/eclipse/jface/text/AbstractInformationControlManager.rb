@@ -17,7 +17,7 @@ module Org::Eclipse::Jface::Text
       include_const ::Org::Eclipse::Swt, :SWT
       include_const ::Org::Eclipse::Swt::Events, :DisposeEvent
       include_const ::Org::Eclipse::Swt::Events, :DisposeListener
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Graphics, :Rectangle
       include_const ::Org::Eclipse::Swt::Widgets, :Control
@@ -865,7 +865,7 @@ module Org::Eclipse::Jface::Text
         if ((subject_control).nil?)
           return nil
         end
-        gc = GC.new(subject_control)
+        gc = SwtGC.new(subject_control)
         gc.set_font(subject_control.get_font)
         width = gc.get_font_metrics.get_average_char_width
         height = gc.get_font_metrics.get_height

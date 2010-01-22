@@ -15,7 +15,7 @@ module Org::Eclipse::Jface::Text::Source
       include ::Org::Eclipse::Jface::Text::Source
       include_const ::Org::Eclipse::Swt, :SWT
       include_const ::Org::Eclipse::Swt::Graphics, :FontMetrics
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Image
       include_const ::Org::Eclipse::Swt::Graphics, :Rectangle
       include_const ::Org::Eclipse::Swt::Widgets, :Canvas
@@ -34,7 +34,7 @@ module Org::Eclipse::Jface::Text::Source
     include_class_members ImageUtilitiesImports
     
     class_module.module_eval {
-      typesig { [Image, GC, Canvas, Rectangle, ::Java::Int, ::Java::Int] }
+      typesig { [Image, SwtGC, Canvas, Rectangle, ::Java::Int, ::Java::Int] }
       # Draws an image aligned inside the given rectangle on the given canvas.
       # 
       # @param image the image to be drawn
@@ -69,7 +69,7 @@ module Org::Eclipse::Jface::Text::Source
         end
       end
       
-      typesig { [Image, GC, Canvas, Rectangle, ::Java::Int] }
+      typesig { [Image, SwtGC, Canvas, Rectangle, ::Java::Int] }
       # Draws an image aligned inside the given rectangle on the given canvas.
       # 
       # @param image the image to be drawn

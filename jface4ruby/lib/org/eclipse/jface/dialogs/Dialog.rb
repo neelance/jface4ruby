@@ -30,7 +30,7 @@ module Org::Eclipse::Jface::Dialogs
       include_const ::Org::Eclipse::Swt::Graphics, :Font
       include_const ::Org::Eclipse::Swt::Graphics, :FontData
       include_const ::Org::Eclipse::Swt::Graphics, :FontMetrics
-      include_const ::Org::Eclipse::Swt::Graphics, :GC
+      include_const ::Org::Eclipse::Swt::Graphics, :SwtGC
       include_const ::Org::Eclipse::Swt::Graphics, :Image
       include_const ::Org::Eclipse::Swt::Graphics, :Point
       include_const ::Org::Eclipse::Swt::Layout, :FormData
@@ -359,7 +359,7 @@ module Org::Eclipse::Jface::Dialogs
         if ((text_value).nil?)
           return nil
         end
-        gc = GC.new(control)
+        gc = SwtGC.new(control)
         max_width = control.get_bounds.attr_width - 5
         max_extent = gc.text_extent(text_value).attr_x
         if (max_extent < max_width)
@@ -936,7 +936,7 @@ module Org::Eclipse::Jface::Dialogs
     # a control from which to obtain the current font
     def initialize_dialog_units(control)
       # Compute and store a font metric
-      gc = GC.new(control)
+      gc = SwtGC.new(control)
       gc.set_font(JFaceResources.get_dialog_font)
       @font_metrics = gc.get_font_metrics
       gc.dispose

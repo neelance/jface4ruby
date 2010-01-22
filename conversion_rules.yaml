@@ -1,3 +1,6 @@
 ---
+prefix: Swt
+prefix_class_names:
+- GC
 no_constants:
 - COLUMN_VIEWER_KEY
