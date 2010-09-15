@@ -236,7 +236,7 @@ module Org::Eclipse::Jface::Action
     def get_overrides
       if ((@overrides).nil?)
         @overrides = Class.new(IContributionManagerOverrides.class == Class ? IContributionManagerOverrides : Object) do
-          extend LocalClass
+          local_class_in ContributionManager
           include_class_members ContributionManager
           include IContributionManagerOverrides if IContributionManagerOverrides.class == Module
           

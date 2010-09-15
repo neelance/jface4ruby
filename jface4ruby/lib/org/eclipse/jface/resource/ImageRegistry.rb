@@ -192,7 +192,7 @@ module Org::Eclipse::Jface::Resource
       @manager = nil
       @table = nil
       @dispose_runnable = Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in ImageRegistry
         include_class_members ImageRegistry
         include Runnable if Runnable.class == Module
         
@@ -266,7 +266,7 @@ module Org::Eclipse::Jface::Resource
           image = Array.typed(Image).new(1) { nil }
           id = swt_key
           @display.sync_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-            extend LocalClass
+            local_class_in ImageRegistry
             include_class_members ImageRegistry
             include Runnable if Runnable.class == Module
             

@@ -607,7 +607,7 @@ module Org::Eclipse::Jface::Bindings
         if (!(@active_scheme_ids).nil?)
           j = 0
           while j < @active_scheme_ids.attr_length
-            if ((Util == scheme_id))
+            if (Util.==(scheme_id, @active_scheme_ids[j]))
               found = true
               break
             end
@@ -1271,7 +1271,7 @@ module Org::Eclipse::Jface::Bindings
         if (((best_locale).nil?) && (!(current_locale).nil?))
           best_binding = current_binding
         end
-        if (!((Util == best_locale)))
+        if (!(Util.==(best_locale, current_locale)))
           i += 1
           next
         end
@@ -1282,7 +1282,7 @@ module Org::Eclipse::Jface::Bindings
         if (((best_platform).nil?) && (!(current_platform).nil?))
           best_binding = current_binding
         end
-        if (!((Util == best_platform)))
+        if (!(Util.==(best_platform, current_platform)))
           i += 1
           next
         end
@@ -1585,7 +1585,7 @@ module Org::Eclipse::Jface::Bindings
       end
       i = 0
       while i < @locales.attr_length
-        if ((Util == @locales[i]))
+        if (Util.==(@locales[i], locale))
           matches = true
           break
         end
@@ -1616,7 +1616,7 @@ module Org::Eclipse::Jface::Bindings
       end
       i = 0
       while i < @platforms.attr_length
-        if ((Util == @platforms[i]))
+        if (Util.==(@platforms[i], platform))
           matches = true
           break
         end
@@ -1769,11 +1769,11 @@ module Org::Eclipse::Jface::Bindings
       while i < @binding_count
         binding = @bindings[i]
         equals = true
-        equals &= (Util == sequence)
-        equals &= (Util == scheme_id)
-        equals &= (Util == context_id)
-        equals &= (Util == locale)
-        equals &= (Util == platform)
+        equals &= Util.==(sequence, binding.get_trigger_sequence)
+        equals &= Util.==(scheme_id, binding.get_scheme_id)
+        equals &= Util.==(context_id, binding.get_context_id)
+        equals &= Util.==(locale, binding.get_locale)
+        equals &= Util.==(platform, binding.get_platform)
         equals &= ((type).equal?(binding.get_type))
         if (equals)
           bindings_changed = true
@@ -2103,7 +2103,7 @@ module Org::Eclipse::Jface::Bindings
         # $NON-NLS-1$
         raise NotDefinedException.new("Cannot activate an undefined scheme. " + RJava.cast_to_string(scheme.get_id))
       end
-      if ((Util == @active_scheme))
+      if (Util.==(@active_scheme, scheme))
         return
       end
       @active_scheme = scheme
@@ -2129,7 +2129,7 @@ module Org::Eclipse::Jface::Bindings
     # The new array of bindings; may be <code>null</code>. This
     # set is copied into a local data structure.
     def set_bindings(bindings)
-      if ((Arrays == @bindings))
+      if (Arrays.==(@bindings, bindings))
         return # nothing has changed
       end
       if (((bindings).nil?) || ((bindings.attr_length).equal?(0)))
@@ -2163,7 +2163,7 @@ module Org::Eclipse::Jface::Bindings
       if ((locale).nil?)
         raise NullPointerException.new("The locale cannot be null") # $NON-NLS-1$
       end
-      if (!(Util == @locale))
+      if (!Util.==(@locale, locale))
         @locale = locale
         @locales = expand(locale, LOCALE_SEPARATOR)
         clear_solution
@@ -2191,7 +2191,7 @@ module Org::Eclipse::Jface::Bindings
       if ((platform).nil?)
         raise NullPointerException.new("The platform cannot be null") # $NON-NLS-1$
       end
-      if (!(Util == @platform))
+      if (!Util.==(@platform, platform))
         @platform = platform
         @platforms = expand(platform, Util::ZERO_LENGTH_STRING)
         clear_solution

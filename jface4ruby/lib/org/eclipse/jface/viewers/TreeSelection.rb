@@ -214,7 +214,7 @@ module Org::Eclipse::Jface::Viewers
         if (size > 0)
           i = 0
           while i < @paths.attr_length
-            if (!(@paths[i] == selection.attr_paths[i]))
+            if (!@paths[i].==(selection.attr_paths[i], comparer_or_null))
               return false
             end
             i += 1

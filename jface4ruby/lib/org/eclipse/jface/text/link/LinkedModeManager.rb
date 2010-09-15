@@ -36,7 +36,7 @@ module Org::Eclipse::Jface::Text::Link
     class_module.module_eval {
       # Our implementation of <code>ILinkedModeListener</code>.
       const_set_lazy(:Listener) { Class.new do
-        extend LocalClass
+        local_class_in LinkedModeManager
         include_class_members LinkedModeManager
         include ILinkedModeListener
         

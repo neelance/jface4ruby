@@ -78,7 +78,7 @@ module Org::Eclipse::Jface::Text::Link
     def ==(o)
       if (o.is_a?(ProposalPosition))
         if (super(o))
-          return (Arrays == @f_proposals)
+          return Arrays.==(@f_proposals, (o).attr_f_proposals)
         end
       end
       return false

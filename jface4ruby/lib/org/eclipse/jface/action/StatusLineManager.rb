@@ -156,7 +156,7 @@ module Org::Eclipse::Jface::Action
     # Method declared on IStatusLineManager
     def get_progress_monitor
       return Class.new(IProgressMonitorWithBlocking.class == Class ? IProgressMonitorWithBlocking : Object) do
-        extend LocalClass
+        local_class_in StatusLineManager
         include_class_members StatusLineManager
         include IProgressMonitorWithBlocking if IProgressMonitorWithBlocking.class == Module
         

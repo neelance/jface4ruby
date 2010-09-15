@@ -41,7 +41,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
     class_module.module_eval {
       # Internal table selection listener.
       const_set_lazy(:TableSelectionListener) { Class.new do
-        extend LocalClass
+        local_class_in AdditionalInfoController2
         include_class_members AdditionalInfoController2
         include SelectionListener
         
@@ -214,7 +214,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
           end
           if (!(@f_proposal_table).nil? && !@f_proposal_table.is_disposed)
             @f_proposal_table.get_display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-              extend LocalClass
+              local_class_in AdditionalInfoController2
               include_class_members AdditionalInfoController2
               include Runnable if Runnable.class == Module
               

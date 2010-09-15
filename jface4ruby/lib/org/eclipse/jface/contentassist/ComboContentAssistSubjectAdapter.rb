@@ -53,7 +53,7 @@ module Org::Eclipse::Jface::Contentassist
     class_module.module_eval {
       # The document of {@link #fCombo}'s contents.
       const_set_lazy(:InternalDocument) { Class.new(Document) do
-        extend LocalClass
+        local_class_in ComboContentAssistSubjectAdapter
         include_class_members ComboContentAssistSubjectAdapter
         
         # Updates this document with changes in {@link #fCombo}.
@@ -68,7 +68,7 @@ module Org::Eclipse::Jface::Contentassist
           @f_modify_listener = nil
           super(self.attr_f_combo.get_text)
           @f_modify_listener = Class.new(self.class::ModifyListener.class == Class ? self.class::ModifyListener : Object) do
-            extend LocalClass
+            local_class_in InternalDocument
             include_class_members InternalDocument
             include class_self::ModifyListener if class_self::ModifyListener.class == Module
             
@@ -202,7 +202,7 @@ module Org::Eclipse::Jface::Contentassist
     def add_selection_listener(selection_listener)
       @f_combo.add_selection_listener(selection_listener)
       listener = Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in ComboContentAssistSubjectAdapter
         include_class_members ComboContentAssistSubjectAdapter
         include Listener if Listener.class == Module
         

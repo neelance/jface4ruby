@@ -89,7 +89,7 @@ module Org::Eclipse::Jface::Text::Source
     class_module.module_eval {
       # Layout of a source viewer. Vertical ruler, text widget, and overview ruler are shown side by side.
       const_set_lazy(:RulerLayout) { Class.new(Layout) do
-        extend LocalClass
+        local_class_in SourceViewer
         include_class_members SourceViewer
         
         # The gap between the text viewer and the vertical ruler.

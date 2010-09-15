@@ -211,7 +211,7 @@ module Org::Eclipse::Jface::Contentassist
         return
       end
       @f_control_listener = Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in AbstractControlContentAssistSubjectAdapter
         include_class_members AbstractControlContentAssistSubjectAdapter
         include Listener if Listener.class == Module
         
@@ -367,7 +367,7 @@ module Org::Eclipse::Jface::Contentassist
         if ((@f_control_decoration).nil?)
           @f_control_decoration = ControlDecoration.new(get_control, (SWT::TOP | SWT::LEFT))
           get_control.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-            extend LocalClass
+            local_class_in AbstractControlContentAssistSubjectAdapter
             include_class_members AbstractControlContentAssistSubjectAdapter
             include DisposeListener if DisposeListener.class == Module
             
@@ -399,7 +399,7 @@ module Org::Eclipse::Jface::Contentassist
           @f_control_decoration.set_show_only_on_focus(true)
         end
         listener = Class.new(ILabelProviderListener.class == Class ? ILabelProviderListener : Object) do
-          extend LocalClass
+          local_class_in AbstractControlContentAssistSubjectAdapter
           include_class_members AbstractControlContentAssistSubjectAdapter
           include ILabelProviderListener if ILabelProviderListener.class == Module
           

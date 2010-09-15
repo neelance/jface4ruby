@@ -51,7 +51,7 @@ module Org::Eclipse::Jface::Internal::Text::Source
     class_module.module_eval {
       # Internal listener class that will update the ruler when the underlying model changes.
       const_set_lazy(:AnnotationListener) { Class.new do
-        extend LocalClass
+        local_class_in DiffPainter
         include_class_members DiffPainter
         include IAnnotationModelListener
         
@@ -264,7 +264,7 @@ module Org::Eclipse::Jface::Internal::Text::Source
         return
       end
       @f_control.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in DiffPainter
         include_class_members DiffPainter
         include DisposeListener if DisposeListener.class == Module
         
@@ -451,7 +451,7 @@ module Org::Eclipse::Jface::Internal::Text::Source
         d = @f_control.get_display
         if (!(d).nil?)
           d.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-            extend LocalClass
+            local_class_in DiffPainter
             include_class_members DiffPainter
             include Runnable if Runnable.class == Module
             

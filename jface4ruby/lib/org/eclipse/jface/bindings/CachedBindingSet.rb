@@ -238,16 +238,16 @@ module Org::Eclipse::Jface::Bindings
         return false
       end
       other = object
-      if (!(Util == @active_context_tree))
+      if (!Util.==(@active_context_tree, other.attr_active_context_tree))
         return false
       end
-      if (!(Util == @locales))
+      if (!Util.==(@locales, other.attr_locales))
         return false
       end
-      if (!(Util == @platforms))
+      if (!Util.==(@platforms, other.attr_platforms))
         return false
       end
-      return (Util == @scheme_ids)
+      return Util.==(@scheme_ids, other.attr_scheme_ids)
     end
     
     typesig { [] }

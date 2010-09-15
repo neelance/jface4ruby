@@ -189,7 +189,7 @@ module Org::Eclipse::Jface::Dialogs
       @text = Text.new(composite, get_input_text_style)
       @text.set_layout_data(GridData.new(GridData::GRAB_HORIZONTAL | GridData::HORIZONTAL_ALIGN_FILL))
       @text.add_modify_listener(Class.new(ModifyListener.class == Class ? ModifyListener : Object) do
-        extend LocalClass
+        local_class_in InputDialog
         include_class_members InputDialog
         include ModifyListener if ModifyListener.class == Module
         

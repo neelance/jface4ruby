@@ -56,7 +56,7 @@ module Org::Eclipse::Jface::Text
       
       # Enumerates all the <code>StyleRange</code>s included in the presentation.
       const_set_lazy(:FilterIterator) { Class.new do
-        extend LocalClass
+        local_class_in TextPresentation
         include_class_members TextPresentation
         include Iterator
         

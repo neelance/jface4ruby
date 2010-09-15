@@ -103,7 +103,7 @@ module Org::Eclipse::Jface::Fieldassist
       # field decorations as labels attached to the field. Clients should use
       # <code>FieldDecoration</code> for specifying a decoration.
       const_set_lazy(:FieldDecorationData) { Class.new do
-        extend LocalClass
+        local_class_in DecoratedField
         include_class_members DecoratedField
         
         # Package
@@ -210,7 +210,7 @@ module Org::Eclipse::Jface::Fieldassist
     class_module.module_eval {
       # The hover used to show a decoration image's description.
       const_set_lazy(:Hover) { Class.new do
-        extend LocalClass
+        local_class_in DecoratedField
         include_class_members DecoratedField
         
         class_module.module_eval {
@@ -293,7 +293,7 @@ module Org::Eclipse::Jface::Fieldassist
           @hover_shell.set_background(display.get_system_color(SWT::COLOR_INFO_BACKGROUND))
           @hover_shell.set_foreground(display.get_system_color(SWT::COLOR_INFO_FOREGROUND))
           @hover_shell.add_paint_listener(Class.new(self.class::PaintListener.class == Class ? self.class::PaintListener : Object) do
-            extend LocalClass
+            local_class_in Hover
             include_class_members Hover
             include class_self::PaintListener if class_self::PaintListener.class == Module
             
@@ -314,7 +314,7 @@ module Org::Eclipse::Jface::Fieldassist
             alias_method :initialize_anonymous, :initialize
           end.new_local(self))
           @hover_shell.add_mouse_listener(Class.new(self.class::MouseAdapter.class == Class ? self.class::MouseAdapter : Object) do
-            extend LocalClass
+            local_class_in Hover
             include_class_members Hover
             include class_self::MouseAdapter if class_self::MouseAdapter.class == Module
             
@@ -500,7 +500,7 @@ module Org::Eclipse::Jface::Fieldassist
         form_data = create_form_data_for_index(i, decoration.get_image)
         label = Label.new(@form, SWT::HORIZONTAL | SWT::VERTICAL | SWT::CENTER)
         label.add_mouse_track_listener(Class.new(MouseTrackListener.class == Class ? MouseTrackListener : Object) do
-          extend LocalClass
+          local_class_in DecoratedField
           include_class_members DecoratedField
           include MouseTrackListener if MouseTrackListener.class == Module
           
@@ -665,7 +665,7 @@ module Org::Eclipse::Jface::Fieldassist
     # Add any listeners needed on the target control.
     def add_control_listeners
       @control.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in DecoratedField
         include_class_members DecoratedField
         include DisposeListener if DisposeListener.class == Module
         
@@ -685,7 +685,7 @@ module Org::Eclipse::Jface::Fieldassist
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @control.add_focus_listener(Class.new(FocusListener.class == Class ? FocusListener : Object) do
-        extend LocalClass
+        local_class_in DecoratedField
         include_class_members DecoratedField
         include FocusListener if FocusListener.class == Module
         

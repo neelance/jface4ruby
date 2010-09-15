@@ -87,7 +87,7 @@ module Org::Eclipse::Jface::Viewers
       # 
       # @since 3.1
       const_set_lazy(:TableTreeEditorImpl) { Class.new do
-        extend LocalClass
+        local_class_in TableTreeViewer
         include_class_members TableTreeViewer
         
         attr_accessor :cell_editor
@@ -207,7 +207,7 @@ module Org::Eclipse::Jface::Viewers
                 @cell_editor.set_focus
                 if ((@focus_listener).nil?)
                   @focus_listener = Class.new(self.class::FocusAdapter.class == Class ? self.class::FocusAdapter : Object) do
-                    extend LocalClass
+                    local_class_in TableTreeEditorImpl
                     include_class_members TableTreeEditorImpl
                     include class_self::FocusAdapter if class_self::FocusAdapter.class == Module
                     
@@ -227,7 +227,7 @@ module Org::Eclipse::Jface::Viewers
                 end
                 control.add_focus_listener(@focus_listener)
                 @mouse_listener = Class.new(self.class::MouseAdapter.class == Class ? self.class::MouseAdapter : Object) do
-                  extend LocalClass
+                  local_class_in TableTreeEditorImpl
                   include_class_members TableTreeEditorImpl
                   include class_self::MouseAdapter if class_self::MouseAdapter.class == Module
                   
@@ -410,7 +410,7 @@ module Org::Eclipse::Jface::Viewers
         typesig { [] }
         def init_cell_editor_listener
           @cell_editor_listener = Class.new(self.class::ICellEditorListener.class == Class ? self.class::ICellEditorListener : Object) do
-            extend LocalClass
+            local_class_in TableTreeEditorImpl
             include_class_members TableTreeEditorImpl
             include class_self::ICellEditorListener if class_self::ICellEditorListener.class == Module
             
@@ -807,7 +807,7 @@ module Org::Eclipse::Jface::Viewers
     def hook_control(control)
       super(control)
       @table_tree.get_table.add_mouse_listener(Class.new(MouseAdapter.class == Class ? MouseAdapter : Object) do
-        extend LocalClass
+        local_class_in TableTreeViewer
         include_class_members TableTreeViewer
         include MouseAdapter if MouseAdapter.class == Module
         

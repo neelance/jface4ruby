@@ -131,7 +131,7 @@ module Org::Eclipse::Jface::Util
       SafeRunnable.run(# if (Policy.DEBUG_DRAG_DROP)
       # System.out.println("Drag Finished: " + toString()); //$NON-NLS-1$
       Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-        extend LocalClass
+        local_class_in DelegatingDragAdapter
         include_class_members DelegatingDragAdapter
         include SafeRunnable if SafeRunnable.class == Module
         
@@ -174,7 +174,7 @@ module Org::Eclipse::Jface::Util
       update_current_listener(event) # find a listener that can provide the given data type
       if (!(@current_listener).nil?)
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in DelegatingDragAdapter
           include_class_members DelegatingDragAdapter
           include SafeRunnable if SafeRunnable.class == Module
           
@@ -214,7 +214,7 @@ module Org::Eclipse::Jface::Util
         listener = @listeners.get(i)
         event.attr_doit = true # restore event.doit
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in DelegatingDragAdapter
           include_class_members DelegatingDragAdapter
           include SafeRunnable if SafeRunnable.class == Module
           

@@ -32,7 +32,7 @@ module Org::Eclipse::Jface::Text::Revisions
     class_module.module_eval {
       # Rendering mode type-safe enum.
       const_set_lazy(:RenderingMode) { Class.new do
-        extend LocalClass
+        local_class_in IRevisionRulerColumnExtension
         include_class_members IRevisionRulerColumnExtension
         
         attr_accessor :f_name

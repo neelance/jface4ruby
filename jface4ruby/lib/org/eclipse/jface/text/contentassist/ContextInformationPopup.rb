@@ -304,7 +304,7 @@ module Org::Eclipse::Jface::Text::Contentassist
     def show_context_proposals(auto_activated)
       control = @f_content_assist_subject_control_adapter.get_control
       BusyIndicator.show_while(control.get_display, Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in ContextInformationPopup
         include_class_members ContextInformationPopup
         include Runnable if Runnable.class == Module
         
@@ -382,7 +382,7 @@ module Org::Eclipse::Jface::Text::Contentassist
     def show_context_information(info, offset)
       control = @f_content_assist_subject_control_adapter.get_control
       BusyIndicator.show_while(control.get_display, Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in ContextInformationPopup
         include_class_members ContextInformationPopup
         include Runnable if Runnable.class == Module
         
@@ -503,7 +503,7 @@ module Org::Eclipse::Jface::Text::Contentassist
         if (@f_content_assistant.add_content_assist_listener(self, ContentAssistant::CONTEXT_INFO_POPUP))
           if (!(@f_content_assist_subject_control_adapter.get_control).nil?)
             @f_text_widget_selection_listener = Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-              extend LocalClass
+              local_class_in ContextInformationPopup
               include_class_members ContextInformationPopup
               include SelectionAdapter if SelectionAdapter.class == Module
               
@@ -660,7 +660,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       end
       @f_context_selector_table.set_foreground(c)
       @f_context_selector_table.add_selection_listener(Class.new(SelectionListener.class == Class ? SelectionListener : Object) do
-        extend LocalClass
+        local_class_in ContextInformationPopup
         include_class_members ContextInformationPopup
         include SelectionListener if SelectionListener.class == Module
         
@@ -936,7 +936,7 @@ module Org::Eclipse::Jface::Text::Contentassist
         return
       end
       @f_context_info_popup.get_display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in ContextInformationPopup
         include_class_members ContextInformationPopup
         include Runnable if Runnable.class == Module
         

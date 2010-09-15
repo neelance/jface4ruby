@@ -384,12 +384,12 @@ module Org::Eclipse::Jface::Viewers
       if (!(text_bounds).nil?)
         text_layout = get_shared_text_layout(event.attr_display)
         # remove-begin if bug 228695 fixed
-#        if (!(event.attr_item).equal?(@item_of_last_measure) || !(event.attr_item.get_data).equal?(@element_of_last_measure))
+        if (!(event.attr_item).equal?(@item_of_last_measure) || !(event.attr_item.get_data).equal?(@element_of_last_measure))
           # fLayout has not been configured in 'measure()'
           @delta_of_last_measure = update_text_layout(text_layout, cell, apply_colors)
           @item_of_last_measure = event.attr_item
           @element_of_last_measure = event.attr_item.get_data
-#        end
+        end
         # remove-end if bug 228695 fixed
         # remove-begin if bug 228376 fixed
         if (!apply_colors)

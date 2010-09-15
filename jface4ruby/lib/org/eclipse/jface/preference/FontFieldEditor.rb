@@ -116,7 +116,7 @@ module Org::Eclipse::Jface::Preference
           @string = s
           @text = self.class::Text.new(parent, SWT::READ_ONLY | SWT::BORDER)
           @text.add_dispose_listener(Class.new(self.class::DisposeListener.class == Class ? self.class::DisposeListener : Object) do
-            extend LocalClass
+            local_class_in DefaultPreviewer
             include_class_members DefaultPreviewer
             include class_self::DisposeListener if class_self::DisposeListener.class == Module
             
@@ -299,7 +299,7 @@ module Org::Eclipse::Jface::Preference
           @change_font_button.set_text(@change_button_text)
         end
         @change_font_button.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-          extend LocalClass
+          local_class_in FontFieldEditor
           include_class_members FontFieldEditor
           include SelectionAdapter if SelectionAdapter.class == Module
           
@@ -332,7 +332,7 @@ module Org::Eclipse::Jface::Preference
           alias_method :initialize_anonymous, :initialize
         end.new_local(self))
         @change_font_button.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-          extend LocalClass
+          local_class_in FontFieldEditor
           include_class_members FontFieldEditor
           include DisposeListener if DisposeListener.class == Module
           
@@ -400,7 +400,7 @@ module Org::Eclipse::Jface::Preference
         @value_control = Label.new(parent, SWT::LEFT)
         @value_control.set_font(parent.get_font)
         @value_control.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-          extend LocalClass
+          local_class_in FontFieldEditor
           include_class_members FontFieldEditor
           include DisposeListener if DisposeListener.class == Module
           

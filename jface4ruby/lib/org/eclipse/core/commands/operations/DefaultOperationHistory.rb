@@ -904,7 +904,7 @@ module Org::Eclipse::Core::Commands::Operations
       if (event.get_operation.is_a?(IAdvancedUndoableOperation))
         advanced_op = event.get_operation
         SafeRunner.run(Class.new(ISafeRunnable.class == Class ? ISafeRunnable : Object) do
-          extend LocalClass
+          local_class_in DefaultOperationHistory
           include_class_members DefaultOperationHistory
           include ISafeRunnable if ISafeRunnable.class == Module
           
@@ -935,7 +935,7 @@ module Org::Eclipse::Core::Commands::Operations
       while i < listener_array.attr_length
         listener = listener_array[i]
         SafeRunner.run(Class.new(ISafeRunnable.class == Class ? ISafeRunnable : Object) do
-          extend LocalClass
+          local_class_in DefaultOperationHistory
           include_class_members DefaultOperationHistory
           include ISafeRunnable if ISafeRunnable.class == Module
           

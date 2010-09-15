@@ -301,7 +301,7 @@ module Org::Eclipse::Jface::Internal::Text::Html
       @f_browser.set_foreground(display.get_system_color(SWT::COLOR_INFO_FOREGROUND))
       @f_browser.set_background(display.get_system_color(SWT::COLOR_INFO_BACKGROUND))
       @f_browser.add_key_listener(Class.new(KeyListener.class == Class ? KeyListener : Object) do
-        extend LocalClass
+        local_class_in BrowserInformationControl
         include_class_members BrowserInformationControl
         include KeyListener if KeyListener.class == Module
         
@@ -326,7 +326,7 @@ module Org::Eclipse::Jface::Internal::Text::Html
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @f_browser.add_progress_listener(Class.new(ProgressAdapter.class == Class ? ProgressAdapter : Object) do
-        extend LocalClass
+        local_class_in BrowserInformationControl
         include_class_members BrowserInformationControl
         include ProgressAdapter if ProgressAdapter.class == Module
         
@@ -344,7 +344,7 @@ module Org::Eclipse::Jface::Internal::Text::Html
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @f_browser.add_open_window_listener(Class.new(OpenWindowListener.class == Class ? OpenWindowListener : Object) do
-        extend LocalClass
+        local_class_in BrowserInformationControl
         include_class_members BrowserInformationControl
         include OpenWindowListener if OpenWindowListener.class == Module
         
@@ -371,7 +371,7 @@ module Org::Eclipse::Jface::Internal::Text::Html
     # @deprecated use {@link #setInput(Object)}
     def set_information(content)
       set_input(Class.new(BrowserInformationControlInput.class == Class ? BrowserInformationControlInput : Object) do
-        extend LocalClass
+        local_class_in BrowserInformationControl
         include_class_members BrowserInformationControl
         include BrowserInformationControlInput if BrowserInformationControlInput.class == Module
         
@@ -476,7 +476,7 @@ module Org::Eclipse::Jface::Internal::Text::Html
       display = shell.get_display
       display.timer_exec(100, # Make sure the display wakes from sleep after timeout:
       Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in BrowserInformationControl
         include_class_members BrowserInformationControl
         include Runnable if Runnable.class == Module
         

@@ -133,7 +133,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
       @f_scrollbar_clicked = false
       d = @f_table.get_display
       d.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in PopupCloser2
         include_class_members PopupCloser2
         include Runnable if Runnable.class == Module
         

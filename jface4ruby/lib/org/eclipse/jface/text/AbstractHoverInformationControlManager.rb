@@ -70,7 +70,7 @@ module Org::Eclipse::Jface::Text
       # soon as the mouse pointer leaves the subject area (unless "move into hover" is enabled),
       # a mouse button is pressed, the user presses a key, or the subject control is resized, moved, or loses focus.
       const_set_lazy(:Closer) { Class.new do
-        extend LocalClass
+        local_class_in AbstractHoverInformationControlManager
         include_class_members AbstractHoverInformationControlManager
         include IInformationControlCloser
         include MouseListener
@@ -326,7 +326,7 @@ module Org::Eclipse::Jface::Text
                           delayed_icp.set_delayed_input_change_listener(input_change_listener)
                           control.get_shell.get_display.timer_exec(1000, # cancel automatic input updating after a small timeout:
                           Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-                            extend LocalClass
+                            local_class_in Closer
                             include_class_members Closer
                             include class_self::Runnable if class_self::Runnable.class == Module
                             
@@ -346,7 +346,7 @@ module Org::Eclipse::Jface::Text
                         end
                         control.get_shell.get_display.async_exec(# XXX: workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=212392 :
                         Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-                          extend LocalClass
+                          local_class_in Closer
                           include_class_members Closer
                           include class_self::Runnable if class_self::Runnable.class == Module
                           
@@ -444,7 +444,7 @@ module Org::Eclipse::Jface::Text
       # control manager needs to be reactivated.
       # </ul>
       const_set_lazy(:MouseTracker) { Class.new(ShellAdapter) do
-        extend LocalClass
+        local_class_in AbstractHoverInformationControlManager
         include_class_members AbstractHoverInformationControlManager
         overload_protected {
           include MouseTrackListener
@@ -951,7 +951,7 @@ module Org::Eclipse::Jface::Text
         return
       end
       @f_replacing_delay_job = Class.new(Job.class == Class ? Job : Object) do
-        extend LocalClass
+        local_class_in AbstractHoverInformationControlManager
         include_class_members AbstractHoverInformationControlManager
         include Job if Job.class == Module
         
@@ -963,7 +963,7 @@ module Org::Eclipse::Jface::Text
           end
           job_class = self.class
           display.sync_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-            extend LocalClass
+            local_class_in job_class
             include_class_members job_class
             include class_self::Runnable if class_self::Runnable.class == Module
             
@@ -1088,7 +1088,7 @@ module Org::Eclipse::Jface::Text
     # @nooverride This method is not intended to be re-implemented or extended by clients.
     def get_internal_accessor
       return Class.new(MyInternalAccessor.class == Class ? MyInternalAccessor : Object) do
-        extend LocalClass
+        local_class_in AbstractHoverInformationControlManager
         include_class_members AbstractHoverInformationControlManager
         include MyInternalAccessor if MyInternalAccessor.class == Module
         

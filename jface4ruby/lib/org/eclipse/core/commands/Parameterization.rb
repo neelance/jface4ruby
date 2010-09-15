@@ -98,10 +98,10 @@ module Org::Eclipse::Core::Commands
         return false
       end
       parameterization = object
-      if (!((Util == @parameter.get_id)))
+      if (!(Util.==(@parameter.get_id, parameterization.attr_parameter.get_id)))
         return false
       end
-      return (Util == @value)
+      return Util.==(@value, parameterization.attr_value)
     end
     
     typesig { [] }
@@ -135,7 +135,7 @@ module Org::Eclipse::Core::Commands
       while (parameter_value_itr.has_next)
         entry = parameter_value_itr.next_
         current_value = entry.get_value
-        if ((Util == @value))
+        if (Util.==(@value, current_value))
           return_value = RJava.cast_to_string(entry.get_key)
           break
         end

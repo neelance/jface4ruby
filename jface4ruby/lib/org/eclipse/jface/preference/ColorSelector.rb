@@ -123,7 +123,7 @@ module Org::Eclipse::Jface::Preference
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @f_button.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in ColorSelector
         include_class_members ColorSelector
         include DisposeListener if DisposeListener.class == Module
         
@@ -148,7 +148,7 @@ module Org::Eclipse::Jface::Preference
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @f_button.get_accessible.add_accessible_listener(Class.new(AccessibleAdapter.class == Class ? AccessibleAdapter : Object) do
-        extend LocalClass
+        local_class_in ColorSelector
         include_class_members ColorSelector
         include AccessibleAdapter if AccessibleAdapter.class == Module
         

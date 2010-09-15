@@ -93,7 +93,7 @@ module Org::Eclipse::Jface::Preference
     class_module.module_eval {
       # Layout for the page container.
       const_set_lazy(:PageLayout) { Class.new(Layout) do
-        extend LocalClass
+        local_class_in PreferenceDialog
         include_class_members PreferenceDialog
         
         typesig { [class_self::Composite, ::Java::Int, ::Java::Int, ::Java::Boolean] }
@@ -349,7 +349,7 @@ module Org::Eclipse::Jface::Preference
         node = nodes.next_
         if (!(get_page(node)).nil?)
           SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-            extend LocalClass
+            local_class_in PreferenceDialog
             include_class_members PreferenceDialog
             include SafeRunnable if SafeRunnable.class == Module
             
@@ -390,7 +390,7 @@ module Org::Eclipse::Jface::Preference
     def close
       runnable = # Do this is in a SafeRunnable as it may run client code
       Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-        extend LocalClass
+        local_class_in PreferenceDialog
         include_class_members PreferenceDialog
         include SafeRunnable if SafeRunnable.class == Module
         
@@ -435,7 +435,7 @@ module Org::Eclipse::Jface::Preference
       super(new_shell)
       new_shell.set_text(JFaceResources.get_string("PreferenceDialog.title")) # $NON-NLS-1$
       new_shell.add_shell_listener(Class.new(ShellAdapter.class == Class ? ShellAdapter : Object) do
-        extend LocalClass
+        local_class_in PreferenceDialog
         include_class_members PreferenceDialog
         include ShellAdapter if ShellAdapter.class == Module
         
@@ -486,7 +486,7 @@ module Org::Eclipse::Jface::Preference
     def create_contents(parent)
       control = Array.typed(Control).new(1) { nil }
       BusyIndicator.show_while(get_shell.get_display, Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in PreferenceDialog
         include_class_members PreferenceDialog
         include Runnable if Runnable.class == Module
         
@@ -586,7 +586,7 @@ module Org::Eclipse::Jface::Preference
       sash.add_listener(SWT::Selection, # the following listener resizes the tree control based on sash deltas.
       # If necessary, it will also grow/shrink the dialog.
       Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in PreferenceDialog
         include_class_members PreferenceDialog
         include Listener if Listener.class == Module
         
@@ -697,7 +697,7 @@ module Org::Eclipse::Jface::Preference
       @message_area = DialogMessageArea.new
       @message_area.create_contents(@title_area)
       @title_area.add_control_listener(Class.new(ControlAdapter.class == Class ? ControlAdapter : Object) do
-        extend LocalClass
+        local_class_in PreferenceDialog
         include_class_members PreferenceDialog
         include ControlAdapter if ControlAdapter.class == Module
         
@@ -717,7 +717,7 @@ module Org::Eclipse::Jface::Preference
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       font_listener = Class.new(IPropertyChangeListener.class == Class ? IPropertyChangeListener : Object) do
-        extend LocalClass
+        local_class_in PreferenceDialog
         include_class_members PreferenceDialog
         include IPropertyChangeListener if IPropertyChangeListener.class == Module
         
@@ -748,7 +748,7 @@ module Org::Eclipse::Jface::Preference
         alias_method :initialize_anonymous, :initialize
       end.new_local(self)
       @title_area.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in PreferenceDialog
         include_class_members PreferenceDialog
         include DisposeListener if DisposeListener.class == Module
         
@@ -820,7 +820,7 @@ module Org::Eclipse::Jface::Preference
     # @since 3.1
     def add_listeners(viewer)
       viewer.add_post_selection_changed_listener(Class.new(ISelectionChangedListener.class == Class ? ISelectionChangedListener : Object) do
-        extend LocalClass
+        local_class_in PreferenceDialog
         include_class_members PreferenceDialog
         include ISelectionChangedListener if ISelectionChangedListener.class == Module
         
@@ -845,7 +845,7 @@ module Org::Eclipse::Jface::Preference
           if (selection.is_a?(self.class::IPreferenceNode))
             iselection_changed_listener_class = self.class
             BusyIndicator.show_while(get_shell.get_display, Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-              extend LocalClass
+              local_class_in iselection_changed_listener_class
               include_class_members iselection_changed_listener_class
               include class_self::Runnable if class_self::Runnable.class == Module
               
@@ -884,7 +884,7 @@ module Org::Eclipse::Jface::Preference
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       (viewer.get_control).add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-        extend LocalClass
+        local_class_in PreferenceDialog
         include_class_members PreferenceDialog
         include SelectionAdapter if SelectionAdapter.class == Module
         
@@ -909,7 +909,7 @@ module Org::Eclipse::Jface::Preference
       end.new_local(self))
       viewer.get_control.add_help_listener(# Register help listener on the tree to use context sensitive help
       Class.new(HelpListener.class == Class ? HelpListener : Object) do
-        extend LocalClass
+        local_class_in PreferenceDialog
         include_class_members PreferenceDialog
         include HelpListener if HelpListener.class == Module
         
@@ -1121,7 +1121,7 @@ module Org::Eclipse::Jface::Preference
     # save any state, and then calls <code>close</code> to close this dialog.
     def ok_pressed
       SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-        extend LocalClass
+        local_class_in PreferenceDialog
         include_class_members PreferenceDialog
         include SafeRunnable if SafeRunnable.class == Module
         
@@ -1425,7 +1425,7 @@ module Org::Eclipse::Jface::Preference
       if ((@current_page.get_control).nil?)
         failed = Array.typed(::Java::Boolean).new([false])
         SafeRunnable.run(Class.new(ISafeRunnable.class == Class ? ISafeRunnable : Object) do
-          extend LocalClass
+          local_class_in PreferenceDialog
           include_class_members PreferenceDialog
           include ISafeRunnable if ISafeRunnable.class == Module
           
@@ -1460,7 +1460,7 @@ module Org::Eclipse::Jface::Preference
       size_ = Array.typed(Point).new(1) { nil }
       failed = Point.new(-1, -1)
       SafeRunnable.run(Class.new(ISafeRunnable.class == Class ? ISafeRunnable : Object) do
-        extend LocalClass
+        local_class_in PreferenceDialog
         include_class_members PreferenceDialog
         include ISafeRunnable if ISafeRunnable.class == Module
         
@@ -1726,7 +1726,7 @@ module Org::Eclipse::Jface::Preference
       while i < listeners.attr_length
         l = listeners[i]
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in PreferenceDialog
           include_class_members PreferenceDialog
           include SafeRunnable if SafeRunnable.class == Module
           

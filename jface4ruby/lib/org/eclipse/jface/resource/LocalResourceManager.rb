@@ -64,7 +64,7 @@ module Org::Eclipse::Jface::Resource
     def initialize(parent_registry, owner)
       initialize__local_resource_manager(parent_registry)
       owner.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in LocalResourceManager
         include_class_members LocalResourceManager
         include DisposeListener if DisposeListener.class == Module
         

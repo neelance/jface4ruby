@@ -37,7 +37,7 @@ module Org::Eclipse::Jface::Viewers
       @tree_path_provider = nil
       super(label_provider)
       @tree_path_provider = Class.new(ITreePathLabelProvider.class == Class ? ITreePathLabelProvider : Object) do
-        extend LocalClass
+        local_class_in TreeColumnViewerLabelProvider
         include_class_members TreeColumnViewerLabelProvider
         include ITreePathLabelProvider if ITreePathLabelProvider.class == Module
         

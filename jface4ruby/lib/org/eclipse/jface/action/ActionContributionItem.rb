@@ -212,7 +212,7 @@ module Org::Eclipse::Jface::Action
       @result = nil
       @mode = 0
       @action_text_listener = Class.new(IPropertyChangeListener.class == Class ? IPropertyChangeListener : Object) do
-        extend LocalClass
+        local_class_in ActionContributionItem
         include_class_members ActionContributionItem
         include IPropertyChangeListener if IPropertyChangeListener.class == Module
         
@@ -231,7 +231,7 @@ module Org::Eclipse::Jface::Action
         alias_method :initialize_anonymous, :initialize
       end.new_local(self)
       @property_listener = Class.new(IPropertyChangeListener.class == Class ? IPropertyChangeListener : Object) do
-        extend LocalClass
+        local_class_in ActionContributionItem
         include_class_members ActionContributionItem
         include IPropertyChangeListener if IPropertyChangeListener.class == Module
         
@@ -265,7 +265,7 @@ module Org::Eclipse::Jface::Action
           update(e.get_property)
         else
           display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-            extend LocalClass
+            local_class_in ActionContributionItem
             include_class_members ActionContributionItem
             include Runnable if Runnable.class == Module
             
@@ -455,7 +455,7 @@ module Org::Eclipse::Jface::Action
     def get_button_listener
       if ((@button_listener).nil?)
         @button_listener = Class.new(Listener.class == Class ? Listener : Object) do
-          extend LocalClass
+          local_class_in ActionContributionItem
           include_class_members ActionContributionItem
           include Listener if Listener.class == Module
           
@@ -491,7 +491,7 @@ module Org::Eclipse::Jface::Action
     def get_menu_item_listener
       if ((@menu_item_listener).nil?)
         @menu_item_listener = Class.new(Listener.class == Class ? Listener : Object) do
-          extend LocalClass
+          local_class_in ActionContributionItem
           include_class_members ActionContributionItem
           include Listener if Listener.class == Module
           
@@ -540,7 +540,7 @@ module Org::Eclipse::Jface::Action
     def get_tool_item_listener
       if ((@tool_item_listener).nil?)
         @tool_item_listener = Class.new(Listener.class == Class ? Listener : Object) do
-          extend LocalClass
+          local_class_in ActionContributionItem
           include_class_members ActionContributionItem
           include Listener if Listener.class == Module
           
@@ -665,7 +665,7 @@ module Org::Eclipse::Jface::Action
           result_listener = nil
           if (!(callback).nil?)
             result_listener = Class.new(IPropertyChangeListener.class == Class ? IPropertyChangeListener : Object) do
-              extend LocalClass
+              local_class_in ActionContributionItem
               include_class_members ActionContributionItem
               include IPropertyChangeListener if IPropertyChangeListener.class == Module
               
@@ -1178,7 +1178,7 @@ module Org::Eclipse::Jface::Action
     def get_menu_creator_listener
       if ((@menu_creator_listener).nil?)
         @menu_creator_listener = Class.new(Listener.class == Class ? Listener : Object) do
-          extend LocalClass
+          local_class_in ActionContributionItem
           include_class_members ActionContributionItem
           include Listener if Listener.class == Module
           
@@ -1255,7 +1255,7 @@ module Org::Eclipse::Jface::Action
       # listening for SWT.Show
       real_menu.notify_listeners(SWT::Show, nil)
       pass_through = Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in ActionContributionItem
         include_class_members ActionContributionItem
         include Listener if Listener.class == Module
         
@@ -1304,7 +1304,7 @@ module Org::Eclipse::Jface::Action
           sub_menu.set_data(item_menu)
           proxy_item.set_menu(sub_menu)
           sub_menu.add_listener(SWT::Show, Class.new(Listener.class == Class ? Listener : Object) do
-            extend LocalClass
+            local_class_in ActionContributionItem
             include_class_members ActionContributionItem
             include Listener if Listener.class == Module
             
@@ -1340,7 +1340,7 @@ module Org::Eclipse::Jface::Action
     def handle_hide_proxy(proxy)
       proxy.remove_listener(SWT::Hide, get_menu_creator_listener)
       proxy.get_display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in ActionContributionItem
         include_class_members ActionContributionItem
         include Runnable if Runnable.class == Module
         

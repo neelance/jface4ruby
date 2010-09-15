@@ -200,7 +200,7 @@ module Org::Eclipse::Jface::Preference
     # Creates a selection listener.
     def create_selection_listener
       @selection_listener = Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-        extend LocalClass
+        local_class_in ListEditor
         include_class_members ListEditor
         include SelectionAdapter if SelectionAdapter.class == Module
         
@@ -319,7 +319,7 @@ module Org::Eclipse::Jface::Preference
         @button_box.set_layout(layout)
         create_buttons(@button_box)
         @button_box.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-          extend LocalClass
+          local_class_in ListEditor
           include_class_members ListEditor
           include DisposeListener if DisposeListener.class == Module
           
@@ -358,7 +358,7 @@ module Org::Eclipse::Jface::Preference
         @list.set_font(parent.get_font)
         @list.add_selection_listener(get_selection_listener)
         @list.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-          extend LocalClass
+          local_class_in ListEditor
           include_class_members ListEditor
           include DisposeListener if DisposeListener.class == Module
           

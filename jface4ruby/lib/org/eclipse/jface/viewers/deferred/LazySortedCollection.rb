@@ -167,7 +167,7 @@ module Org::Eclipse::Jface::Viewers::Deferred
       const_attr_reader  :DIR_UNUSED
       
       const_set_lazy(:Edge) { Class.new do
-        extend LocalClass
+        local_class_in LazySortedCollection
         include_class_members LazySortedCollection
         
         attr_accessor :start_node
@@ -297,7 +297,7 @@ module Org::Eclipse::Jface::Viewers::Deferred
       @comparator = nil
       @enable_debug = false
       @lazy_removal_flag = Class.new(Object.class == Class ? Object : Object) do
-        extend LocalClass
+        local_class_in LazySortedCollection
         include_class_members LazySortedCollection
         include Object if Object.class == Module
         

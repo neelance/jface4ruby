@@ -332,7 +332,7 @@ module Org::Eclipse::Jface::Dialogs
       copy_menu = Menu.new(@list)
       copy_item = MenuItem.new(copy_menu, SWT::NONE)
       copy_item.add_selection_listener(Class.new(SelectionListener.class == Class ? SelectionListener : Object) do
-        extend LocalClass
+        local_class_in ErrorDialog
         include_class_members ErrorDialog
         include SelectionListener if SelectionListener.class == Module
         

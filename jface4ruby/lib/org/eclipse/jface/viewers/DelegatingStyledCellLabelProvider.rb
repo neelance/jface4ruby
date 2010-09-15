@@ -113,7 +113,7 @@ module Org::Eclipse::Jface::Viewers
       new_text = styled_string.to_s
       old_style_ranges = cell.get_style_ranges
       new_style_ranges = is_owner_draw_enabled ? styled_string.get_style_ranges : nil
-      if (!(Arrays == old_style_ranges))
+      if (!Arrays.==(old_style_ranges, new_style_ranges))
         cell.set_style_ranges(new_style_ranges)
         if ((cell.get_text == new_text))
           # make sure there will be a refresh from a change

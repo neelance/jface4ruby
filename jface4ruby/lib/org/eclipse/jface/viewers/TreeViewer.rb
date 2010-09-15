@@ -285,7 +285,7 @@ module Org::Eclipse::Jface::Viewers
       tree_control = control
       if (!((tree_control.get_style & SWT::VIRTUAL)).equal?(0))
         tree_control.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-          extend LocalClass
+          local_class_in TreeViewer
           include_class_members TreeViewer
           include DisposeListener if DisposeListener.class == Module
           
@@ -304,7 +304,7 @@ module Org::Eclipse::Jface::Viewers
           alias_method :initialize_anonymous, :initialize
         end.new_local(self))
         tree_control.add_listener(SWT::SetData, Class.new(Listener.class == Class ? Listener : Object) do
-          extend LocalClass
+          local_class_in TreeViewer
           include_class_members TreeViewer
           include Listener if Listener.class == Module
           
@@ -444,7 +444,7 @@ module Org::Eclipse::Jface::Viewers
         return
       end
       preserving_selection(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in TreeViewer
         include_class_members TreeViewer
         include Runnable if Runnable.class == Module
         
@@ -529,7 +529,7 @@ module Org::Eclipse::Jface::Viewers
           end
           old_data = item.get_data
           update_item(item, element)
-          if (!(self == old_data))
+          if (!self.==(old_data, element))
             item.clear_all(true)
           end
         end
@@ -557,7 +557,7 @@ module Org::Eclipse::Jface::Viewers
             end
             old_data = item.get_data
             update_item(item, element)
-            if (!(self == old_data))
+            if (!self.==(old_data, element))
               item.clear_all(true)
             end
           end
@@ -804,7 +804,7 @@ module Org::Eclipse::Jface::Viewers
         if ((item.get_data(VIRTUAL_DISPOSE_KEY)).nil?)
           item.set_data(VIRTUAL_DISPOSE_KEY, Boolean::TRUE)
           item.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-            extend LocalClass
+            local_class_in TreeViewer
             include_class_members TreeViewer
             include DisposeListener if DisposeListener.class == Module
             
@@ -908,7 +908,7 @@ module Org::Eclipse::Jface::Viewers
       end
       old_selection = LinkedList.new(Arrays.as_list((get_selection).get_paths))
       preserving_selection(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in TreeViewer
         include_class_members TreeViewer
         include Runnable if Runnable.class == Module
         
@@ -1028,7 +1028,7 @@ module Org::Eclipse::Jface::Viewers
         return
       end
       preserving_selection(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in TreeViewer
         include_class_members TreeViewer
         include Runnable if Runnable.class == Module
         

@@ -174,7 +174,7 @@ module Org::Eclipse::Jface::Viewers
       while i < array.attr_length
         l = array[i]
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in CheckboxTreeViewer
           include_class_members CheckboxTreeViewer
           include SafeRunnable if SafeRunnable.class == Module
           

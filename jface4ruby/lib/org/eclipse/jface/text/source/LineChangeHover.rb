@@ -320,7 +320,7 @@ module Org::Eclipse::Jface::Text::Source
     # @since 3.2
     def get_information_presenter_control_creator
       return Class.new(IInformationControlCreator.class == Class ? IInformationControlCreator : Object) do
-        extend LocalClass
+        local_class_in LineChangeHover
         include_class_members LineChangeHover
         include IInformationControlCreator if IInformationControlCreator.class == Module
         

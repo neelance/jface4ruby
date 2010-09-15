@@ -277,7 +277,7 @@ module Org::Eclipse::Core::Commands::Contexts
     # The new set of active context identifiers; may be
     # <code>null</code>.
     def set_active_context_ids(active_context_ids)
-      if ((Util == @active_context_ids))
+      if (Util.==(@active_context_ids, active_context_ids))
         return
       end
       @active_contexts_change = true

@@ -310,7 +310,7 @@ module Org::Eclipse::Jface::Text::Source
     # @since 2.0
     def get_information_control_creator(source_viewer)
       return Class.new(IInformationControlCreator.class == Class ? IInformationControlCreator : Object) do
-        extend LocalClass
+        local_class_in SourceViewerConfiguration
         include_class_members SourceViewerConfiguration
         include IInformationControlCreator if IInformationControlCreator.class == Module
         

@@ -298,7 +298,7 @@ module Org::Eclipse::Jface::Preference
         data.attr_width_hint = Math.max(width_hint, min_button_size.attr_x)
         @defaults_button.set_layout_data(data)
         @defaults_button.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-          extend LocalClass
+          local_class_in PreferencePage
           include_class_members PreferencePage
           include SelectionAdapter if SelectionAdapter.class == Module
           
@@ -323,7 +323,7 @@ module Org::Eclipse::Jface::Preference
         data.attr_width_hint = Math.max(width_hint, min_button_size.attr_x)
         @apply_button.set_layout_data(data)
         @apply_button.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-          extend LocalClass
+          local_class_in PreferencePage
           include_class_members PreferencePage
           include SelectionAdapter if SelectionAdapter.class == Module
           

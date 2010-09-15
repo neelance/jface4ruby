@@ -281,7 +281,7 @@ module Org::Eclipse::Jface::Fieldassist
     class_module.module_eval {
       # The hover used to show a decoration image's description.
       const_set_lazy(:Hover) { Class.new do
-        extend LocalClass
+        local_class_in ControlDecoration
         include_class_members ControlDecoration
         
         class_module.module_eval {
@@ -364,7 +364,7 @@ module Org::Eclipse::Jface::Fieldassist
           @hover_shell.set_background(display.get_system_color(SWT::COLOR_INFO_BACKGROUND))
           @hover_shell.set_foreground(display.get_system_color(SWT::COLOR_INFO_FOREGROUND))
           @hover_shell.add_paint_listener(Class.new(self.class::PaintListener.class == Class ? self.class::PaintListener : Object) do
-            extend LocalClass
+            local_class_in Hover
             include_class_members Hover
             include class_self::PaintListener if class_self::PaintListener.class == Module
             
@@ -385,7 +385,7 @@ module Org::Eclipse::Jface::Fieldassist
             alias_method :initialize_anonymous, :initialize
           end.new_local(self))
           @hover_shell.add_mouse_listener(Class.new(self.class::MouseAdapter.class == Class ? self.class::MouseAdapter : Object) do
-            extend LocalClass
+            local_class_in Hover
             include_class_members Hover
             include class_self::MouseAdapter if class_self::MouseAdapter.class == Module
             
@@ -710,7 +710,7 @@ module Org::Eclipse::Jface::Fieldassist
     # the decoration is to be rendered.
     def add_control_listeners
       @dispose_listener = Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in ControlDecoration
         include_class_members ControlDecoration
         include DisposeListener if DisposeListener.class == Module
         
@@ -730,7 +730,7 @@ module Org::Eclipse::Jface::Fieldassist
       print_add_listener(@control, "DISPOSE") # $NON-NLS-1$
       @control.add_dispose_listener(@dispose_listener)
       @focus_listener = Class.new(FocusListener.class == Class ? FocusListener : Object) do
-        extend LocalClass
+        local_class_in ControlDecoration
         include_class_members ControlDecoration
         include FocusListener if FocusListener.class == Module
         
@@ -762,7 +762,7 @@ module Org::Eclipse::Jface::Fieldassist
       @control.add_focus_listener(@focus_listener)
       @paint_listener = # Listener for painting the decoration
       Class.new(PaintListener.class == Class ? PaintListener : Object) do
-        extend LocalClass
+        local_class_in ControlDecoration
         include_class_members ControlDecoration
         include PaintListener if PaintListener.class == Module
         
@@ -786,7 +786,7 @@ module Org::Eclipse::Jface::Fieldassist
       @mouse_move_listener = # Listener for tracking the end of a hover. Only installed
       # after a hover begins.
       Class.new(MouseMoveListener.class == Class ? MouseMoveListener : Object) do
-        extend LocalClass
+        local_class_in ControlDecoration
         include_class_members ControlDecoration
         include MouseMoveListener if MouseMoveListener.class == Module
         
@@ -813,7 +813,7 @@ module Org::Eclipse::Jface::Fieldassist
       end.new_local(self)
       @mouse_track_listener = # Listener for tracking the beginning of a hover. Always installed.
       Class.new(MouseTrackListener.class == Class ? MouseTrackListener : Object) do
-        extend LocalClass
+        local_class_in ControlDecoration
         include_class_members ControlDecoration
         include MouseTrackListener if MouseTrackListener.class == Module
         
@@ -869,7 +869,7 @@ module Org::Eclipse::Jface::Fieldassist
         alias_method :initialize_anonymous, :initialize
       end.new_local(self)
       @composite_listener = Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in ControlDecoration
         include_class_members ControlDecoration
         include Listener if Listener.class == Module
         

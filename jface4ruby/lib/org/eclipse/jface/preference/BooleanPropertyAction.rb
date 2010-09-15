@@ -54,7 +54,7 @@ module Org::Eclipse::Jface::Preference
       @property = property
       final_proprety = property
       preference_store.add_property_change_listener(Class.new(IPropertyChangeListener.class == Class ? IPropertyChangeListener : Object) do
-        extend LocalClass
+        local_class_in BooleanPropertyAction
         include_class_members BooleanPropertyAction
         include IPropertyChangeListener if IPropertyChangeListener.class == Module
         

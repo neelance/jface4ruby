@@ -43,7 +43,7 @@ module Org::Eclipse::Jface::Contentassist
     class_module.module_eval {
       # The document backing this adapter's text widget.
       const_set_lazy(:InternalDocument) { Class.new(Document) do
-        extend LocalClass
+        local_class_in TextContentAssistSubjectAdapter
         include_class_members TextContentAssistSubjectAdapter
         
         # Updates this document with changes in this adapter's text widget.
@@ -58,7 +58,7 @@ module Org::Eclipse::Jface::Contentassist
           @f_modify_listener = nil
           super(self.attr_f_text.get_text)
           @f_modify_listener = Class.new(self.class::ModifyListener.class == Class ? self.class::ModifyListener : Object) do
-            extend LocalClass
+            local_class_in InternalDocument
             include_class_members InternalDocument
             include class_self::ModifyListener if class_self::ModifyListener.class == Module
             
@@ -188,7 +188,7 @@ module Org::Eclipse::Jface::Contentassist
     def add_selection_listener(selection_listener)
       @f_text.add_selection_listener(selection_listener)
       listener = Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in TextContentAssistSubjectAdapter
         include_class_members TextContentAssistSubjectAdapter
         include Listener if Listener.class == Module
         

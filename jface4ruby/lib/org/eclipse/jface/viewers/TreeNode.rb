@@ -70,7 +70,7 @@ module Org::Eclipse::Jface::Viewers
     typesig { [Object] }
     def ==(object)
       if (object.is_a?(TreeNode))
-        return (Util == @value)
+        return Util.==(@value, (object).attr_value)
       end
       return false
     end

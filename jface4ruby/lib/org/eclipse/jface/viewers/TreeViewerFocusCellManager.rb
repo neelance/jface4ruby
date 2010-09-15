@@ -33,7 +33,7 @@ module Org::Eclipse::Jface::Viewers
     
     class_module.module_eval {
       const_set_lazy(:TREE_NAVIGATE) { Class.new(CellNavigationStrategy.class == Class ? CellNavigationStrategy : Object) do
-        extend LocalClass
+        local_class_in TreeViewerFocusCellManager
         include_class_members TreeViewerFocusCellManager
         include CellNavigationStrategy if CellNavigationStrategy.class == Module
         

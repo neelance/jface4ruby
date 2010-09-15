@@ -340,7 +340,7 @@ module Org::Eclipse::Jface::Text
       data.attr_height_hint = size
       resizer.set_layout_data(data)
       resizer.add_paint_listener(Class.new(PaintListener.class == Class ? PaintListener : Object) do
-        extend LocalClass
+        local_class_in AbstractInformationControl
         include_class_members AbstractInformationControl
         include PaintListener if PaintListener.class == Module
         
@@ -402,7 +402,7 @@ module Org::Eclipse::Jface::Text
       is_rtl = !((resizer.get_shell.get_style & SWT::RIGHT_TO_LEFT)).equal?(0)
       resizer.set_cursor(resizer.get_display.get_system_cursor(is_rtl ? SWT::CURSOR_SIZESW : SWT::CURSOR_SIZESE))
       resize_support = Class.new(MouseAdapter.class == Class ? MouseAdapter : Object) do
-        extend LocalClass
+        local_class_in AbstractInformationControl
         include_class_members AbstractInformationControl
         include MouseAdapter if MouseAdapter.class == Module
         
@@ -424,7 +424,7 @@ module Org::Eclipse::Jface::Text
           mouse_y = mouse_loc.attr_y
           mouse_adapter_class = self.class
           @f_resize_listener = Class.new(self.class::MouseMoveListener.class == Class ? self.class::MouseMoveListener : Object) do
-            extend LocalClass
+            local_class_in mouse_adapter_class
             include_class_members mouse_adapter_class
             include class_self::MouseMoveListener if class_self::MouseMoveListener.class == Module
             
@@ -490,7 +490,7 @@ module Org::Eclipse::Jface::Text
     # @param control the control that can be used to move the shell
     def add_move_support(control)
       move_support = Class.new(MouseAdapter.class == Class ? MouseAdapter : Object) do
-        extend LocalClass
+        local_class_in AbstractInformationControl
         include_class_members AbstractInformationControl
         include MouseAdapter if MouseAdapter.class == Module
         
@@ -510,7 +510,7 @@ module Org::Eclipse::Jface::Text
           mouse_y = mouse_loc.attr_y
           mouse_adapter_class = self.class
           @f_move_listener = Class.new(self.class::MouseMoveListener.class == Class ? self.class::MouseMoveListener : Object) do
-            extend LocalClass
+            local_class_in mouse_adapter_class
             include_class_members mouse_adapter_class
             include class_self::MouseMoveListener if class_self::MouseMoveListener.class == Module
             
@@ -780,7 +780,7 @@ module Org::Eclipse::Jface::Text
     def add_focus_listener(listener)
       if (@f_focus_listeners.is_empty)
         @f_shell_listener = Class.new(Listener.class == Class ? Listener : Object) do
-          extend LocalClass
+          local_class_in AbstractInformationControl
           include_class_members AbstractInformationControl
           include Listener if Listener.class == Module
           

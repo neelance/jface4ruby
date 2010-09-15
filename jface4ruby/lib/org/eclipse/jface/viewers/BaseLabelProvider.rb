@@ -72,7 +72,7 @@ module Org::Eclipse::Jface::Viewers
       while i < listeners.attr_length
         l = listeners[i]
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in BaseLabelProvider
           include_class_members BaseLabelProvider
           include SafeRunnable if SafeRunnable.class == Module
           

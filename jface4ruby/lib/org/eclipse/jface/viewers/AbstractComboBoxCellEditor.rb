@@ -98,7 +98,7 @@ module Org::Eclipse::Jface::Viewers
         end
         if (drop_down)
           get_control.get_display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-            extend LocalClass
+            local_class_in AbstractComboBoxCellEditor
             include_class_members AbstractComboBoxCellEditor
             include Runnable if Runnable.class == Module
             

@@ -187,7 +187,7 @@ module Org::Eclipse::Jface::Window
       def default_modal_parent
         defined?(@@default_modal_parent) ? @@default_modal_parent : @@default_modal_parent= # Object used to locate the default parent for modal shells
         Class.new(IShellProvider.class == Class ? IShellProvider : Object) do
-          extend LocalClass
+          local_class_in Window
           include_class_members Window
           include IShellProvider if IShellProvider.class == Module
           
@@ -292,7 +292,7 @@ module Org::Eclipse::Jface::Window
     class_module.module_eval {
       # Internal class for informing this window when fonts change.
       const_set_lazy(:FontChangeListener) { Class.new do
-        extend LocalClass
+        local_class_in Window
         include_class_members Window
         include IPropertyChangeListener
         
@@ -559,7 +559,7 @@ module Org::Eclipse::Jface::Window
       # Create the shell
       new_shell = Shell.new(new_parent, get_shell_style)
       @resize_listener = Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in Window
         include_class_members Window
         include Listener if Listener.class == Module
         
@@ -743,7 +743,7 @@ module Org::Eclipse::Jface::Window
     # @return a shell listener
     def get_shell_listener
       return Class.new(ShellAdapter.class == Class ? ShellAdapter : Object) do
-        extend LocalClass
+        local_class_in Window
         include_class_members Window
         include ShellAdapter if ShellAdapter.class == Module
         

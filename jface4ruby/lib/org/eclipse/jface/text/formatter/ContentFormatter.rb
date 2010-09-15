@@ -195,7 +195,7 @@ module Org::Eclipse::Jface::Text::Formatter
       # @see IPositionUpdater
       # @see DefaultPositionUpdater
       const_set_lazy(:NonDeletingPositionUpdater) { Class.new(DefaultPositionUpdater) do
-        extend LocalClass
+        local_class_in ContentFormatter
         include_class_members ContentFormatter
         
         typesig { [String] }
@@ -222,7 +222,7 @@ module Org::Eclipse::Jface::Text::Formatter
       # 
       # @see IPositionUpdater
       const_set_lazy(:RemoveAffectedPositions) { Class.new do
-        extend LocalClass
+        local_class_in ContentFormatter
         include_class_members ContentFormatter
         include IPositionUpdater
         
@@ -246,7 +246,7 @@ module Org::Eclipse::Jface::Text::Formatter
       # 
       # @see IPositionUpdater
       const_set_lazy(:UpdateAffectedPositions) { Class.new do
-        extend LocalClass
+        local_class_in ContentFormatter
         include_class_members ContentFormatter
         include IPositionUpdater
         

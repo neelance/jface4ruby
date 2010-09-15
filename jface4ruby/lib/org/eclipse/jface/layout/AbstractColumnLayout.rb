@@ -362,7 +362,7 @@ module Org::Eclipse::Jface::Layout
       @inupdate_mode = false
       @relayout = true
       @resize_listener = Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in AbstractColumnLayout
         include_class_members AbstractColumnLayout
         include Listener if Listener.class == Module
         

@@ -265,7 +265,7 @@ module Org::Eclipse::Jface::Wizard
       # maximum width and height of all pages currently inserted into the
       # container.
       const_set_lazy(:PageContainerFillLayout) { Class.new(Layout) do
-        extend LocalClass
+        local_class_in WizardDialog
         include_class_members WizardDialog
         
         # The margin width; <code>5</code> pixels by default.
@@ -461,7 +461,7 @@ module Org::Eclipse::Jface::Wizard
       @cancel_listener = # since VAJava can't initialize an instance var with an anonymous
       # class outside a constructor we do it here:
       Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-        extend LocalClass
+        local_class_in WizardDialog
         include_class_members WizardDialog
         include SelectionAdapter if SelectionAdapter.class == Module
         
@@ -603,7 +603,7 @@ module Org::Eclipse::Jface::Wizard
       super(new_shell)
       new_shell.add_help_listener(# Register help listener on the shell
       Class.new(HelpListener.class == Class ? HelpListener : Object) do
-        extend LocalClass
+        local_class_in WizardDialog
         include_class_members WizardDialog
         include HelpListener if HelpListener.class == Module
         
@@ -754,7 +754,7 @@ module Org::Eclipse::Jface::Wizard
     # @return ProgressMonitorPart
     def create_progress_monitor_part(composite, pmlayout)
       return Class.new(ProgressMonitorPart.class == Class ? ProgressMonitorPart : Object) do
-        extend LocalClass
+        local_class_in WizardDialog
         include_class_members WizardDialog
         include ProgressMonitorPart if ProgressMonitorPart.class == Module
         
@@ -899,7 +899,7 @@ module Org::Eclipse::Jface::Wizard
       result = # $NON-NLS-1$
       # $NON-NLS-1$
       Class.new(MessageDialog.class == Class ? MessageDialog : Object) do
-        extend LocalClass
+        local_class_in WizardDialog
         include_class_members WizardDialog
         include MessageDialog if MessageDialog.class == Module
         
@@ -1289,7 +1289,7 @@ module Org::Eclipse::Jface::Wizard
       else
         final_page = page
         BusyIndicator.show_while(get_contents.get_display, Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in WizardDialog
           include_class_members WizardDialog
           include Runnable if Runnable.class == Module
           
@@ -1613,7 +1613,7 @@ module Org::Eclipse::Jface::Wizard
       while i < listeners.attr_length
         l = listeners[i]
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in WizardDialog
           include_class_members WizardDialog
           include SafeRunnable if SafeRunnable.class == Module
           
@@ -1673,7 +1673,7 @@ module Org::Eclipse::Jface::Wizard
       while i < listeners.attr_length
         l = listeners[i]
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in WizardDialog
           include_class_members WizardDialog
           include SafeRunnable if SafeRunnable.class == Module
           

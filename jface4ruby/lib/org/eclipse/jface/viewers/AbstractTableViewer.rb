@@ -41,7 +41,7 @@ module Org::Eclipse::Jface::Viewers
     
     class_module.module_eval {
       const_set_lazy(:VirtualManager) { Class.new do
-        extend LocalClass
+        local_class_in AbstractTableViewer
         include_class_members AbstractTableViewer
         
         # The currently invisible elements as provided by the content provider
@@ -65,7 +65,7 @@ module Org::Eclipse::Jface::Viewers
         # Add the listener for SetData on the table
         def add_table_listener
           get_control.add_listener(SWT::SetData, Class.new(self.class::Listener.class == Class ? self.class::Listener : Object) do
-            extend LocalClass
+            local_class_in VirtualManager
             include_class_members VirtualManager
             include class_self::Listener if class_self::Listener.class == Module
             
@@ -573,7 +573,7 @@ module Org::Eclipse::Jface::Viewers
       get_control.set_redraw(false)
       begin
         preserving_selection(Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in AbstractTableViewer
           include_class_members AbstractTableViewer
           include Runnable if Runnable.class == Module
           
@@ -826,7 +826,7 @@ module Org::Eclipse::Jface::Viewers
         return
       end
       preserving_selection(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in AbstractTableViewer
         include_class_members AbstractTableViewer
         include Runnable if Runnable.class == Module
         

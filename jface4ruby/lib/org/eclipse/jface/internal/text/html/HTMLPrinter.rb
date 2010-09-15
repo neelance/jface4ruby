@@ -65,7 +65,7 @@ module Org::Eclipse::Jface::Internal::Text::Html
         if (!(display).nil? && !display.is_disposed)
           begin
             display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-              extend LocalClass
+              local_class_in HTMLPrinter
               include_class_members HTMLPrinter
               include Runnable if Runnable.class == Module
               

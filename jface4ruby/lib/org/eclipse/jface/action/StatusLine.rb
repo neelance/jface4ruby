@@ -201,7 +201,7 @@ module Org::Eclipse::Jface::Action
       
       # Layout the contribution item controls on the status line.
       const_set_lazy(:StatusLineLayout) { Class.new(Layout) do
-        extend LocalClass
+        local_class_in StatusLine
         include_class_members StatusLine
         
         attr_accessor :default_data
@@ -373,7 +373,7 @@ module Org::Eclipse::Jface::Action
       @f_cancel_button_is_visible = false
       @f_cancel_enabled = false
       add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in StatusLine
         include_class_members StatusLine
         include DisposeListener if DisposeListener.class == Module
         
@@ -409,7 +409,7 @@ module Org::Eclipse::Jface::Action
       @f_cancel_button.set_image(self.attr_fg_stop_image.create_image)
       @f_cancel_button.set_tool_tip_text(JFaceResources.get_string("Cancel_Current_Operation")) # $NON-NLS-1$
       @f_cancel_button.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-        extend LocalClass
+        local_class_in StatusLine
         include_class_members StatusLine
         include SelectionAdapter if SelectionAdapter.class == Module
         
@@ -427,7 +427,7 @@ module Org::Eclipse::Jface::Action
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @f_cancel_button.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in StatusLine
         include_class_members StatusLine
         include DisposeListener if DisposeListener.class == Module
         
@@ -480,7 +480,7 @@ module Org::Eclipse::Jface::Action
       timer = # make sure the progress bar is made visible while
       # the task is running. Fixes bug 32198 for the non-animated case.
       Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in StatusLine
         include_class_members StatusLine
         include Runnable if Runnable.class == Module
         

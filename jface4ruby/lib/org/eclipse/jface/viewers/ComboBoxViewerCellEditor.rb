@@ -92,7 +92,7 @@ module Org::Eclipse::Jface::Viewers
       combo_box.set_font(parent.get_font)
       @viewer = ComboViewer.new(combo_box)
       combo_box.add_key_listener(Class.new(KeyAdapter.class == Class ? KeyAdapter : Object) do
-        extend LocalClass
+        local_class_in ComboBoxViewerCellEditor
         include_class_members ComboBoxViewerCellEditor
         include KeyAdapter if KeyAdapter.class == Module
         
@@ -111,7 +111,7 @@ module Org::Eclipse::Jface::Viewers
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       combo_box.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-        extend LocalClass
+        local_class_in ComboBoxViewerCellEditor
         include_class_members ComboBoxViewerCellEditor
         include SelectionAdapter if SelectionAdapter.class == Module
         
@@ -139,7 +139,7 @@ module Org::Eclipse::Jface::Viewers
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       combo_box.add_traverse_listener(Class.new(TraverseListener.class == Class ? TraverseListener : Object) do
-        extend LocalClass
+        local_class_in ComboBoxViewerCellEditor
         include_class_members ComboBoxViewerCellEditor
         include TraverseListener if TraverseListener.class == Module
         
@@ -159,7 +159,7 @@ module Org::Eclipse::Jface::Viewers
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       combo_box.add_focus_listener(Class.new(FocusAdapter.class == Class ? FocusAdapter : Object) do
-        extend LocalClass
+        local_class_in ComboBoxViewerCellEditor
         include_class_members ComboBoxViewerCellEditor
         include FocusAdapter if FocusAdapter.class == Module
         

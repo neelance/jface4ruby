@@ -269,7 +269,7 @@ module Org::Eclipse::Jface::Text::Hyperlink
           @f_table.set_selection(0)
           register_table_listeners
           get_shell.add_shell_listener(Class.new(self.class::ShellAdapter.class == Class ? self.class::ShellAdapter : Object) do
-            extend LocalClass
+            local_class_in LinkListInformationControl
             include_class_members LinkListInformationControl
             include class_self::ShellAdapter if class_self::ShellAdapter.class == Module
             
@@ -295,7 +295,7 @@ module Org::Eclipse::Jface::Text::Hyperlink
         typesig { [] }
         def register_table_listeners
           @f_table.add_mouse_move_listener(Class.new(self.class::MouseMoveListener.class == Class ? self.class::MouseMoveListener : Object) do
-            extend LocalClass
+            local_class_in LinkListInformationControl
             include_class_members LinkListInformationControl
             include class_self::MouseMoveListener if class_self::MouseMoveListener.class == Module
             
@@ -348,7 +348,7 @@ module Org::Eclipse::Jface::Text::Hyperlink
             alias_method :initialize_anonymous, :initialize
           end.new_local(self))
           @f_table.add_selection_listener(Class.new(self.class::SelectionAdapter.class == Class ? self.class::SelectionAdapter : Object) do
-            extend LocalClass
+            local_class_in LinkListInformationControl
             include_class_members LinkListInformationControl
             include class_self::SelectionAdapter if class_self::SelectionAdapter.class == Module
             
@@ -366,7 +366,7 @@ module Org::Eclipse::Jface::Text::Hyperlink
             alias_method :initialize_anonymous, :initialize
           end.new_local(self))
           @f_table.add_mouse_listener(Class.new(self.class::MouseAdapter.class == Class ? self.class::MouseAdapter : Object) do
-            extend LocalClass
+            local_class_in LinkListInformationControl
             include_class_members LinkListInformationControl
             include class_self::MouseAdapter if class_self::MouseAdapter.class == Module
             
@@ -396,7 +396,7 @@ module Org::Eclipse::Jface::Text::Hyperlink
             alias_method :initialize_anonymous, :initialize
           end.new_local(self))
           @f_table.add_key_listener(Class.new(self.class::KeyAdapter.class == Class ? self.class::KeyAdapter : Object) do
-            extend LocalClass
+            local_class_in LinkListInformationControl
             include_class_members LinkListInformationControl
             include class_self::KeyAdapter if class_self::KeyAdapter.class == Module
             
@@ -439,7 +439,7 @@ module Org::Eclipse::Jface::Text::Hyperlink
       end }
       
       const_set_lazy(:MultipleHyperlinkHover) { Class.new do
-        extend LocalClass
+        local_class_in MultipleHyperlinkPresenter
         include_class_members MultipleHyperlinkPresenter
         include ITextHover
         include ITextHoverExtension
@@ -469,7 +469,7 @@ module Org::Eclipse::Jface::Text::Hyperlink
         # @see org.eclipse.jface.text.ITextHoverExtension#getHoverControlCreator()
         def get_hover_control_creator
           return Class.new(self.class::IInformationControlCreator.class == Class ? self.class::IInformationControlCreator : Object) do
-            extend LocalClass
+            local_class_in MultipleHyperlinkHover
             include_class_members MultipleHyperlinkHover
             include class_self::IInformationControlCreator if class_self::IInformationControlCreator.class == Module
             
@@ -507,7 +507,7 @@ module Org::Eclipse::Jface::Text::Hyperlink
         
         class_module.module_eval {
           const_set_lazy(:Closer) { Class.new do
-            extend LocalClass
+            local_class_in MultipleHyperlinkHoverManager
             include_class_members MultipleHyperlinkHoverManager
             include class_self::IInformationControlCloser
             include class_self::Listener

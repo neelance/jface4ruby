@@ -71,7 +71,7 @@ module Org::Eclipse::Jface::Text::Source
     class_module.module_eval {
       # Internal listener class.
       const_set_lazy(:InternalListener) { Class.new do
-        extend LocalClass
+        local_class_in AnnotationRulerColumn
         include_class_members AnnotationRulerColumn
         include IViewportListener
         include IAnnotationModelListener
@@ -446,7 +446,7 @@ module Org::Eclipse::Jface::Text::Source
       @f_hit_detection_cursor = parent_control.get_display.get_system_cursor(SWT::CURSOR_HAND)
       @f_canvas = create_canvas(parent_control)
       @f_canvas.add_paint_listener(Class.new(PaintListener.class == Class ? PaintListener : Object) do
-        extend LocalClass
+        local_class_in AnnotationRulerColumn
         include_class_members AnnotationRulerColumn
         include PaintListener if PaintListener.class == Module
         
@@ -466,7 +466,7 @@ module Org::Eclipse::Jface::Text::Source
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @f_canvas.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in AnnotationRulerColumn
         include_class_members AnnotationRulerColumn
         include DisposeListener if DisposeListener.class == Module
         
@@ -486,7 +486,7 @@ module Org::Eclipse::Jface::Text::Source
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @f_mouse_listener = Class.new(MouseListener.class == Class ? MouseListener : Object) do
-        extend LocalClass
+        local_class_in AnnotationRulerColumn
         include_class_members AnnotationRulerColumn
         include MouseListener if MouseListener.class == Module
         
@@ -542,7 +542,7 @@ module Org::Eclipse::Jface::Text::Source
       end.new_local(self)
       @f_canvas.add_mouse_listener(@f_mouse_listener)
       @f_canvas.add_mouse_move_listener(Class.new(MouseMoveListener.class == Class ? MouseMoveListener : Object) do
-        extend LocalClass
+        local_class_in AnnotationRulerColumn
         include_class_members AnnotationRulerColumn
         include MouseMoveListener if MouseMoveListener.class == Module
         
@@ -575,7 +575,7 @@ module Org::Eclipse::Jface::Text::Source
     # @return the created canvas
     def create_canvas(parent)
       return Class.new(Canvas.class == Class ? Canvas : Object) do
-        extend LocalClass
+        local_class_in AnnotationRulerColumn
         include_class_members AnnotationRulerColumn
         include Canvas if Canvas.class == Module
         
@@ -1002,7 +1002,7 @@ module Org::Eclipse::Jface::Text::Source
         d = @f_canvas.get_display
         if (!(d).nil?)
           d.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-            extend LocalClass
+            local_class_in AnnotationRulerColumn
             include_class_members AnnotationRulerColumn
             include Runnable if Runnable.class == Module
             

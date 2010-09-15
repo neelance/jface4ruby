@@ -243,7 +243,7 @@ module Org::Eclipse::Jface::Action
     def items
       i = @map_item_to_wrapper.values.iterator
       return Class.new(Enumeration.class == Class ? Enumeration : Object) do
-        extend LocalClass
+        local_class_in SubContributionManager
         include_class_members SubContributionManager
         include Enumeration if Enumeration.class == Module
         

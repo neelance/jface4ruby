@@ -1208,7 +1208,7 @@ module Org::Eclipse::Jface::Text::Source
         # now and running the posted runnable, the position information
         # is not accurate any longer.
         Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in AnnotationPainter
           include_class_members AnnotationPainter
           include Runnable if Runnable.class == Module
           
@@ -1267,7 +1267,7 @@ module Org::Eclipse::Jface::Text::Source
       @f_cached_annotation_type2painting_strategy.clear
       if ((@f_text_input_listener).nil?)
         @f_text_input_listener = Class.new(ITextInputListener.class == Class ? ITextInputListener : Object) do
-          extend LocalClass
+          local_class_in AnnotationPainter
           include_class_members AnnotationPainter
           include ITextInputListener if ITextInputListener.class == Module
           

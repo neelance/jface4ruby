@@ -91,9 +91,9 @@ module Org::Eclipse::Core::Commands
       end
       defined_changed = !self.attr_defined
       self.attr_defined = true
-      name_changed = !(Util == self.attr_name)
+      name_changed = !Util.==(self.attr_name, name)
       self.attr_name = name
-      description_changed = !(Util == self.attr_description)
+      description_changed = !Util.==(self.attr_description, description)
       self.attr_description = description
       fire_category_changed(CategoryEvent.new(self, defined_changed, description_changed, name_changed))
     end

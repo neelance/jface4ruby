@@ -292,7 +292,7 @@ module Org::Eclipse::Jface::Preference
           radio.set_data(label_and_value[1])
           radio.set_font(font)
           radio.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-            extend LocalClass
+            local_class_in RadioGroupFieldEditor
             include_class_members RadioGroupFieldEditor
             include SelectionAdapter if SelectionAdapter.class == Module
             
@@ -315,7 +315,7 @@ module Org::Eclipse::Jface::Preference
           i += 1
         end
         @radio_box.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-          extend LocalClass
+          local_class_in RadioGroupFieldEditor
           include_class_members RadioGroupFieldEditor
           include DisposeListener if DisposeListener.class == Module
           

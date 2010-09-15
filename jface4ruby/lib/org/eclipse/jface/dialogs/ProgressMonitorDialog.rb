@@ -205,7 +205,7 @@ module Org::Eclipse::Jface::Dialogs
     class_module.module_eval {
       # Internal progress monitor implementation.
       const_set_lazy(:ProgressMonitor) { Class.new do
-        extend LocalClass
+        local_class_in ProgressMonitorDialog
         include_class_members ProgressMonitorDialog
         include IProgressMonitorWithBlocking
         
@@ -424,7 +424,7 @@ module Org::Eclipse::Jface::Dialogs
     def async_set_operation_cancel_button_enabled(b)
       if (!(get_shell).nil?)
         get_shell.get_display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in ProgressMonitorDialog
           include_class_members ProgressMonitorDialog
           include Runnable if Runnable.class == Module
           
@@ -506,7 +506,7 @@ module Org::Eclipse::Jface::Dialogs
       shell.add_listener(SWT::Show, # Add a listener to set the message properly when the dialog becomes
       # visible
       Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in ProgressMonitorDialog
         include_class_members ProgressMonitorDialog
         include Listener if Listener.class == Module
         
@@ -516,7 +516,7 @@ module Org::Eclipse::Jface::Dialogs
           # visibility
           listener_class = self.class
           shell.get_display.async_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-            extend LocalClass
+            local_class_in listener_class
             include_class_members listener_class
             include class_self::Runnable if class_self::Runnable.class == Module
             

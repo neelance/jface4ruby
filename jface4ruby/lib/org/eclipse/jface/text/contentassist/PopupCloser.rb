@@ -181,7 +181,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       @f_scrollbar_clicked = false
       d = @f_table.get_display
       d.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in PopupCloser
         include_class_members PopupCloser
         include Runnable if Runnable.class == Module
         
@@ -208,7 +208,7 @@ module Org::Eclipse::Jface::Text::Contentassist
     def shell_deactivated(e)
       if (!(@f_content_assistant).nil? && !(@f_display).nil?)
         @f_display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in PopupCloser
           include_class_members PopupCloser
           include Runnable if Runnable.class == Module
           
@@ -293,7 +293,7 @@ module Org::Eclipse::Jface::Text::Contentassist
                   delayed_icp.set_delayed_input_change_listener(input_change_listener)
                   control.get_shell.get_display.timer_exec(1000, # cancel automatic input updating after a small timeout:
                   Class.new(Runnable.class == Class ? Runnable : Object) do
-                    extend LocalClass
+                    local_class_in PopupCloser
                     include_class_members PopupCloser
                     include Runnable if Runnable.class == Module
                     
@@ -313,7 +313,7 @@ module Org::Eclipse::Jface::Text::Contentassist
                 end
                 control.get_shell.get_display.async_exec(# XXX: workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=212392 :
                 Class.new(Runnable.class == Class ? Runnable : Object) do
-                  extend LocalClass
+                  local_class_in PopupCloser
                   include_class_members PopupCloser
                   include Runnable if Runnable.class == Module
                   
@@ -345,7 +345,7 @@ module Org::Eclipse::Jface::Text::Contentassist
               i_control5 = i_control
               if (i_control5.contains_control(control))
                 control.get_display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-                  extend LocalClass
+                  local_class_in PopupCloser
                   include_class_members PopupCloser
                   include Runnable if Runnable.class == Module
                   

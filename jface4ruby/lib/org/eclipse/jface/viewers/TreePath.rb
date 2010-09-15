@@ -174,7 +174,7 @@ module Org::Eclipse::Jface::Viewers
             return false
           end
         else
-          if (!(comparer == @segments[i]))
+          if (!comparer.==(@segments[i], other_path.attr_segments[i]))
             return false
           end
         end
@@ -211,7 +211,7 @@ module Org::Eclipse::Jface::Viewers
             return false
           end
         else
-          if (!(comparer == other_segment))
+          if (!comparer.==(other_segment, @segments[i]))
             return false
           end
         end

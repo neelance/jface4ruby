@@ -252,7 +252,7 @@ module Org::Eclipse::Jface::Text::Link
       
       # Listens for state changes in the model.
       const_set_lazy(:ExitListener) { Class.new do
-        extend LocalClass
+        local_class_in LinkedModeUI
         include_class_members LinkedModeUI
         include ILinkedModeListener
         
@@ -372,7 +372,7 @@ module Org::Eclipse::Jface::Text::Link
       
       # Listens for shell events and acts upon them.
       const_set_lazy(:Closer) { Class.new do
-        extend LocalClass
+        local_class_in LinkedModeUI
         include_class_members LinkedModeUI
         include ShellListener
         include ITextInputListener
@@ -407,7 +407,7 @@ module Org::Eclipse::Jface::Text::Link
           else
             display.async_exec(# Post in UI thread since the assistant popup will only get the focus after we lose it.
             Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-              extend LocalClass
+              local_class_in Closer
               include_class_members Closer
               include class_self::Runnable if class_self::Runnable.class == Module
               
@@ -468,7 +468,7 @@ module Org::Eclipse::Jface::Text::Link
       
       # @since 3.1
       const_set_lazy(:DocumentListener) { Class.new do
-        extend LocalClass
+        local_class_in LinkedModeUI
         include_class_members LinkedModeUI
         include IDocumentListener
         
@@ -515,7 +515,7 @@ module Org::Eclipse::Jface::Text::Link
       # Listens for key events, checks the exit policy for custom exit
       # strategies but defaults to handling Tab, Enter, and Escape.
       const_set_lazy(:KeyListener) { Class.new do
-        extend LocalClass
+        local_class_in LinkedModeUI
         include_class_members LinkedModeUI
         include VerifyKeyListener
         
@@ -623,7 +623,7 @@ module Org::Eclipse::Jface::Text::Link
       # linked position after cursor movement, even to positions not in the
       # iteration list.
       const_set_lazy(:MySelectionListener) { Class.new do
-        extend LocalClass
+        local_class_in LinkedModeUI
         include_class_members LinkedModeUI
         include ISelectionChangedListener
         
@@ -662,7 +662,7 @@ module Org::Eclipse::Jface::Text::Link
       end }
       
       const_set_lazy(:ProposalListener) { Class.new do
-        extend LocalClass
+        local_class_in LinkedModeUI
         include_class_members LinkedModeUI
         include IProposalListener
         
@@ -874,7 +874,7 @@ module Org::Eclipse::Jface::Text::Link
       @f_has_open_compound_change = false
       @f_position_listener = EmtpyFocusListener.new
       @f_auto_edit_vetoer = Class.new(IAutoEditStrategy.class == Class ? IAutoEditStrategy : Object) do
-        extend LocalClass
+        local_class_in LinkedModeUI
         include_class_members LinkedModeUI
         include IAutoEditStrategy if IAutoEditStrategy.class == Module
         
@@ -928,7 +928,7 @@ module Org::Eclipse::Jface::Text::Link
       @f_has_open_compound_change = false
       @f_position_listener = EmtpyFocusListener.new
       @f_auto_edit_vetoer = Class.new(IAutoEditStrategy.class == Class ? IAutoEditStrategy : Object) do
-        extend LocalClass
+        local_class_in LinkedModeUI
         include_class_members LinkedModeUI
         include IAutoEditStrategy if IAutoEditStrategy.class == Module
         
@@ -983,7 +983,7 @@ module Org::Eclipse::Jface::Text::Link
       @f_has_open_compound_change = false
       @f_position_listener = EmtpyFocusListener.new
       @f_auto_edit_vetoer = Class.new(IAutoEditStrategy.class == Class ? IAutoEditStrategy : Object) do
-        extend LocalClass
+        local_class_in LinkedModeUI
         include_class_members LinkedModeUI
         include IAutoEditStrategy if IAutoEditStrategy.class == Module
         
@@ -1043,7 +1043,7 @@ module Org::Eclipse::Jface::Text::Link
       @f_has_open_compound_change = false
       @f_position_listener = EmtpyFocusListener.new
       @f_auto_edit_vetoer = Class.new(IAutoEditStrategy.class == Class ? IAutoEditStrategy : Object) do
-        extend LocalClass
+        local_class_in LinkedModeUI
         include_class_members LinkedModeUI
         include IAutoEditStrategy if IAutoEditStrategy.class == Module
         
@@ -1377,7 +1377,7 @@ module Org::Eclipse::Jface::Text::Link
       end
       widget.get_display.async_exec(# See https://bugs.eclipse.org/bugs/show_bug.cgi?id=132263
       Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in LinkedModeUI
         include_class_members LinkedModeUI
         include Runnable if Runnable.class == Module
         
@@ -1573,7 +1573,7 @@ module Org::Eclipse::Jface::Text::Link
       end
       @f_model.stop_forwarding(flags)
       runnable = Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in LinkedModeUI
         include_class_members LinkedModeUI
         include Runnable if Runnable.class == Module
         

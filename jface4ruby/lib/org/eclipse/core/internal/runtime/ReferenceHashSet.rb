@@ -39,7 +39,7 @@ module Org::Eclipse::Core::Internal::Runtime
       end }
       
       const_set_lazy(:HashableWeakReference) { Class.new(WeakReference) do
-        extend LocalClass
+        local_class_in ReferenceHashSet
         include_class_members ReferenceHashSet
         overload_protected {
           include HashedReference
@@ -90,7 +90,7 @@ module Org::Eclipse::Core::Internal::Runtime
       end }
       
       const_set_lazy(:HashableSoftReference) { Class.new(SoftReference) do
-        extend LocalClass
+        local_class_in ReferenceHashSet
         include_class_members ReferenceHashSet
         overload_protected {
           include HashedReference
@@ -141,7 +141,7 @@ module Org::Eclipse::Core::Internal::Runtime
       end }
       
       const_set_lazy(:StrongReference) { Class.new do
-        extend LocalClass
+        local_class_in ReferenceHashSet
         include_class_members ReferenceHashSet
         include HashedReference
         

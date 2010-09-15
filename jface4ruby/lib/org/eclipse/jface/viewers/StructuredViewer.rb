@@ -192,7 +192,7 @@ module Org::Eclipse::Jface::Viewers
       # @see IFontProvider
       # @see IDecoration
       const_set_lazy(:ColorAndFontCollectorWithProviders) { Class.new(ColorAndFontCollector) do
-        extend LocalClass
+        local_class_in StructuredViewer
         include_class_members StructuredViewer
         
         attr_accessor :color_provider
@@ -342,7 +342,7 @@ module Org::Eclipse::Jface::Viewers
       # The ColorAndFontCollector collects fonts and colors without a
       # a color or font provider.
       const_set_lazy(:ColorAndFontCollector) { Class.new do
-        extend LocalClass
+        local_class_in StructuredViewer
         include_class_members StructuredViewer
         
         attr_accessor :foreground
@@ -489,7 +489,7 @@ module Org::Eclipse::Jface::Viewers
       
       # The safe runnable used to update an item.
       const_set_lazy(:UpdateItemSafeRunnable) { Class.new(SafeRunnable) do
-        extend LocalClass
+        local_class_in StructuredViewer
         include_class_members StructuredViewer
         
         attr_accessor :widget
@@ -767,7 +767,7 @@ module Org::Eclipse::Jface::Viewers
       if ((@comparer).nil?)
         return (element_a).nil? ? (element_b).nil? : (element_a == element_b)
       else
-        return (element_a).nil? ? (element_b).nil? : (@comparer == element_a)
+        return (element_a).nil? ? (element_b).nil? : @comparer.==(element_a, element_b)
       end
     end
     
@@ -882,7 +882,7 @@ module Org::Eclipse::Jface::Viewers
       while i < listeners.attr_length
         l = listeners[i]
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in StructuredViewer
           include_class_members StructuredViewer
           include SafeRunnable if SafeRunnable.class == Module
           
@@ -917,7 +917,7 @@ module Org::Eclipse::Jface::Viewers
       while i < listeners.attr_length
         l = listeners[i]
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in StructuredViewer
           include_class_members StructuredViewer
           include SafeRunnable if SafeRunnable.class == Module
           
@@ -953,7 +953,7 @@ module Org::Eclipse::Jface::Viewers
       while i < listeners.attr_length
         l = listeners[i]
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in StructuredViewer
           include_class_members StructuredViewer
           include SafeRunnable if SafeRunnable.class == Module
           
@@ -1272,7 +1272,7 @@ module Org::Eclipse::Jface::Viewers
       super(control)
       handler = OpenStrategy.new(control)
       handler.add_selection_listener(Class.new(SelectionListener.class == Class ? SelectionListener : Object) do
-        extend LocalClass
+        local_class_in StructuredViewer
         include_class_members StructuredViewer
         include SelectionListener if SelectionListener.class == Module
         
@@ -1300,7 +1300,7 @@ module Org::Eclipse::Jface::Viewers
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       handler.add_post_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-        extend LocalClass
+        local_class_in StructuredViewer
         include_class_members StructuredViewer
         include SelectionAdapter if SelectionAdapter.class == Module
         
@@ -1318,7 +1318,7 @@ module Org::Eclipse::Jface::Viewers
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       handler.add_open_listener(Class.new(IOpenEventListener.class == Class ? IOpenEventListener : Object) do
-        extend LocalClass
+        local_class_in StructuredViewer
         include_class_members StructuredViewer
         include IOpenEventListener if IOpenEventListener.class == Module
         
@@ -1571,7 +1571,7 @@ module Org::Eclipse::Jface::Viewers
     # the element
     def refresh(element)
       preserving_selection(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in StructuredViewer
         include_class_members StructuredViewer
         include Runnable if Runnable.class == Module
         
@@ -1610,7 +1610,7 @@ module Org::Eclipse::Jface::Viewers
     # @since 2.0
     def refresh(element, update_labels)
       preserving_selection(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in StructuredViewer
         include_class_members StructuredViewer
         include Runnable if Runnable.class == Module
         
@@ -2193,7 +2193,7 @@ module Org::Eclipse::Jface::Viewers
       end
       if (needs_refilter)
         preserving_selection(Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in StructuredViewer
           include_class_members StructuredViewer
           include Runnable if Runnable.class == Module
           

@@ -88,7 +88,7 @@ module Org::Eclipse::Jface::Viewers
     typesig { [ColumnViewer] }
     def hook_listener(viewer)
       listener = Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in FocusCellOwnerDrawHighlighter
         include_class_members FocusCellOwnerDrawHighlighter
         include Listener if Listener.class == Module
         

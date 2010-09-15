@@ -137,7 +137,7 @@ module Org::Eclipse::Jface::Dialogs
       # 
       # Move action for the dialog.
       const_set_lazy(:MoveAction) { Class.new(Action) do
-        extend LocalClass
+        local_class_in PopupDialog
         include_class_members PopupDialog
         
         typesig { [] }
@@ -160,7 +160,7 @@ module Org::Eclipse::Jface::Dialogs
       
       # Resize action for the dialog.
       const_set_lazy(:ResizeAction) { Class.new(Action) do
-        extend LocalClass
+        local_class_in PopupDialog
         include_class_members PopupDialog
         
         typesig { [] }
@@ -181,7 +181,7 @@ module Org::Eclipse::Jface::Dialogs
       
       # Remember bounds action for the dialog.
       const_set_lazy(:PersistBoundsAction) { Class.new(Action) do
-        extend LocalClass
+        local_class_in PopupDialog
         include_class_members PopupDialog
         
         typesig { [] }
@@ -206,7 +206,7 @@ module Org::Eclipse::Jface::Dialogs
       
       # Remember bounds action for the dialog.
       const_set_lazy(:PersistSizeAction) { Class.new(Action) do
-        extend LocalClass
+        local_class_in PopupDialog
         include_class_members PopupDialog
         
         typesig { [] }
@@ -230,7 +230,7 @@ module Org::Eclipse::Jface::Dialogs
       
       # Remember location action for the dialog.
       const_set_lazy(:PersistLocationAction) { Class.new(Action) do
-        extend LocalClass
+        local_class_in PopupDialog
         include_class_members PopupDialog
         
         typesig { [] }
@@ -644,7 +644,7 @@ module Org::Eclipse::Jface::Dialogs
     def configure_shell(shell)
       GridLayoutFactory.fill_defaults.margins(0, 0).spacing(5, 5).apply_to(shell)
       shell.add_listener(SWT::Deactivate, Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in PopupDialog
         include_class_members PopupDialog
         include Listener if Listener.class == Module
         
@@ -678,7 +678,7 @@ module Org::Eclipse::Jface::Dialogs
       shell.add_listener(SWT::Activate, # Set this true whenever we activate. It may have been turned
       # off by a menu or secondary popup showing.
       Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in PopupDialog
         include_class_members PopupDialog
         include Listener if Listener.class == Module
         
@@ -705,7 +705,7 @@ module Org::Eclipse::Jface::Dialogs
       end.new_local(self))
       if (!((get_shell_style & SWT::ON_TOP)).equal?(0) && !(shell.get_parent).nil?)
         @parent_deactivate_listener = Class.new(Listener.class == Class ? Listener : Object) do
-          extend LocalClass
+          local_class_in PopupDialog
           include_class_members PopupDialog
           include Listener if Listener.class == Module
           
@@ -730,7 +730,7 @@ module Org::Eclipse::Jface::Dialogs
         shell.get_parent.add_listener(SWT::Deactivate, @parent_deactivate_listener)
       end
       shell.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in PopupDialog
         include_class_members PopupDialog
         include DisposeListener if DisposeListener.class == Module
         
@@ -753,7 +753,7 @@ module Org::Eclipse::Jface::Dialogs
     def async_close
       get_shell.get_display.async_exec(# workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=152010
       Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in PopupDialog
         include_class_members PopupDialog
         include Runnable if Runnable.class == Module
         
@@ -988,7 +988,7 @@ module Org::Eclipse::Jface::Dialogs
       view_menu_button.set_disabled_image(JFaceResources.get_image(POPUP_IMG_MENU_DISABLED))
       view_menu_button.set_tool_tip_text(JFaceResources.get_string("PopupDialog.menuTooltip")) # $NON-NLS-1$
       view_menu_button.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-        extend LocalClass
+        local_class_in PopupDialog
         include_class_members PopupDialog
         include SelectionAdapter if SelectionAdapter.class == Module
         
@@ -1007,7 +1007,7 @@ module Org::Eclipse::Jface::Dialogs
       end.new_local(self))
       @tool_bar.add_mouse_listener(# See https://bugs.eclipse.org/bugs/show_bug.cgi?id=177183
       Class.new(MouseAdapter.class == Class ? MouseAdapter : Object) do
-        extend LocalClass
+        local_class_in PopupDialog
         include_class_members PopupDialog
         include MouseAdapter if MouseAdapter.class == Module
         

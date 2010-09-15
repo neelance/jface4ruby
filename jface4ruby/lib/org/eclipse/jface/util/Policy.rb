@@ -138,7 +138,7 @@ module Org::Eclipse::Jface::Util
       # Returns the dummy log to use if none has been set
       def get_dummy_log
         return Class.new(ILogger.class == Class ? ILogger : Object) do
-          extend LocalClass
+          local_class_in Policy
           include_class_members Policy
           include ILogger if ILogger.class == Module
           
@@ -212,7 +212,7 @@ module Org::Eclipse::Jface::Util
       typesig { [] }
       def get_dummy_status_handler
         return Class.new(StatusHandler.class == Class ? StatusHandler : Object) do
-          extend LocalClass
+          local_class_in Policy
           include_class_members Policy
           include StatusHandler if StatusHandler.class == Module
           
@@ -226,7 +226,7 @@ module Org::Eclipse::Jface::Util
           define_method :show do |status, title|
             status_handler_class = self.class
             runnable = Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-              extend LocalClass
+              local_class_in status_handler_class
               include_class_members status_handler_class
               include class_self::Runnable if class_self::Runnable.class == Module
               
@@ -237,7 +237,7 @@ module Org::Eclipse::Jface::Util
                   self.attr_dialog.create
                   runnable_class = self.class
                   self.attr_dialog.get_shell.add_dispose_listener(Class.new(self.class::DisposeListener.class == Class ? self.class::DisposeListener : Object) do
-                    extend LocalClass
+                    local_class_in runnable_class
                     include_class_members runnable_class
                     include class_self::DisposeListener if class_self::DisposeListener.class == Module
                     
@@ -293,7 +293,7 @@ module Org::Eclipse::Jface::Util
       # @return a default comparator used by JFace to sort strings
       def get_default_comparator
         return Class.new(Comparator.class == Class ? Comparator : Object) do
-          extend LocalClass
+          local_class_in Policy
           include_class_members Policy
           include Comparator if Comparator.class == Module
           

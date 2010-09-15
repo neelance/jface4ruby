@@ -441,7 +441,7 @@ module Org::Eclipse::Jface::Action
       if ((@overrides).nil?)
         if ((@parent).nil?)
           @overrides = Class.new(IContributionManagerOverrides.class == Class ? IContributionManagerOverrides : Object) do
-            extend LocalClass
+            local_class_in MenuManager
             include_class_members MenuManager
             include IContributionManagerOverrides if IContributionManagerOverrides.class == Module
             
@@ -522,7 +522,7 @@ module Org::Eclipse::Jface::Action
     # Initializes the menu control.
     def initialize_menu
       @menu.add_menu_listener(Class.new(MenuAdapter.class == Class ? MenuAdapter : Object) do
-        extend LocalClass
+        local_class_in MenuManager
         include_class_members MenuManager
         include MenuAdapter if MenuAdapter.class == Module
         

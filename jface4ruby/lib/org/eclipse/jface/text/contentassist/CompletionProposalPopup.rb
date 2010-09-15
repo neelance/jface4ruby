@@ -108,7 +108,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       # 
       # @since 3.4
       const_set_lazy(:ProposalSelectionHandler) { Class.new(AbstractHandler) do
-        extend LocalClass
+        local_class_in CompletionProposalPopup
         include_class_members CompletionProposalPopup
         
         class_module.module_eval {
@@ -253,7 +253,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       end }
       
       const_set_lazy(:ProposalSelectionListener) { Class.new do
-        extend LocalClass
+        local_class_in CompletionProposalPopup
         include_class_members CompletionProposalPopup
         include KeyListener
         
@@ -294,7 +294,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       end }
       
       const_set_lazy(:CommandKeyListener) { Class.new(KeyAdapter) do
-        extend LocalClass
+        local_class_in CompletionProposalPopup
         include_class_members CompletionProposalPopup
         
         attr_accessor :f_command_sequence
@@ -588,7 +588,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       @f_focus_helper = nil
       @f_is_filtered_subset = false
       @f_filter_runnable = Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in CompletionProposalPopup
         include_class_members CompletionProposalPopup
         include Runnable if Runnable.class == Module
         
@@ -670,7 +670,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       @f_focus_helper = nil
       @f_is_filtered_subset = false
       @f_filter_runnable = Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in CompletionProposalPopup
         include_class_members CompletionProposalPopup
         include Runnable if Runnable.class == Module
         
@@ -739,7 +739,7 @@ module Org::Eclipse::Jface::Text::Contentassist
         # when the user types fast.
         @f_content_assist_subject_control_adapter.add_key_listener(@f_key_listener)
         BusyIndicator.show_while(control.get_display, Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in CompletionProposalPopup
           include_class_members CompletionProposalPopup
           include Runnable if Runnable.class == Module
           
@@ -844,7 +844,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       if (USE_VIRTUAL)
         @f_proposal_table = Table.new(@f_proposal_shell, SWT::H_SCROLL | SWT::V_SCROLL | SWT::VIRTUAL)
         listener = Class.new(Listener.class == Class ? Listener : Object) do
-          extend LocalClass
+          local_class_in CompletionProposalPopup
           include_class_members CompletionProposalPopup
           include Listener if Listener.class == Module
           
@@ -899,7 +899,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       end
       @f_content_assistant.add_to_layout(self, @f_proposal_shell, ContentAssistant::LayoutManager::LAYOUT_PROPOSAL_SELECTOR, @f_content_assistant.get_selection_offset)
       @f_proposal_shell.add_control_listener(Class.new(ControlListener.class == Class ? ControlListener : Object) do
-        extend LocalClass
+        local_class_in CompletionProposalPopup
         include_class_members CompletionProposalPopup
         include ControlListener if ControlListener.class == Module
         
@@ -930,7 +930,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       c = get_foreground_color(control)
       @f_proposal_table.set_foreground(c)
       @f_proposal_table.add_selection_listener(Class.new(SelectionListener.class == Class ? SelectionListener : Object) do
-        extend LocalClass
+        local_class_in CompletionProposalPopup
         include_class_members CompletionProposalPopup
         include SelectionListener if SelectionListener.class == Module
         
@@ -953,7 +953,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       end.new_local(self))
       @f_popup_closer.install(@f_content_assistant, @f_proposal_table, @f_additional_info_controller)
       @f_proposal_shell.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in CompletionProposalPopup
         include_class_members CompletionProposalPopup
         include DisposeListener if DisposeListener.class == Module
         
@@ -1002,7 +1002,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       command_sequence = @f_content_assistant.get_repeated_invocation_key_sequence
       if (!(command_sequence).nil? && !command_sequence.is_empty && @f_content_assistant.is_repeated_invocation_mode)
         control.add_focus_listener(Class.new(FocusListener.class == Class ? FocusListener : Object) do
-          extend LocalClass
+          local_class_in CompletionProposalPopup
           include_class_members CompletionProposalPopup
           include FocusListener if FocusListener.class == Module
           
@@ -1041,7 +1041,7 @@ module Org::Eclipse::Jface::Text::Contentassist
         end.new_local(self))
       end
       control.add_focus_listener(Class.new(FocusListener.class == Class ? FocusListener : Object) do
-        extend LocalClass
+        local_class_in CompletionProposalPopup
         include_class_members CompletionProposalPopup
         include FocusListener if FocusListener.class == Module
         
@@ -1057,7 +1057,7 @@ module Org::Eclipse::Jface::Text::Contentassist
             if ((@f_traverse_listener).nil?)
               focus_listener_class = self.class
               @f_traverse_listener = Class.new(self.class::TraverseListener.class == Class ? self.class::TraverseListener : Object) do
-                extend LocalClass
+                local_class_in focus_listener_class
                 include_class_members focus_listener_class
                 include class_self::TraverseListener if class_self::TraverseListener.class == Module
                 
@@ -1159,7 +1159,7 @@ module Org::Eclipse::Jface::Text::Contentassist
         if (@f_content_assistant.is_repeated_invocation_mode)
           @f_message_text.set_cursor(@f_proposal_shell.get_display.get_system_cursor(SWT::CURSOR_HAND))
           @f_message_text.add_mouse_listener(Class.new(MouseAdapter.class == Class ? MouseAdapter : Object) do
-            extend LocalClass
+            local_class_in CompletionProposalPopup
             include_class_members CompletionProposalPopup
             include MouseAdapter if MouseAdapter.class == Module
             
@@ -1261,7 +1261,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       @f_inserting = true
       target = nil
       helper = Class.new(IEditingSupport.class == Class ? IEditingSupport : Object) do
-        extend LocalClass
+        local_class_in CompletionProposalPopup
         include_class_members CompletionProposalPopup
         include IEditingSupport if IEditingSupport.class == Module
         
@@ -1515,7 +1515,7 @@ module Org::Eclipse::Jface::Text::Contentassist
         ensure_document_listener_installed
         if ((@f_focus_helper).nil?)
           @f_focus_helper = Class.new(IEditingSupport.class == Class ? IEditingSupport : Object) do
-            extend LocalClass
+            local_class_in CompletionProposalPopup
             include_class_members CompletionProposalPopup
             include IEditingSupport if IEditingSupport.class == Module
             
@@ -1569,7 +1569,7 @@ module Org::Eclipse::Jface::Text::Contentassist
     def ensure_document_listener_installed
       if ((@f_document_listener).nil?)
         @f_document_listener = Class.new(IDocumentListener.class == Class ? IDocumentListener : Object) do
-          extend LocalClass
+          local_class_in CompletionProposalPopup
           include_class_members CompletionProposalPopup
           include IDocumentListener if IDocumentListener.class == Module
           
@@ -1873,7 +1873,7 @@ module Org::Eclipse::Jface::Text::Contentassist
           @f_content_assist_subject_control_adapter.add_key_listener(@f_key_listener)
         end
         BusyIndicator.show_while(control.get_display, Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in CompletionProposalPopup
           include_class_members CompletionProposalPopup
           include Runnable if Runnable.class == Module
           

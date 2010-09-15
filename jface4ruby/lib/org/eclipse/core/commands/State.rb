@@ -126,7 +126,7 @@ module Org::Eclipse::Core::Commands
     # @param value
     # The value to set; may be anything.
     def set_value(value)
-      if (!(Util == @value))
+      if (!Util.==(@value, value))
         old_value = @value
         @value = value
         fire_state_changed(old_value)

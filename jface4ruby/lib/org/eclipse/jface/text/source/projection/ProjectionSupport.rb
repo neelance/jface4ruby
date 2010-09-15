@@ -139,7 +139,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
       end }
       
       const_set_lazy(:ProjectionListener) { Class.new do
-        extend LocalClass
+        local_class_in ProjectionSupport
         include_class_members ProjectionSupport
         include IProjectionListener
         

@@ -75,7 +75,7 @@ module Org::Eclipse::Jface::Text::Source
     class_module.module_eval {
       # Layout of the composite vertical ruler. Arranges the list of columns.
       const_set_lazy(:RulerLayout) { Class.new(Layout) do
-        extend LocalClass
+        local_class_in CompositeRuler
         include_class_members CompositeRuler
         
         typesig { [] }
@@ -178,7 +178,7 @@ module Org::Eclipse::Jface::Text::Source
           super(parent, style)
           @f_cached_listeners = self.class::ArrayList.new
           @f_menu_detect_listener = Class.new(self.class::Listener.class == Class ? self.class::Listener : Object) do
-            extend LocalClass
+            local_class_in CompositeRulerCanvas
             include_class_members CompositeRulerCanvas
             include class_self::Listener if class_self::Listener.class == Module
             
@@ -202,7 +202,7 @@ module Org::Eclipse::Jface::Text::Source
             alias_method :initialize_anonymous, :initialize
           end.new_local(self)
           Canvas.instance_method(:add_dispose_listener).bind(self).call(Class.new(self.class::DisposeListener.class == Class ? self.class::DisposeListener : Object) do
-            extend LocalClass
+            local_class_in CompositeRulerCanvas
             include_class_members CompositeRulerCanvas
             include class_self::DisposeListener if class_self::DisposeListener.class == Module
             
@@ -736,7 +736,7 @@ module Org::Eclipse::Jface::Text::Source
         d = @f_composite.get_display
         if (!(d).nil?)
           d.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-            extend LocalClass
+            local_class_in CompositeRuler
             include_class_members CompositeRuler
             include Runnable if Runnable.class == Module
             

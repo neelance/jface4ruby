@@ -65,7 +65,7 @@ module Org::Eclipse::Jface::Layout
         typesig { [class_self::Tree] }
         def update(tree)
           tree.get_display.async_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-            extend LocalClass
+            local_class_in TreeLayoutListener
             include_class_members TreeLayoutListener
             include class_self::Runnable if class_self::Runnable.class == Module
             

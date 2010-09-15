@@ -102,7 +102,7 @@ module Org::Eclipse::Jface::Text::Templates
       # 
       # @since 3.3
       const_set_lazy(:VariableDescription) { Class.new do
-        extend LocalClass
+        local_class_in TemplateTranslator
         include_class_members TemplateTranslator
         
         attr_accessor :f_offsets

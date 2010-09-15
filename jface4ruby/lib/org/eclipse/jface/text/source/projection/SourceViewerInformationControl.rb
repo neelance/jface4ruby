@@ -187,7 +187,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
       @f_text_font = JFaceResources.get_font(symbolic_font_name)
       @f_text.set_font(@f_text_font)
       @f_text.add_key_listener(Class.new(KeyListener.class == Class ? KeyListener : Object) do
-        extend LocalClass
+        local_class_in SourceViewerInformationControl
         include_class_members SourceViewerInformationControl
         include KeyListener if KeyListener.class == Module
         
@@ -437,7 +437,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
     # @since 3.4
     def get_information_presenter_control_creator
       return Class.new(IInformationControlCreator.class == Class ? IInformationControlCreator : Object) do
-        extend LocalClass
+        local_class_in SourceViewerInformationControl
         include_class_members SourceViewerInformationControl
         include IInformationControlCreator if IInformationControlCreator.class == Module
         

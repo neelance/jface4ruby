@@ -129,7 +129,7 @@ module Org::Eclipse::Jface::Internal::Text::Revisions
       # The color tool manages revision colors and computes shaded colors based on the relative age
       # and author of a revision.
       const_set_lazy(:ColorTool) { Class.new do
-        extend LocalClass
+        local_class_in RevisionPainter
         include_class_members RevisionPainter
         
         class_module.module_eval {
@@ -302,7 +302,7 @@ module Org::Eclipse::Jface::Internal::Text::Revisions
       
       # Handles all the mouse interaction in this line number ruler column.
       const_set_lazy(:MouseHandler) { Class.new do
-        extend LocalClass
+        local_class_in RevisionPainter
         include_class_members RevisionPainter
         include MouseMoveListener
         include MouseTrackListener
@@ -390,7 +390,7 @@ module Org::Eclipse::Jface::Internal::Text::Revisions
       
       # Internal listener class that will update the ruler when the underlying model changes.
       const_set_lazy(:AnnotationListener) { Class.new do
-        extend LocalClass
+        local_class_in RevisionPainter
         include_class_members RevisionPainter
         include IAnnotationModelListener
         
@@ -431,7 +431,7 @@ module Org::Eclipse::Jface::Internal::Text::Revisions
         def do_create_information_control(parent)
           if (BrowserInformationControl.is_available(parent))
             return Class.new(self.class::BrowserInformationControl.class == Class ? self.class::BrowserInformationControl : Object) do
-              extend LocalClass
+              local_class_in HoverInformationControlCreator
               include_class_members HoverInformationControlCreator
               include class_self::BrowserInformationControl if class_self::BrowserInformationControl.class == Module
               
@@ -523,7 +523,7 @@ module Org::Eclipse::Jface::Internal::Text::Revisions
       # 
       # The revision hover displays information about the currently selected revision.
       const_set_lazy(:RevisionHover) { Class.new do
-        extend LocalClass
+        local_class_in RevisionPainter
         include_class_members RevisionPainter
         include IAnnotationHover
         include IAnnotationHoverExtension
@@ -986,7 +986,7 @@ module Org::Eclipse::Jface::Internal::Text::Revisions
       @f_control.add_listener(SWT::MouseUp, @f_mouse_handler)
       @f_control.add_listener(SWT::MouseDown, @f_mouse_handler)
       @f_control.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in RevisionPainter
         include_class_members RevisionPainter
         include DisposeListener if DisposeListener.class == Module
         
@@ -1592,7 +1592,7 @@ module Org::Eclipse::Jface::Internal::Text::Revisions
         d = @f_control.get_display
         if (!(d).nil?)
           d.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-            extend LocalClass
+            local_class_in RevisionPainter
             include_class_members RevisionPainter
             include Runnable if Runnable.class == Module
             

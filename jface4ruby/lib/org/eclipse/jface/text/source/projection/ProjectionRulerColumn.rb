@@ -206,7 +206,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
       control.set_background(background)
       control.add_mouse_track_listener(# install hover listener
       Class.new(MouseTrackAdapter.class == Class ? MouseTrackAdapter : Object) do
-        extend LocalClass
+        local_class_in ProjectionRulerColumn
         include_class_members ProjectionRulerColumn
         include MouseTrackAdapter if MouseTrackAdapter.class == Module
         
@@ -227,7 +227,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
       end.new_local(self))
       control.add_mouse_move_listener(# install mouse move listener
       Class.new(MouseMoveListener.class == Class ? MouseMoveListener : Object) do
-        extend LocalClass
+        local_class_in ProjectionRulerColumn
         include_class_members ProjectionRulerColumn
         include MouseMoveListener if MouseMoveListener.class == Module
         

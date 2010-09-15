@@ -81,7 +81,7 @@ module Org::Eclipse::Jface::Viewers
       if (enable)
         if ((@keyboard_activation_listener).nil?)
           @keyboard_activation_listener = Class.new(KeyListener.class == Class ? KeyListener : Object) do
-            extend LocalClass
+            local_class_in ColumnViewerEditorActivationStrategy
             include_class_members ColumnViewerEditorActivationStrategy
             include KeyListener if KeyListener.class == Module
             

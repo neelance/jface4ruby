@@ -142,7 +142,7 @@ module Org::Eclipse::Jface::Preference
       if ((@color_selector).nil?)
         @color_selector = ColorSelector.new(parent)
         @color_selector.add_listener(Class.new(IPropertyChangeListener.class == Class ? IPropertyChangeListener : Object) do
-          extend LocalClass
+          local_class_in ColorFieldEditor
           include_class_members ColorFieldEditor
           include IPropertyChangeListener if IPropertyChangeListener.class == Module
           

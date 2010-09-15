@@ -129,7 +129,7 @@ module Org::Eclipse::Jface::Text
       # @param targetKey the key to be used in the target preference store
       def start_propagate(source, source_key, target, target_key)
         source.add_property_change_listener(Class.new(IPropertyChangeListener.class == Class ? IPropertyChangeListener : Object) do
-          extend LocalClass
+          local_class_in PropagatingFontFieldEditor
           include_class_members PropagatingFontFieldEditor
           include IPropertyChangeListener if IPropertyChangeListener.class == Module
           

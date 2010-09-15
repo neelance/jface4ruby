@@ -69,7 +69,7 @@ module Org::Eclipse::Jface::Text::Source
     class_module.module_eval {
       # Internal listener class.
       const_set_lazy(:InternalListener) { Class.new do
-        extend LocalClass
+        local_class_in OverviewRuler
         include_class_members OverviewRuler
         include ITextListener
         include IAnnotationModelListener
@@ -144,7 +144,7 @@ module Org::Eclipse::Jface::Text::Source
       # Enumerates the annotations of a specified type and characteristics
       # of the associated annotation model.
       const_set_lazy(:FilterIterator) { Class.new do
-        extend LocalClass
+        local_class_in OverviewRuler
         include_class_members OverviewRuler
         include Iterator
         
@@ -287,7 +287,7 @@ module Org::Eclipse::Jface::Text::Source
       
       # The painter of the overview ruler's header.
       const_set_lazy(:HeaderPainter) { Class.new do
-        extend LocalClass
+        local_class_in OverviewRuler
         include_class_members OverviewRuler
         include PaintListener
         
@@ -621,7 +621,7 @@ module Org::Eclipse::Jface::Text::Source
       @f_runnable_lock = Object.new
       @f_is_runnable_posted = false
       @f_runnable = Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in OverviewRuler
         include_class_members OverviewRuler
         include Runnable if Runnable.class == Module
         
@@ -684,7 +684,7 @@ module Org::Eclipse::Jface::Text::Source
       @f_header = Canvas.new(parent, SWT::NONE)
       if (@f_annotation_access.is_a?(IAnnotationAccessExtension))
         @f_header.add_mouse_track_listener(Class.new(MouseTrackAdapter.class == Class ? MouseTrackAdapter : Object) do
-          extend LocalClass
+          local_class_in OverviewRuler
           include_class_members OverviewRuler
           include MouseTrackAdapter if MouseTrackAdapter.class == Module
           
@@ -706,7 +706,7 @@ module Org::Eclipse::Jface::Text::Source
       end
       @f_canvas = Canvas.new(parent, SWT::NO_BACKGROUND)
       @f_canvas.add_paint_listener(Class.new(PaintListener.class == Class ? PaintListener : Object) do
-        extend LocalClass
+        local_class_in OverviewRuler
         include_class_members OverviewRuler
         include PaintListener if PaintListener.class == Module
         
@@ -726,7 +726,7 @@ module Org::Eclipse::Jface::Text::Source
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @f_canvas.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in OverviewRuler
         include_class_members OverviewRuler
         include DisposeListener if DisposeListener.class == Module
         
@@ -745,7 +745,7 @@ module Org::Eclipse::Jface::Text::Source
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @f_canvas.add_mouse_listener(Class.new(MouseAdapter.class == Class ? MouseAdapter : Object) do
-        extend LocalClass
+        local_class_in OverviewRuler
         include_class_members OverviewRuler
         include MouseAdapter if MouseAdapter.class == Module
         
@@ -763,7 +763,7 @@ module Org::Eclipse::Jface::Text::Source
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @f_canvas.add_mouse_move_listener(Class.new(MouseMoveListener.class == Class ? MouseMoveListener : Object) do
-        extend LocalClass
+        local_class_in OverviewRuler
         include_class_members OverviewRuler
         include MouseMoveListener if MouseMoveListener.class == Module
         

@@ -136,7 +136,7 @@ module Org::Eclipse::Jface::Dialogs
     # @param image
     def add_accessible_listeners(label, image)
       label.get_accessible.add_accessible_listener(Class.new(AccessibleAdapter.class == Class ? AccessibleAdapter : Object) do
-        extend LocalClass
+        local_class_in IconAndMessageDialog
         include_class_members IconAndMessageDialog
         include AccessibleAdapter if AccessibleAdapter.class == Module
         
@@ -279,7 +279,7 @@ module Org::Eclipse::Jface::Dialogs
       end
       image = Array.typed(Image).new(1) { nil }
       display.sync_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in IconAndMessageDialog
         include_class_members IconAndMessageDialog
         include Runnable if Runnable.class == Module
         

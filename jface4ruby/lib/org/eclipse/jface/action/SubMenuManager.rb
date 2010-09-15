@@ -83,7 +83,7 @@ module Org::Eclipse::Jface::Action
       @menu_listeners.add(listener)
       if ((@menu_listener).nil?)
         @menu_listener = Class.new(IMenuListener.class == Class ? IMenuListener : Object) do
-          extend LocalClass
+          local_class_in SubMenuManager
           include_class_members SubMenuManager
           include IMenuListener if IMenuListener.class == Module
           

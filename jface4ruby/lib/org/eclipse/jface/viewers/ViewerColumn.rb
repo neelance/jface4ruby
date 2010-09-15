@@ -92,7 +92,7 @@ module Org::Eclipse::Jface::Viewers
       @viewer = viewer
       column_owner.set_data(self.attr_column_viewer_key, self)
       @listener = Class.new(ILabelProviderListener.class == Class ? ILabelProviderListener : Object) do
-        extend LocalClass
+        local_class_in ViewerColumn
         include_class_members ViewerColumn
         include ILabelProviderListener if ILabelProviderListener.class == Module
         
@@ -110,7 +110,7 @@ module Org::Eclipse::Jface::Viewers
         alias_method :initialize_anonymous, :initialize
       end.new_local(self)
       column_owner.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in ViewerColumn
         include_class_members ViewerColumn
         include DisposeListener if DisposeListener.class == Module
         

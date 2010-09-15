@@ -236,7 +236,7 @@ module Org::Eclipse::Jface::Action
         # Only add the listener if the toolbar was newly created (bug 62097).
         if (!(old_tool_bar).equal?(tool_bar))
           tool_bar.add_listener(SWT::MenuDetect, Class.new(Listener.class == Class ? Listener : Object) do
-            extend LocalClass
+            local_class_in ToolBarContributionItem
             include_class_members ToolBarContributionItem
             include Listener if Listener.class == Module
             
@@ -262,7 +262,7 @@ module Org::Eclipse::Jface::Action
         if (get_use_chevron)
           @cool_item.add_selection_listener(# Chevron Support
           Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-            extend LocalClass
+            local_class_in ToolBarContributionItem
             include_class_members ToolBarContributionItem
             include SelectionAdapter if SelectionAdapter.class == Module
             
@@ -284,7 +284,7 @@ module Org::Eclipse::Jface::Action
         end
         @cool_item.add_dispose_listener(# Handle for disposal
         Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-          extend LocalClass
+          local_class_in ToolBarContributionItem
           include_class_members ToolBarContributionItem
           include DisposeListener if DisposeListener.class == Module
           
@@ -458,7 +458,7 @@ module Org::Eclipse::Jface::Action
         tool_bar.set_menu(parent_menu)
         parent_menu.add_listener(SWT::Hide, # Hook listener to remove menu once it has disapeared
         Class.new(Listener.class == Class ? Listener : Object) do
-          extend LocalClass
+          local_class_in ToolBarContributionItem
           include_class_members ToolBarContributionItem
           include Listener if Listener.class == Module
           

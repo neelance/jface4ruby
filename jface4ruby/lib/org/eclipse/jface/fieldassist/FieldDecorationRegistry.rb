@@ -145,7 +145,7 @@ module Org::Eclipse::Jface::Fieldassist
       # Data structure that holds onto the decoration image info and description,
       # and can produce a decorator on request.
       const_set_lazy(:Entry) { Class.new do
-        extend LocalClass
+        local_class_in FieldDecorationRegistry
         include_class_members FieldDecorationRegistry
         
         attr_accessor :description

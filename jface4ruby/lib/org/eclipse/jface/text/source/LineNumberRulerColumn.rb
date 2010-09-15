@@ -61,7 +61,7 @@ module Org::Eclipse::Jface::Text::Source
     class_module.module_eval {
       # Internal listener class.
       const_set_lazy(:InternalListener) { Class.new do
-        extend LocalClass
+        local_class_in LineNumberRulerColumn
         include_class_members LineNumberRulerColumn
         include IViewportListener
         include ITextListener
@@ -111,7 +111,7 @@ module Org::Eclipse::Jface::Text::Source
       
       # Handles all the mouse interaction in this line number ruler column.
       const_set_lazy(:MouseHandler) { Class.new do
-        extend LocalClass
+        local_class_in LineNumberRulerColumn
         include_class_members LineNumberRulerColumn
         include MouseListener
         include MouseMoveListener
@@ -329,7 +329,7 @@ module Org::Eclipse::Jface::Text::Source
           case (direction)
           when SWT::UP
             timer = Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-              extend LocalClass
+              local_class_in MouseHandler
               include_class_members MouseHandler
               include class_self::Runnable if class_self::Runnable.class == Module
               
@@ -355,7 +355,7 @@ module Org::Eclipse::Jface::Text::Source
             end.new_local(self)
           when SWT::DOWN
             timer = Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-              extend LocalClass
+              local_class_in MouseHandler
               include_class_members MouseHandler
               include class_self::Runnable if class_self::Runnable.class == Module
               
@@ -558,7 +558,7 @@ module Org::Eclipse::Jface::Text::Source
       @f_runnable_lock = Object.new
       @f_is_runnable_posted = false
       @f_runnable = Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in LineNumberRulerColumn
         include_class_members LineNumberRulerColumn
         include Runnable if Runnable.class == Module
         
@@ -723,7 +723,7 @@ module Org::Eclipse::Jface::Text::Source
       @f_cached_text_viewer = parent_ruler.get_text_viewer
       @f_cached_text_widget = @f_cached_text_viewer.get_text_widget
       @f_canvas = Class.new(Canvas.class == Class ? Canvas : Object) do
-        extend LocalClass
+        local_class_in LineNumberRulerColumn
         include_class_members LineNumberRulerColumn
         include Canvas if Canvas.class == Module
         
@@ -754,7 +754,7 @@ module Org::Eclipse::Jface::Text::Source
       @f_canvas.set_background(get_background(@f_canvas.get_display))
       @f_canvas.set_foreground(@f_foreground)
       @f_canvas.add_paint_listener(Class.new(PaintListener.class == Class ? PaintListener : Object) do
-        extend LocalClass
+        local_class_in LineNumberRulerColumn
         include_class_members LineNumberRulerColumn
         include PaintListener if PaintListener.class == Module
         
@@ -774,7 +774,7 @@ module Org::Eclipse::Jface::Text::Source
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @f_canvas.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in LineNumberRulerColumn
         include_class_members LineNumberRulerColumn
         include DisposeListener if DisposeListener.class == Module
         

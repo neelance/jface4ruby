@@ -44,7 +44,7 @@ module Org::Eclipse::Jface::Dialogs
       # Internal class for recording the enable/disable state of a single
       # control.
       const_set_lazy(:ItemState) { Class.new do
-        extend LocalClass
+        local_class_in ControlEnableState
         include_class_members ControlEnableState
         
         # the control

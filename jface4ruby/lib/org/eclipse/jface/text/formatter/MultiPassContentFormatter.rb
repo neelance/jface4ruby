@@ -55,7 +55,7 @@ module Org::Eclipse::Jface::Text::Formatter
       # non-whitespace character. The length of the positions are truncated to
       # one if the position was shifted.
       const_set_lazy(:NonDeletingPositionUpdater) { Class.new(DefaultPositionUpdater) do
-        extend LocalClass
+        local_class_in MultiPassContentFormatter
         include_class_members MultiPassContentFormatter
         
         typesig { [String] }

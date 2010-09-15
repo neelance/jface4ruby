@@ -60,7 +60,7 @@ module Org::Eclipse::Jface::Text
     class_module.module_eval {
       # Internal listener to mouse and key events.
       const_set_lazy(:KeyAndMouseListener) { Class.new do
-        extend LocalClass
+        local_class_in TextViewerUndoManager
         include_class_members TextViewerUndoManager
         include MouseListener
         include KeyListener
@@ -113,7 +113,7 @@ module Org::Eclipse::Jface::Text
       
       # Internal text input listener.
       const_set_lazy(:TextInputListener) { Class.new do
-        extend LocalClass
+        local_class_in TextViewerUndoManager
         include_class_members TextViewerUndoManager
         include ITextInputListener
         
@@ -139,7 +139,7 @@ module Org::Eclipse::Jface::Text
       
       # Internal document undo listener.
       const_set_lazy(:DocumentUndoListener) { Class.new do
-        extend LocalClass
+        local_class_in TextViewerUndoManager
         include_class_members TextViewerUndoManager
         include IDocumentUndoListener
         
@@ -161,7 +161,7 @@ module Org::Eclipse::Jface::Text
               end
             end
             self.attr_f_text_viewer.get_text_widget.get_display.sync_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-              extend LocalClass
+              local_class_in DocumentUndoListener
               include_class_members DocumentUndoListener
               include class_self::Runnable if class_self::Runnable.class == Module
               
@@ -183,7 +183,7 @@ module Org::Eclipse::Jface::Text
           else
             if ((!((event_type & DocumentUndoEvent::UNDONE)).equal?(0)) || (!((event_type & DocumentUndoEvent::REDONE)).equal?(0)))
               self.attr_f_text_viewer.get_text_widget.get_display.sync_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-                extend LocalClass
+                local_class_in DocumentUndoListener
                 include_class_members DocumentUndoListener
                 include class_self::Runnable if class_self::Runnable.class == Module
                 
@@ -374,7 +374,7 @@ module Org::Eclipse::Jface::Text
           display = Display.get_default
         end
         display.sync_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in TextViewerUndoManager
           include_class_members TextViewerUndoManager
           include Runnable if Runnable.class == Module
           

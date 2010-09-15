@@ -182,7 +182,7 @@ module Org::Eclipse::Jface::Viewers
       end
       @feature = feature
       @dispose_listener = Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in ColumnViewerEditor
         include_class_members ColumnViewerEditor
         include DisposeListener if DisposeListener.class == Module
         
@@ -207,7 +207,7 @@ module Org::Eclipse::Jface::Viewers
     typesig { [] }
     def init_cell_editor_listener
       @cell_editor_listener = Class.new(ICellEditorListener.class == Class ? ICellEditorListener : Object) do
-        extend LocalClass
+        local_class_in ColumnViewerEditor
         include_class_members ColumnViewerEditor
         include ICellEditorListener if ICellEditorListener.class == Module
         
@@ -281,7 +281,7 @@ module Org::Eclipse::Jface::Viewers
           if (@cell_editor.depends_on_external_focus_listener)
             if ((@focus_listener).nil?)
               @focus_listener = Class.new(FocusAdapter.class == Class ? FocusAdapter : Object) do
-                extend LocalClass
+                local_class_in ColumnViewerEditor
                 include_class_members ColumnViewerEditor
                 include FocusAdapter if FocusAdapter.class == Module
                 
@@ -302,7 +302,7 @@ module Org::Eclipse::Jface::Viewers
             control.add_focus_listener(@focus_listener)
           end
           @mouse_listener = Class.new(MouseAdapter.class == Class ? MouseAdapter : Object) do
-            extend LocalClass
+            local_class_in ColumnViewerEditor
             include_class_members ColumnViewerEditor
             include MouseAdapter if MouseAdapter.class == Module
             
@@ -334,7 +334,7 @@ module Org::Eclipse::Jface::Viewers
           end
           if ((@tabediting_listener).nil?)
             @tabediting_listener = Class.new(TraverseListener.class == Class ? TraverseListener : Object) do
-              extend LocalClass
+              local_class_in ColumnViewerEditor
               include_class_members ColumnViewerEditor
               include TraverseListener if TraverseListener.class == Module
               

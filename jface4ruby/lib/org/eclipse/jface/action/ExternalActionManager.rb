@@ -164,7 +164,7 @@ module Org::Eclipse::Jface::Action
         # @since 3.1
         def initialize(binding_manager, command_manager)
           initialize__command_callback(binding_manager, command_manager, Class.new(self.class::IActiveChecker.class == Class ? self.class::IActiveChecker : Object) do
-            extend LocalClass
+            local_class_in CommandCallback
             include_class_members CommandCallback
             include class_self::IActiveChecker if class_self::IActiveChecker.class == Module
             
@@ -181,7 +181,7 @@ module Org::Eclipse::Jface::Action
             private
             alias_method :initialize_anonymous, :initialize
           end.new_local(self), Class.new(self.class::IExecuteApplicable.class == Class ? self.class::IExecuteApplicable : Object) do
-            extend LocalClass
+            local_class_in CommandCallback
             include_class_members CommandCallback
             include class_self::IExecuteApplicable if class_self::IExecuteApplicable.class == Module
             
@@ -217,7 +217,7 @@ module Org::Eclipse::Jface::Action
         # @since 3.1
         def initialize(binding_manager, command_manager, active_checker)
           initialize__command_callback(binding_manager, command_manager, active_checker, Class.new(self.class::IExecuteApplicable.class == Class ? self.class::IExecuteApplicable : Object) do
-            extend LocalClass
+            local_class_in CommandCallback
             include_class_members CommandCallback
             include class_self::IExecuteApplicable if class_self::IExecuteApplicable.class == Module
             
@@ -400,7 +400,7 @@ module Org::Eclipse::Jface::Action
               # And remember this item so we don't log it again.
               @logged_command_ids.add(command_id)
               command.add_command_listener(Class.new(self.class::ICommandListener.class == Class ? self.class::ICommandListener : Object) do
-                extend LocalClass
+                local_class_in CommandCallback
                 include_class_members CommandCallback
                 include class_self::ICommandListener if class_self::ICommandListener.class == Module
                 

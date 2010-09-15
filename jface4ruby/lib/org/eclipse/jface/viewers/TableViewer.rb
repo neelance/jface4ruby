@@ -359,7 +359,7 @@ module Org::Eclipse::Jface::Viewers
         cancel_editing
       end
       preserving_selection(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in TableViewer
         include_class_members TableViewer
         include Runnable if Runnable.class == Module
         

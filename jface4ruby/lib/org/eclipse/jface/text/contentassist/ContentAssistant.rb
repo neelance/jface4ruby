@@ -101,7 +101,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       # A generic closer class used to monitor various interface events in order to determine whether
       # content-assist should be terminated and all associated windows closed.
       const_set_lazy(:Closer) { Class.new do
-        extend LocalClass
+        local_class_in ContentAssistant
         include_class_members ContentAssistant
         include ControlListener
         include MouseListener
@@ -208,7 +208,7 @@ module Org::Eclipse::Jface::Text::Contentassist
             d = control.get_display
             if (!(d).nil?)
               d.async_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-                extend LocalClass
+                local_class_in Closer
                 include_class_members Closer
                 include class_self::Runnable if class_self::Runnable.class == Module
                 
@@ -263,7 +263,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       # 
       # @since 3.4 protected, was added in 2.1 as private class
       const_set_lazy(:AutoAssistListener) { Class.new(KeyAdapter) do
-        extend LocalClass
+        local_class_in ContentAssistant
         include_class_members ContentAssistant
         overload_protected {
           include Runnable
@@ -427,7 +427,7 @@ module Org::Eclipse::Jface::Text::Contentassist
           end
           begin
             d.sync_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-              extend LocalClass
+              local_class_in AutoAssistListener
               include_class_members AutoAssistListener
               include class_self::Runnable if class_self::Runnable.class == Module
               
@@ -472,7 +472,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       # The layout manager layouts the various windows associated with the content assistant based on
       # the settings of the content assistant.
       const_set_lazy(:LayoutManager) { Class.new do
-        extend LocalClass
+        local_class_in ContentAssistant
         include_class_members ContentAssistant
         include Listener
         
@@ -884,7 +884,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       
       # Internal key listener and event consumer.
       const_set_lazy(:InternalListener) { Class.new do
-        extend LocalClass
+        local_class_in ContentAssistant
         include_class_members ContentAssistant
         include VerifyKeyListener
         include IEventConsumer
@@ -1664,7 +1664,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       if (Helper.ok_to_use(@f_content_assist_subject_control_adapter.get_control))
         @f_content_assist_subject_control_shell = @f_content_assist_subject_control_adapter.get_control.get_shell
         @f_cascstraverse_listener = Class.new(TraverseListener.class == Class ? TraverseListener : Object) do
-          extend LocalClass
+          local_class_in ContentAssistant
           include_class_members ContentAssistant
           include TraverseListener if TraverseListener.class == Module
           

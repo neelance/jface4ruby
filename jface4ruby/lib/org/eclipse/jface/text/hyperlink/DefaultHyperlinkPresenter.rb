@@ -365,7 +365,7 @@ module Org::Eclipse::Jface::Text::Hyperlink
         widget = @f_text_viewer.get_text_widget
         if (!(widget).nil? && !widget.is_disposed)
           widget.get_display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-            extend LocalClass
+            local_class_in DefaultHyperlinkPresenter
             include_class_members DefaultHyperlinkPresenter
             include Runnable if Runnable.class == Module
             

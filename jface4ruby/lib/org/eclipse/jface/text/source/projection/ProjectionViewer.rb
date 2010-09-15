@@ -109,7 +109,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
       
       # Internal listener to changes of the annotation model.
       const_set_lazy(:AnnotationModelListener) { Class.new do
-        extend LocalClass
+        local_class_in ProjectionViewer
         include_class_members ProjectionViewer
         include IAnnotationModelListener
         include IAnnotationModelListenerExtension
@@ -150,7 +150,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
       
       # Executes the 'replaceVisibleDocument' operation when called the first time. Self-destructs afterwards.
       const_set_lazy(:ReplaceVisibleDocumentExecutor) { Class.new do
-        extend LocalClass
+        local_class_in ProjectionViewer
         include_class_members ProjectionViewer
         include IDocumentListener
         
@@ -1038,7 +1038,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
             display = widget.get_display
             if (!(display).nil?)
               display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-                extend LocalClass
+                local_class_in ProjectionViewer
                 include_class_members ProjectionViewer
                 include Runnable if Runnable.class == Module
                 

@@ -80,7 +80,7 @@ module Org::Eclipse::Jface::Dialogs
     class_module.module_eval {
       # A message line displaying a status.
       const_set_lazy(:MessageLine) { Class.new(CLabel) do
-        extend LocalClass
+        local_class_in StatusDialog
         include_class_members StatusDialog
         
         attr_accessor :f_normal_msg_area_background

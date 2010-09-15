@@ -167,7 +167,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
     def get_hover_control_creator
       if ((@f_information_control_creator).nil?)
         @f_information_control_creator = Class.new(IInformationControlCreator.class == Class ? IInformationControlCreator : Object) do
-          extend LocalClass
+          local_class_in ProjectionAnnotationHover
           include_class_members ProjectionAnnotationHover
           include IInformationControlCreator if IInformationControlCreator.class == Module
           
@@ -194,7 +194,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
     def get_information_presenter_control_creator
       if ((@f_information_presenter_control_creator).nil?)
         @f_information_presenter_control_creator = Class.new(IInformationControlCreator.class == Class ? IInformationControlCreator : Object) do
-          extend LocalClass
+          local_class_in ProjectionAnnotationHover
           include_class_members ProjectionAnnotationHover
           include IInformationControlCreator if IInformationControlCreator.class == Module
           

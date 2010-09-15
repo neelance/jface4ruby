@@ -51,7 +51,7 @@ module Org::Eclipse::Core::Commands
       # 
       # @since 3.1
       const_set_lazy(:ExecutionListener) { Class.new do
-        extend LocalClass
+        local_class_in CommandManager
         include_class_members CommandManager
         include IExecutionListenerWithChecks
         

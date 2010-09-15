@@ -61,7 +61,7 @@ module Org::Eclipse::Jface::Text::Source
     class_module.module_eval {
       # Internal listener class.
       const_set_lazy(:InternalListener) { Class.new do
-        extend LocalClass
+        local_class_in VerticalRuler
         include_class_members VerticalRuler
         include IViewportListener
         include IAnnotationModelListener
@@ -203,7 +203,7 @@ module Org::Eclipse::Jface::Text::Source
       @f_text_viewer = text_viewer
       @f_canvas = Canvas.new(parent, SWT::NO_BACKGROUND)
       @f_canvas.add_paint_listener(Class.new(PaintListener.class == Class ? PaintListener : Object) do
-        extend LocalClass
+        local_class_in VerticalRuler
         include_class_members VerticalRuler
         include PaintListener if PaintListener.class == Module
         
@@ -223,7 +223,7 @@ module Org::Eclipse::Jface::Text::Source
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @f_canvas.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in VerticalRuler
         include_class_members VerticalRuler
         include DisposeListener if DisposeListener.class == Module
         
@@ -242,7 +242,7 @@ module Org::Eclipse::Jface::Text::Source
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @f_canvas.add_mouse_listener(Class.new(MouseListener.class == Class ? MouseListener : Object) do
-        extend LocalClass
+        local_class_in VerticalRuler
         include_class_members VerticalRuler
         include MouseListener if MouseListener.class == Module
         
@@ -526,7 +526,7 @@ module Org::Eclipse::Jface::Text::Source
         d = @f_canvas.get_display
         if (!(d).nil?)
           d.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-            extend LocalClass
+            local_class_in VerticalRuler
             include_class_members VerticalRuler
             include Runnable if Runnable.class == Module
             

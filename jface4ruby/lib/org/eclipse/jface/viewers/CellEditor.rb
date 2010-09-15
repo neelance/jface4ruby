@@ -392,7 +392,7 @@ module Org::Eclipse::Jface::Viewers
       while i < array.attr_length
         l = array[i]
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in CellEditor
           include_class_members CellEditor
           include SafeRunnable if SafeRunnable.class == Module
           
@@ -424,7 +424,7 @@ module Org::Eclipse::Jface::Viewers
       while i < array.attr_length
         l = array[i]
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in CellEditor
           include_class_members CellEditor
           include SafeRunnable if SafeRunnable.class == Module
           
@@ -459,7 +459,7 @@ module Org::Eclipse::Jface::Viewers
       while i < array.attr_length
         l = array[i]
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in CellEditor
           include_class_members CellEditor
           include SafeRunnable if SafeRunnable.class == Module
           
@@ -491,7 +491,7 @@ module Org::Eclipse::Jface::Viewers
       while i < array.attr_length
         l = array[i]
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in CellEditor
           include_class_members CellEditor
           include SafeRunnable if SafeRunnable.class == Module
           

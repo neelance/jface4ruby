@@ -67,7 +67,7 @@ module Org::Eclipse::Jface::Operation
     class_module.module_eval {
       # $NON-NLS-1$
       const_set_lazy(:Collector) { Class.new do
-        extend LocalClass
+        local_class_in AccumulatingProgressMonitor
         include_class_members AccumulatingProgressMonitor
         include Runnable
         
@@ -159,7 +159,7 @@ module Org::Eclipse::Jface::Operation
         @collector = nil
       end
       @display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in AccumulatingProgressMonitor
         include_class_members AccumulatingProgressMonitor
         include Runnable if Runnable.class == Module
         
@@ -210,7 +210,7 @@ module Org::Eclipse::Jface::Operation
         @collector = nil
       end
       @display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in AccumulatingProgressMonitor
         include_class_members AccumulatingProgressMonitor
         include Runnable if Runnable.class == Module
         
@@ -250,7 +250,7 @@ module Org::Eclipse::Jface::Operation
         @collector = nil
       end
       @display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in AccumulatingProgressMonitor
         include_class_members AccumulatingProgressMonitor
         include Runnable if Runnable.class == Module
         
@@ -304,7 +304,7 @@ module Org::Eclipse::Jface::Operation
         return
       end
       @display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in AccumulatingProgressMonitor
         include_class_members AccumulatingProgressMonitor
         include Runnable if Runnable.class == Module
         
@@ -338,7 +338,7 @@ module Org::Eclipse::Jface::Operation
         return
       end
       @display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in AccumulatingProgressMonitor
         include_class_members AccumulatingProgressMonitor
         include Runnable if Runnable.class == Module
         

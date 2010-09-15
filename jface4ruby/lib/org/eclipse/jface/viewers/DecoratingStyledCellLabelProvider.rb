@@ -88,7 +88,7 @@ module Org::Eclipse::Jface::Viewers
       @decorator = decorator
       @decoration_context = !(decoration_context).nil? ? decoration_context : DecorationContext::DEFAULT_CONTEXT
       @label_provider_listener = Class.new(ILabelProviderListener.class == Class ? ILabelProviderListener : Object) do
-        extend LocalClass
+        local_class_in DecoratingStyledCellLabelProvider
         include_class_members DecoratingStyledCellLabelProvider
         include ILabelProviderListener if ILabelProviderListener.class == Module
         

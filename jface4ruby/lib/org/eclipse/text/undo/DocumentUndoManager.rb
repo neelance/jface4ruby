@@ -572,7 +572,7 @@ module Org::Eclipse::Text::Undo
       
       # Internal listener to document changes.
       const_set_lazy(:DocumentListener) { Class.new do
-        extend LocalClass
+        local_class_in DocumentUndoManager
         include_class_members DocumentUndoManager
         include IDocumentListener
         
@@ -640,7 +640,7 @@ module Org::Eclipse::Text::Undo
       
       # @see IOperationHistoryListener
       const_set_lazy(:HistoryListener) { Class.new do
-        extend LocalClass
+        local_class_in DocumentUndoManager
         include_class_members DocumentUndoManager
         include IOperationHistoryListener
         
@@ -1131,7 +1131,7 @@ module Org::Eclipse::Text::Undo
           # clipboard
           length_ = replaced_text.length
           delimiters = @f_document.get_legal_line_delimiters
-          if (((length_).equal?(1)) || (TextUtilities == delimiters) > -1)
+          if (((length_).equal?(1)) || TextUtilities.==(delimiters, replaced_text) > -1)
             # whereby selection is empty
             if ((@f_previous_delete.attr_f_start).equal?(model_start) && (@f_previous_delete.attr_f_end).equal?(model_end))
               # repeated DEL
@@ -1180,7 +1180,7 @@ module Org::Eclipse::Text::Undo
           if ((length_).equal?(1))
             length_ = replaced_text.length
             delimiters = @f_document.get_legal_line_delimiters
-            if (((length_).equal?(1)) || (TextUtilities == delimiters) > -1)
+            if (((length_).equal?(1)) || TextUtilities.==(delimiters, replaced_text) > -1)
               # because of overwrite mode or model manipulation
               if (!@f_overwriting || (!(model_start).equal?(@f_current.attr_f_start + @f_text_buffer.length)))
                 @f_current.attr_f_redo_modification_stamp = before_change_modification_stamp

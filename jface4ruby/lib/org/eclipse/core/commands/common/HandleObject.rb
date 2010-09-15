@@ -134,7 +134,7 @@ module Org::Eclipse::Core::Commands::Common
       end
       # Check each property in turn.
       handle = object
-      return (Util == @id) && ((self.get_class).equal?(handle.get_class))
+      return Util.==(@id, handle.attr_id) && ((self.get_class).equal?(handle.get_class))
     end
     
     typesig { [] }

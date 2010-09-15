@@ -145,7 +145,7 @@ module Org::Eclipse::Jface::Util
       # @since 3.1
       def create_default_runner
         return Class.new(ISafeRunnableRunner.class == Class ? ISafeRunnableRunner : Object) do
-          extend LocalClass
+          local_class_in SafeRunnable
           include_class_members SafeRunnable
           include ISafeRunnableRunner if ISafeRunnableRunner.class == Module
           

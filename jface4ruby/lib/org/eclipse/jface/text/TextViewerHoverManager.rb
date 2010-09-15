@@ -129,7 +129,7 @@ module Org::Eclipse::Jface::Text
       @f_process_mouse_hover_event = true
       @f_text_viewer = text_viewer
       @f_stopper = Class.new(ITextListener.class == Class ? ITextListener : Object) do
-        extend LocalClass
+        local_class_in TextViewerHoverManager
         include_class_members TextViewerHoverManager
         include ITextListener if ITextListener.class == Module
         
@@ -152,7 +152,7 @@ module Org::Eclipse::Jface::Text
         alias_method :initialize_anonymous, :initialize
       end.new_local(self)
       @f_viewport_listener = Class.new(IViewportListener.class == Class ? IViewportListener : Object) do
-        extend LocalClass
+        local_class_in TextViewerHoverManager
         include_class_members TextViewerHoverManager
         include IViewportListener if IViewportListener.class == Module
         
@@ -172,7 +172,7 @@ module Org::Eclipse::Jface::Text
       end.new_local(self)
       @f_text_viewer.add_viewport_listener(@f_viewport_listener)
       @f_mouse_move_listener = Class.new(MouseMoveListener.class == Class ? MouseMoveListener : Object) do
-        extend LocalClass
+        local_class_in TextViewerHoverManager
         include_class_members TextViewerHoverManager
         include MouseMoveListener if MouseMoveListener.class == Module
         
@@ -227,7 +227,7 @@ module Org::Eclipse::Jface::Text
         return
       end
       @f_thread = Class.new(JavaThread.class == Class ? JavaThread : Object) do
-        extend LocalClass
+        local_class_in TextViewerHoverManager
         include_class_members TextViewerHoverManager
         include JavaThread if JavaThread.class == Module
         
@@ -314,7 +314,7 @@ module Org::Eclipse::Jface::Text
           return
         end
         display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in TextViewerHoverManager
           include_class_members TextViewerHoverManager
           include Runnable if Runnable.class == Module
           

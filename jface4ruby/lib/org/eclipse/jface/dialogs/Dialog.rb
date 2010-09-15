@@ -392,7 +392,7 @@ module Org::Eclipse::Jface::Dialogs
         defined?(@@blocked_handler) ? @@blocked_handler : @@blocked_handler= # Create a default instance of the blocked handler which does not do
         # anything.
         Class.new(IDialogBlockedHandler.class == Class ? IDialogBlockedHandler : Object) do
-          extend LocalClass
+          local_class_in Dialog
           include_class_members Dialog
           include IDialogBlockedHandler if IDialogBlockedHandler.class == Module
           
@@ -640,7 +640,7 @@ module Org::Eclipse::Jface::Dialogs
       button.set_font(JFaceResources.get_dialog_font)
       button.set_data(id)
       button.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-        extend LocalClass
+        local_class_in Dialog
         include_class_members Dialog
         include SelectionAdapter if SelectionAdapter.class == Module
         
@@ -1085,7 +1085,7 @@ module Org::Eclipse::Jface::Dialogs
       def dialog_font_is_default
         dialog_font_data = JFaceResources.get_font_registry.get_font_data(JFaceResources::DIALOG_FONT)
         default_font_data = JFaceResources.get_font_registry.get_font_data(JFaceResources::DEFAULT_FONT)
-        return (Arrays == dialog_font_data)
+        return Arrays.==(dialog_font_data, default_font_data)
       end
     }
     

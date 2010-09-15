@@ -65,7 +65,7 @@ module Org::Eclipse::Jface::Resource
       # FontRecord is a private helper class that holds onto a font
       # and can be used to generate its bold and italic version.
       const_set_lazy(:FontRecord) { Class.new do
-        extend LocalClass
+        local_class_in FontRegistry
         include_class_members FontRegistry
         
         attr_accessor :base_font
@@ -318,7 +318,7 @@ module Org::Eclipse::Jface::Resource
       @string_to_font_data = HashMap.new(7)
       @stale_fonts = ArrayList.new
       @display_runnable = Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in FontRegistry
         include_class_members FontRegistry
         include Runnable if Runnable.class == Module
         
@@ -427,7 +427,7 @@ module Org::Eclipse::Jface::Resource
       @string_to_font_data = HashMap.new(7)
       @stale_fonts = ArrayList.new
       @display_runnable = Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in FontRegistry
         include_class_members FontRegistry
         include Runnable if Runnable.class == Module
         

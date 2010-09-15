@@ -383,17 +383,17 @@ module Org::Eclipse::Core::Commands
       end
       defined_changed = !self.attr_defined
       self.attr_defined = true
-      name_changed = !(Util == self.attr_name)
+      name_changed = !Util.==(self.attr_name, name)
       self.attr_name = name
-      description_changed = !(Util == self.attr_description)
+      description_changed = !Util.==(self.attr_description, description)
       self.attr_description = description
-      category_changed = !(Util == @category)
+      category_changed = !Util.==(@category, category)
       @category = category
-      parameters_changed = !(Util == @parameters)
+      parameters_changed = !Util.==(@parameters, parameters)
       @parameters = parameters
-      return_type_changed = !(Util == @return_type)
+      return_type_changed = !Util.==(@return_type, return_type)
       @return_type = return_type
-      help_context_id_changed = !(Util == @help_context_id)
+      help_context_id_changed = !Util.==(@help_context_id, help_context_id)
       @help_context_id = help_context_id
       fire_command_changed(CommandEvent.new(self, category_changed, defined_changed, description_changed, false, name_changed, parameters_changed, return_type_changed, help_context_id_changed))
     end
@@ -505,7 +505,7 @@ module Org::Eclipse::Core::Commands
       while i < listeners.attr_length
         listener = listeners[i]
         SafeRunner.run(Class.new(ISafeRunnable.class == Class ? ISafeRunnable : Object) do
-          extend LocalClass
+          local_class_in Command
           include_class_members Command
           include ISafeRunnable if ISafeRunnable.class == Module
           
@@ -924,7 +924,7 @@ module Org::Eclipse::Core::Commands
     # @return <code>true</code> if the handler changed; <code>false</code>
     # otherwise.
     def set_handler(handler)
-      if ((Util == handler))
+      if (Util.==(handler, @handler))
         return false
       end
       # Swap the state around.
@@ -977,7 +977,7 @@ module Org::Eclipse::Core::Commands
     def get_handler_listener
       if ((@handler_listener).nil?)
         @handler_listener = Class.new(IHandlerListener.class == Class ? IHandlerListener : Object) do
-          extend LocalClass
+          local_class_in Command
           include_class_members Command
           include IHandlerListener if IHandlerListener.class == Module
           

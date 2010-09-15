@@ -73,7 +73,7 @@ module Org::Eclipse::Jface::Internal::Text
       # Internal information control closer. Listens to several events issued by its subject control
       # and closes the information control when necessary.
       const_set_lazy(:Closer) { Class.new do
-        extend LocalClass
+        local_class_in StickyHoverManager
         include_class_members StickyHoverManager
         include IInformationControlCloser
         include ControlListener
@@ -227,7 +227,7 @@ module Org::Eclipse::Jface::Internal::Text
           end # $NON-NLS-1$
           d = @f_subject_control.get_display
           d.async_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-            extend LocalClass
+            local_class_in Closer
             include_class_members Closer
             include class_self::Runnable if class_self::Runnable.class == Module
             

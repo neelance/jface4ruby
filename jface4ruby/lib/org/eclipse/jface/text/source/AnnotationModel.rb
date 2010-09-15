@@ -343,7 +343,7 @@ module Org::Eclipse::Jface::Text::Source
       # 
       # @since 3.0
       const_set_lazy(:InternalModelListener) { Class.new do
-        extend LocalClass
+        local_class_in AnnotationModel
         include_class_members AnnotationModel
         include IAnnotationModelListener
         include IAnnotationModelListenerExtension
@@ -471,7 +471,7 @@ module Org::Eclipse::Jface::Text::Source
       @f_positions = IdentityHashMap.new(10)
       @f_annotation_model_listeners = ArrayList.new(2)
       @f_document_listener = Class.new(IDocumentListener.class == Class ? IDocumentListener : Object) do
-        extend LocalClass
+        local_class_in AnnotationModel
         include_class_members AnnotationModel
         include IDocumentListener if IDocumentListener.class == Module
         
@@ -822,7 +822,7 @@ module Org::Eclipse::Jface::Text::Source
           synchronized((get_lock_object)) do
             if (!(@f_model_event).nil?)
               Class.new(JavaThread.class == Class ? JavaThread : Object) do
-                extend LocalClass
+                local_class_in AnnotationModel
                 include_class_members AnnotationModel
                 include JavaThread if JavaThread.class == Module
                 

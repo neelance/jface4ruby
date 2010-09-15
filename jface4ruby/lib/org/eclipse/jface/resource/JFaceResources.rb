@@ -231,7 +231,7 @@ module Org::Eclipse::Jface::Resource
           reg = mgr
           Registries.put(to_query, reg)
           to_query.dispose_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-            extend LocalClass
+            local_class_in JFaceResources
             include_class_members JFaceResources
             include Runnable if Runnable.class == Module
             

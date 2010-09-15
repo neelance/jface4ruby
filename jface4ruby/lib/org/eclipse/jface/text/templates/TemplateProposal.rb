@@ -283,7 +283,7 @@ module Org::Eclipse::Jface::Text::Templates
         @f_updater = InclusivePositionUpdater.new(get_category)
         document.add_position_updater(@f_updater)
         model.add_linking_listener(Class.new(ILinkedModeListener.class == Class ? ILinkedModeListener : Object) do
-          extend LocalClass
+          local_class_in TemplateProposal
           include_class_members TemplateProposal
           include ILinkedModeListener if ILinkedModeListener.class == Module
           

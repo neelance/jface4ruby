@@ -83,7 +83,7 @@ module Org::Eclipse::Jface::Text::Source
       
       # Handles all the mouse interaction in this line number ruler column.
       const_set_lazy(:MouseHandler) { Class.new do
-        extend LocalClass
+        local_class_in AbstractRulerColumn
         include_class_members AbstractRulerColumn
         include MouseListener
         include MouseMoveListener
@@ -121,7 +121,7 @@ module Org::Eclipse::Jface::Text::Source
       
       # Internal listener class that updates the ruler upon scrolling and text modifications.
       const_set_lazy(:InternalListener) { Class.new do
-        extend LocalClass
+        local_class_in AbstractRulerColumn
         include_class_members AbstractRulerColumn
         include IViewportListener
         include ITextListener
@@ -298,7 +298,7 @@ module Org::Eclipse::Jface::Text::Source
       @f_canvas.set_background(get_default_background)
       @f_canvas.set_font(get_font)
       @f_canvas.add_paint_listener(Class.new(PaintListener.class == Class ? PaintListener : Object) do
-        extend LocalClass
+        local_class_in AbstractRulerColumn
         include_class_members AbstractRulerColumn
         include PaintListener if PaintListener.class == Module
         

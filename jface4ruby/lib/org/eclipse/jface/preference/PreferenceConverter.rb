@@ -410,7 +410,7 @@ module Org::Eclipse::Jface::Preference
       def set_value(store, name, value)
         old_value = get_font_data_array(store, name)
         # see if the font has changed
-        if (!(Arrays == old_value))
+        if (!Arrays.==(old_value, value))
           store.put_value(name, get_stored_representation(value))
           JFaceResources.get_font_registry.put(name, value)
           store.fire_property_change_event(name, old_value, value)
@@ -430,7 +430,7 @@ module Org::Eclipse::Jface::Preference
       def put_value(store, name, value)
         old_value = get_font_data_array(store, name)
         # see if the font has changed
-        if (!(Arrays == old_value))
+        if (!Arrays.==(old_value, value))
           store.put_value(name, get_stored_representation(value))
         end
       end

@@ -414,10 +414,10 @@ module Org::Eclipse::Core::Commands
         return false
       end
       command = object
-      if (!(Util == @command))
+      if (!Util.==(@command, command.attr_command))
         return false
       end
-      return (Util == @parameterizations)
+      return Util.==(@parameterizations, command.attr_parameterizations)
     end
     
     typesig { [Object, Object] }

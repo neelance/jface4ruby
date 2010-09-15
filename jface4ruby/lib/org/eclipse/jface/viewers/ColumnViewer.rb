@@ -122,7 +122,7 @@ module Org::Eclipse::Jface::Viewers
       # own impl
       if (!(@viewer_editor).nil?)
         control.add_mouse_listener(Class.new(MouseAdapter.class == Class ? MouseAdapter : Object) do
-          extend LocalClass
+          local_class_in ColumnViewer
           include_class_members ColumnViewer
           include MouseAdapter if MouseAdapter.class == Module
           
@@ -251,7 +251,7 @@ module Org::Eclipse::Jface::Viewers
     def setup_editing_support(column_index, viewer)
       if (!(get_cell_modifier).nil?)
         viewer.set_editing_support(Class.new(EditingSupport.class == Class ? EditingSupport : Object) do
-          extend LocalClass
+          local_class_in ColumnViewer
           include_class_members ColumnViewer
           include EditingSupport if EditingSupport.class == Module
           
@@ -337,7 +337,7 @@ module Org::Eclipse::Jface::Viewers
     # @return ViewerColumn the viewer column
     def create_viewer_column(column_owner, label_provider)
       column = Class.new(ViewerColumn.class == Class ? ViewerColumn : Object) do
-        extend LocalClass
+        local_class_in ColumnViewer
         include_class_members ColumnViewer
         include ViewerColumn if ViewerColumn.class == Module
         

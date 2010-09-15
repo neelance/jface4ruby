@@ -146,11 +146,11 @@ module Org::Eclipse::Core::Commands::Contexts
       end
       defined_changed = !self.attr_defined
       self.attr_defined = true
-      name_changed = !(Util == self.attr_name)
+      name_changed = !Util.==(self.attr_name, name)
       self.attr_name = name
-      description_changed = !(Util == self.attr_description)
+      description_changed = !Util.==(self.attr_description, description)
       self.attr_description = description
-      parent_id_changed = !(Util == @parent_id)
+      parent_id_changed = !Util.==(@parent_id, parent_id)
       @parent_id = parent_id
       fire_context_changed(ContextEvent.new(self, defined_changed, name_changed, description_changed, parent_id_changed))
     end

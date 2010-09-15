@@ -405,7 +405,7 @@ module Org::Eclipse::Jface::Preference
           @label.set_text(text)
         end
         @label.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-          extend LocalClass
+          local_class_in FieldEditor
           include_class_members FieldEditor
           include DisposeListener if DisposeListener.class == Module
           

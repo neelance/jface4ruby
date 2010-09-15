@@ -178,7 +178,7 @@ module Org::Eclipse::Jface::Preference
           i += 1
         end
         @f_combo.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-          extend LocalClass
+          local_class_in ComboFieldEditor
           include_class_members ComboFieldEditor
           include SelectionAdapter if SelectionAdapter.class == Module
           

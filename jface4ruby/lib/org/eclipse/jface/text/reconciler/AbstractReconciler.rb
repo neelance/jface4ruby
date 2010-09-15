@@ -52,7 +52,7 @@ module Org::Eclipse::Jface::Text::Reconciler
     class_module.module_eval {
       # Background thread for the reconciling activity.
       const_set_lazy(:BackgroundThread) { Class.new(JavaThread) do
-        extend LocalClass
+        local_class_in AbstractReconciler
         include_class_members AbstractReconciler
         
         # Has the reconciler been canceled.
@@ -233,7 +233,7 @@ module Org::Eclipse::Jface::Text::Reconciler
       
       # Internal document listener and text input listener.
       const_set_lazy(:Listener) { Class.new do
-        extend LocalClass
+        local_class_in AbstractReconciler
         include_class_members AbstractReconciler
         include IDocumentListener
         include ITextInputListener

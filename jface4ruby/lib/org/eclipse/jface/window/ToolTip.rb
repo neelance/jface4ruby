@@ -190,7 +190,7 @@ module Org::Eclipse::Jface::Window
       @control = control
       @style = style
       @control.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in ToolTip
         include_class_members ToolTip
         include DisposeListener if DisposeListener.class == Module
         
@@ -210,7 +210,7 @@ module Org::Eclipse::Jface::Window
       end.new_local(self))
       @listener = ToolTipOwnerControlListener.new_local(self)
       @shell_listener = Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in ToolTip
         include_class_members ToolTip
         include Listener if Listener.class == Module
         
@@ -219,7 +219,7 @@ module Org::Eclipse::Jface::Window
           if (!(@local_class_parent.attr_control).nil? && !@local_class_parent.attr_control.is_disposed)
             listener_class = self.class
             @local_class_parent.attr_control.get_display.async_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-              extend LocalClass
+              local_class_in listener_class
               include_class_members listener_class
               include class_self::Runnable if class_self::Runnable.class == Module
               
@@ -570,7 +570,7 @@ module Org::Eclipse::Jface::Window
         new_event.attr_y = new_pt.attr_y
         tip.close
         display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in ToolTip
           include_class_members ToolTip
           include Runnable if Runnable.class == Module
           
@@ -610,7 +610,7 @@ module Org::Eclipse::Jface::Window
       @control.get_shell.add_listener(SWT::Deactivate, @shell_listener)
       if (@popup_delay > 0)
         @control.get_display.timer_exec(@popup_delay, Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in ToolTip
           include_class_members ToolTip
           include Runnable if Runnable.class == Module
           
@@ -632,7 +632,7 @@ module Org::Eclipse::Jface::Window
       end
       if (@hide_delay > 0)
         @control.get_display.timer_exec(@popup_delay + @hide_delay, Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in ToolTip
           include_class_members ToolTip
           include Runnable if Runnable.class == Module
           
@@ -750,7 +750,7 @@ module Org::Eclipse::Jface::Window
         # Only change if value really changed
         if (!(hide_on_mouse_down).equal?(@hide_on_mouse_down))
           @control.get_display.sync_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-            extend LocalClass
+            local_class_in ToolTip
             include_class_members ToolTip
             include Runnable if Runnable.class == Module
             
@@ -782,7 +782,7 @@ module Org::Eclipse::Jface::Window
     
     class_module.module_eval {
       const_set_lazy(:ToolTipOwnerControlListener) { Class.new do
-        extend LocalClass
+        local_class_in ToolTip
         include_class_members ToolTip
         include Listener
         
@@ -816,7 +816,7 @@ module Org::Eclipse::Jface::Window
       end }
       
       const_set_lazy(:TooltipHideListener) { Class.new do
-        extend LocalClass
+        local_class_in ToolTip
         include_class_members ToolTip
         include Listener
         

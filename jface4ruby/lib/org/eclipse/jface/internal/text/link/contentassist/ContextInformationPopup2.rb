@@ -208,7 +208,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
     def show_context_proposals(auto_activated)
       styled_text = @f_viewer.get_text_widget
       BusyIndicator.show_while(styled_text.get_display, Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in ContextInformationPopup2
         include_class_members ContextInformationPopup2
         include Runnable if Runnable.class == Module
         
@@ -258,7 +258,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
     def show_context_information(info, position)
       control = @f_viewer.get_text_widget
       BusyIndicator.show_while(control.get_display, Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in ContextInformationPopup2
         include_class_members ContextInformationPopup2
         include Runnable if Runnable.class == Module
         
@@ -447,7 +447,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
       end
       @f_context_selector_table.set_foreground(c)
       @f_context_selector_table.add_selection_listener(Class.new(SelectionListener.class == Class ? SelectionListener : Object) do
-        extend LocalClass
+        local_class_in ContextInformationPopup2
         include_class_members ContextInformationPopup2
         include SelectionListener if SelectionListener.class == Module
         
@@ -698,7 +698,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
       # Otherwise, we'd validate the context information based on the
       # pre-key-stroke state.
       Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in ContextInformationPopup2
         include_class_members ContextInformationPopup2
         include Runnable if Runnable.class == Module
         

@@ -126,7 +126,7 @@ module Org::Eclipse::Jface::Text::Revisions
         end
         Collections.sort(ranges, # sort by start line
         Class.new(Comparator.class == Class ? Comparator : Object) do
-          extend LocalClass
+          local_class_in RevisionInformation
           include_class_members RevisionInformation
           include Comparator if Comparator.class == Module
           

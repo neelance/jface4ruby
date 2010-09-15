@@ -146,7 +146,7 @@ module Org::Eclipse::Jface::Viewers
       i = 0
       while i < my_len
         if (use_comparer)
-          if (!(@comparer == @elements[i]))
+          if (!@comparer.==(@elements[i], s2.attr_elements[i]))
             return false
           end
         else

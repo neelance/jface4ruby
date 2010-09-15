@@ -445,7 +445,7 @@ module Org::Eclipse::Jface::Dialogs
       button.set_layout_data(data)
       button.set_font(parent.get_font)
       button.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-        extend LocalClass
+        local_class_in MessageDialogWithToggle
         include_class_members MessageDialogWithToggle
         include SelectionAdapter if SelectionAdapter.class == Module
         

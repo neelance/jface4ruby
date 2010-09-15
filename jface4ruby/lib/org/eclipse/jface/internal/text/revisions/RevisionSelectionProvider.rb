@@ -46,7 +46,7 @@ module Org::Eclipse::Jface::Internal::Text::Revisions
       # Post selection listener on the viewer that remembers the selection provider it is registered
       # with.
       const_set_lazy(:PostSelectionListener) { Class.new do
-        extend LocalClass
+        local_class_in RevisionSelectionProvider
         include_class_members RevisionSelectionProvider
         include ISelectionChangedListener
         

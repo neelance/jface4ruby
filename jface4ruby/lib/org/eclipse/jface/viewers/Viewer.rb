@@ -136,7 +136,7 @@ module Org::Eclipse::Jface::Viewers
         if (!(control).nil? && !control.is_disposed)
           if ((@help_listener).nil?)
             @help_listener = Class.new(HelpListener.class == Class ? HelpListener : Object) do
-              extend LocalClass
+              local_class_in Viewer
               include_class_members Viewer
               include HelpListener if HelpListener.class == Module
               
@@ -196,7 +196,7 @@ module Org::Eclipse::Jface::Viewers
       while i < listeners.attr_length
         l = listeners[i]
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in Viewer
           include_class_members Viewer
           include SafeRunnable if SafeRunnable.class == Module
           

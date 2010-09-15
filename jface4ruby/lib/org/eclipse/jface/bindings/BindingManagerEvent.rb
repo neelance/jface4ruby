@@ -184,7 +184,7 @@ module Org::Eclipse::Jface::Bindings
       else
         previous_bindings = nil
       end
-      return !(Util == current_bindings)
+      return !Util.==(current_bindings, previous_bindings)
     end
     
     typesig { [] }

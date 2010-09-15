@@ -84,7 +84,7 @@ module Org::Eclipse::Jface::Viewers
     class_module.module_eval {
       # Internal class for laying out this cell editor.
       const_set_lazy(:ColorCellLayout) { Class.new(Layout) do
-        extend LocalClass
+        local_class_in ColorCellEditor
         include_class_members ColorCellEditor
         
         typesig { [class_self::Composite, ::Java::Int, ::Java::Int, ::Java::Boolean] }

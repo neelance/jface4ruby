@@ -127,7 +127,7 @@ module Org::Eclipse::Jface::Fieldassist
     # Make an IContentProposal for showing the specified String.
     def make_content_proposal(proposal)
       return Class.new(IContentProposal.class == Class ? IContentProposal : Object) do
-        extend LocalClass
+        local_class_in SimpleContentProposalProvider
         include_class_members SimpleContentProposalProvider
         include IContentProposal if IContentProposal.class == Module
         

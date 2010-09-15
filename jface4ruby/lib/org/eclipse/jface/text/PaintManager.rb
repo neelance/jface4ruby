@@ -363,7 +363,7 @@ module Org::Eclipse::Jface::Text
       control = @f_text_viewer.get_text_widget
       if (!(control).nil?)
         control.get_display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in PaintManager
           include_class_members PaintManager
           include Runnable if Runnable.class == Module
           

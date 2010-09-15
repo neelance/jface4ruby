@@ -174,7 +174,7 @@ module Org::Eclipse::Jface::Text
       @f_active_rewrite_session = nil
       @f_pending_requests = nil
       @f_delegate = Class.new(ListLineTracker.class == Class ? ListLineTracker : Object) do
-        extend LocalClass
+        local_class_in AbstractLineTracker
         include_class_members AbstractLineTracker
         include ListLineTracker if ListLineTracker.class == Module
         
@@ -295,7 +295,7 @@ module Org::Eclipse::Jface::Text
       if (@f_needs_conversion)
         @f_needs_conversion = false
         @f_delegate = Class.new(TreeLineTracker.class == Class ? TreeLineTracker : Object) do
-          extend LocalClass
+          local_class_in AbstractLineTracker
           include_class_members AbstractLineTracker
           include TreeLineTracker if TreeLineTracker.class == Module
           

@@ -65,7 +65,7 @@ module Org::Eclipse::Jface::Text::Source
       # @since 3.0
       # @deprecated As of 3.4, no longer used as closer from super class is used
       const_set_lazy(:Closer) { Class.new(MouseTrackAdapter) do
-        extend LocalClass
+        local_class_in AnnotationBarHoverManager
         include_class_members AnnotationBarHoverManager
         overload_protected {
           include IInformationControlCloser
@@ -767,7 +767,7 @@ module Org::Eclipse::Jface::Text::Source
     # @nooverride This method is not intended to be re-implemented or extended by clients.
     def get_internal_accessor
       return Class.new(InternalAccessor.class == Class ? InternalAccessor : Object) do
-        extend LocalClass
+        local_class_in AnnotationBarHoverManager
         include_class_members AnnotationBarHoverManager
         include InternalAccessor if InternalAccessor.class == Module
         

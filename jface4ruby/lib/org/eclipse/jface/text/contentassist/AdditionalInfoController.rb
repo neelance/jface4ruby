@@ -58,7 +58,7 @@ module Org::Eclipse::Jface::Text::Contentassist
           # elapsed after it was scheduled without a {@link #reset(ICompletionProposal) reset}
           # to occur.
           const_set_lazy(:Task) { Class.new do
-            extend LocalClass
+            local_class_in Timer
             include_class_members Timer
             include class_self::Runnable
             
@@ -184,7 +184,7 @@ module Org::Eclipse::Jface::Text::Contentassist
         # @param delay the delay until to show additional info
         def initialize(display, delay)
           @idle = Class.new(self.class::Task.class == Class ? self.class::Task : Object) do
-            extend LocalClass
+            local_class_in Timer
             include_class_members Timer
             include class_self::Task if class_self::Task.class == Module
             
@@ -218,7 +218,7 @@ module Org::Eclipse::Jface::Text::Contentassist
             alias_method :initialize_anonymous, :initialize
           end.new_local(self)
           @first_wait = Class.new(self.class::Task.class == Class ? self.class::Task : Object) do
-            extend LocalClass
+            local_class_in Timer
             include_class_members Timer
             include class_self::Task if class_self::Task.class == Module
             
@@ -227,7 +227,7 @@ module Org::Eclipse::Jface::Text::Contentassist
               proposal = get_current_proposal_ex
               task_class = self.class # $NON-NLS-1$
               job = Class.new(self.class::Job.class == Class ? self.class::Job : Object) do
-                extend LocalClass
+                local_class_in task_class
                 include_class_members task_class
                 include class_self::Job if class_self::Job.class == Module
                 
@@ -280,7 +280,7 @@ module Org::Eclipse::Jface::Text::Contentassist
             alias_method :initialize_anonymous, :initialize
           end.new_local(self)
           @second_wait = Class.new(self.class::Task.class == Class ? self.class::Task : Object) do
-            extend LocalClass
+            local_class_in Timer
             include_class_members Timer
             include class_self::Task if class_self::Task.class == Module
             
@@ -314,7 +314,7 @@ module Org::Eclipse::Jface::Text::Contentassist
             alias_method :initialize_anonymous, :initialize
           end.new_local(self)
           @legacy_wait = Class.new(self.class::Task.class == Class ? self.class::Task : Object) do
-            extend LocalClass
+            local_class_in Timer
             include_class_members Timer
             include class_self::Task if class_self::Task.class == Module
             
@@ -324,7 +324,7 @@ module Org::Eclipse::Jface::Text::Contentassist
               if (!self.attr_f_display.is_disposed)
                 task_class = self.class
                 self.attr_f_display.async_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-                  extend LocalClass
+                  local_class_in task_class
                   include_class_members task_class
                   include class_self::Runnable if class_self::Runnable.class == Module
                   
@@ -373,7 +373,7 @@ module Org::Eclipse::Jface::Text::Contentassist
             alias_method :initialize_anonymous, :initialize
           end.new_local(self)
           @exit = Class.new(self.class::Task.class == Class ? self.class::Task : Object) do
-            extend LocalClass
+            local_class_in Timer
             include_class_members Timer
             include class_self::Task if class_self::Task.class == Module
             
@@ -419,7 +419,7 @@ module Org::Eclipse::Jface::Text::Contentassist
           current = System.current_time_millis
           schedule(@idle, current)
           @f_thread = self.class::JavaThread.new(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-            extend LocalClass
+            local_class_in Timer
             include_class_members Timer
             include class_self::Runnable if class_self::Runnable.class == Module
             
@@ -551,7 +551,7 @@ module Org::Eclipse::Jface::Text::Contentassist
           info = @f_current_info
           if (!@f_display.is_disposed)
             @f_display.async_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-              extend LocalClass
+              local_class_in Timer
               include_class_members Timer
               include class_self::Runnable if class_self::Runnable.class == Module
               
@@ -596,7 +596,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       
       # Internal table selection listener.
       const_set_lazy(:TableSelectionListener) { Class.new do
-        extend LocalClass
+        local_class_in AdditionalInfoController
         include_class_members AdditionalInfoController
         include SelectionListener
         
@@ -725,7 +725,7 @@ module Org::Eclipse::Jface::Text::Contentassist
       @f_proposal_table.add_selection_listener(@f_selection_listener)
       get_internal_accessor.get_information_control_replacer.install(@f_proposal_table)
       @f_timer = Class.new(Timer.class == Class ? Timer : Object) do
-        extend LocalClass
+        local_class_in AdditionalInfoController
         include_class_members AdditionalInfoController
         include Timer if Timer.class == Module
         

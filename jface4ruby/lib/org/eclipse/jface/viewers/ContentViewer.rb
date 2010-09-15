@@ -100,7 +100,7 @@ module Org::Eclipse::Jface::Viewers
       @input = nil
       @label_provider = nil
       @label_provider_listener = Class.new(ILabelProviderListener.class == Class ? ILabelProviderListener : Object) do
-        extend LocalClass
+        local_class_in ContentViewer
         include_class_members ContentViewer
         include ILabelProviderListener if ILabelProviderListener.class == Module
         
@@ -242,7 +242,7 @@ module Org::Eclipse::Jface::Viewers
     # @param control the control
     def hook_control(control)
       control.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in ContentViewer
         include_class_members ContentViewer
         include DisposeListener if DisposeListener.class == Module
         

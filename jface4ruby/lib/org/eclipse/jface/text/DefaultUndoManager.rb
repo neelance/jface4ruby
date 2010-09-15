@@ -78,7 +78,7 @@ module Org::Eclipse::Jface::Text
       # Since 3.1 this implements the interface for IUndoableOperation.
       # </p>
       const_set_lazy(:TextCommand) { Class.new(AbstractOperation) do
-        extend LocalClass
+        local_class_in DefaultUndoManager
         include_class_members DefaultUndoManager
         
         # The start index of the replaced text.
@@ -446,7 +446,7 @@ module Org::Eclipse::Jface::Text
       # Represents an undo-able edit command consisting of several
       # individual edit commands.
       const_set_lazy(:CompoundTextCommand) { Class.new(TextCommand) do
-        extend LocalClass
+        local_class_in DefaultUndoManager
         include_class_members DefaultUndoManager
         
         # The list of individual commands
@@ -602,7 +602,7 @@ module Org::Eclipse::Jface::Text
       
       # Internal listener to mouse and key events.
       const_set_lazy(:KeyAndMouseListener) { Class.new do
-        extend LocalClass
+        local_class_in DefaultUndoManager
         include_class_members DefaultUndoManager
         include MouseListener
         include KeyListener
@@ -651,7 +651,7 @@ module Org::Eclipse::Jface::Text
       
       # Internal listener to document changes.
       const_set_lazy(:DocumentListener) { Class.new do
-        extend LocalClass
+        local_class_in DefaultUndoManager
         include_class_members DefaultUndoManager
         include IDocumentListener
         
@@ -713,7 +713,7 @@ module Org::Eclipse::Jface::Text
       
       # Internal text input listener.
       const_set_lazy(:TextInputListener) { Class.new do
-        extend LocalClass
+        local_class_in DefaultUndoManager
         include_class_members DefaultUndoManager
         include ITextInputListener
         
@@ -748,7 +748,7 @@ module Org::Eclipse::Jface::Text
       # @see IOperationHistoryListener
       # @since 3.1
       const_set_lazy(:HistoryListener) { Class.new do
-        extend LocalClass
+        local_class_in DefaultUndoManager
         include_class_members DefaultUndoManager
         include IOperationHistoryListener
         
@@ -766,7 +766,7 @@ module Org::Eclipse::Jface::Text
             # if this is one of our operations
             if (event.get_operation.has_context(self.attr_f_undo_context))
               self.attr_f_text_viewer.get_text_widget.get_display.sync_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-                extend LocalClass
+                local_class_in HistoryListener
                 include_class_members HistoryListener
                 include class_self::Runnable if class_self::Runnable.class == Module
                 
@@ -807,7 +807,7 @@ module Org::Eclipse::Jface::Text
           when OperationHistoryEvent::UNDONE, OperationHistoryEvent::REDONE, OperationHistoryEvent::OPERATION_NOT_OK
             if ((event.get_operation).equal?(@f_operation))
               self.attr_f_text_viewer.get_text_widget.get_display.sync_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-                extend LocalClass
+                local_class_in HistoryListener
                 include_class_members HistoryListener
                 include class_self::Runnable if class_self::Runnable.class == Module
                 
@@ -1222,7 +1222,7 @@ module Org::Eclipse::Jface::Text
           # text will be deleted by backspace or DEL key or empty clipboard
           length_ = replaced_text.length
           delimiters = @f_text_viewer.get_document.get_legal_line_delimiters
-          if (((length_).equal?(1)) || (TextUtilities == delimiters) > -1)
+          if (((length_).equal?(1)) || TextUtilities.==(delimiters, replaced_text) > -1)
             # whereby selection is empty
             if ((@f_previous_delete.attr_f_start).equal?(model_start) && (@f_previous_delete.attr_f_end).equal?(model_end))
               # repeated DEL
@@ -1270,7 +1270,7 @@ module Org::Eclipse::Jface::Text
           if ((length_).equal?(1))
             length_ = replaced_text.length
             delimiters = @f_text_viewer.get_document.get_legal_line_delimiters
-            if (((length_).equal?(1)) || (TextUtilities == delimiters) > -1)
+            if (((length_).equal?(1)) || TextUtilities.==(delimiters, replaced_text) > -1)
               # because of overwrite mode or model manipulation
               if (!@f_overwriting || (!(model_start).equal?(@f_current.attr_f_start + @f_text_buffer.length)))
                 @f_current.attr_f_redo_modification_stamp = before_change_modification_stamp
@@ -1329,7 +1329,7 @@ module Org::Eclipse::Jface::Text
           display = Display.get_default
         end
         display.sync_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in DefaultUndoManager
           include_class_members DefaultUndoManager
           include Runnable if Runnable.class == Module
           

@@ -100,7 +100,7 @@ module Org::Eclipse::Jface::Viewers
     # @param elements the elements to sort
     def sort(viewer, parent_path, elements)
       Arrays.sort(elements, Class.new(Comparator.class == Class ? Comparator : Object) do
-        extend LocalClass
+        local_class_in TreePathViewerSorter
         include_class_members TreePathViewerSorter
         include Comparator if Comparator.class == Module
         

@@ -158,7 +158,7 @@ module Org::Eclipse::Jface::Fieldassist
         # a dispose exec on the display.
         if (!self.attr_displays.contains_value(display))
           display.dispose_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-            extend LocalClass
+            local_class_in FieldAssistColors
             include_class_members FieldAssistColors
             include Runnable if Runnable.class == Module
             

@@ -141,7 +141,7 @@ module Org::Eclipse::Jface::Preference
         while i < final_listeners.attr_length
           l = final_listeners[i]
           SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-            extend LocalClass
+            local_class_in PreferenceStore
             include_class_members PreferenceStore
             include SafeRunnable if SafeRunnable.class == Module
             

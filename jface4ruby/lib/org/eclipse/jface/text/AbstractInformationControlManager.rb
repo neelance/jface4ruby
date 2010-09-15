@@ -55,7 +55,7 @@ module Org::Eclipse::Jface::Text
       # 
       # @since 3.4
       const_set_lazy(:MyInternalAccessor) { Class.new(InternalAccessor) do
-        extend LocalClass
+        local_class_in AbstractInformationControlManager
         include_class_members AbstractInformationControlManager
         
         typesig { [] }
@@ -791,7 +791,7 @@ module Org::Eclipse::Jface::Text
     def get_subject_control_dispose_listener
       if ((@f_subject_control_dispose_listener).nil?)
         @f_subject_control_dispose_listener = Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-          extend LocalClass
+          local_class_in AbstractInformationControlManager
           include_class_members AbstractInformationControlManager
           include DisposeListener if DisposeListener.class == Module
           
@@ -942,7 +942,7 @@ module Org::Eclipse::Jface::Text
       if ((@f_information_control).nil?)
         @f_information_control = creator.create_information_control(@f_subject_control.get_shell)
         @f_information_control.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-          extend LocalClass
+          local_class_in AbstractInformationControlManager
           include_class_members AbstractInformationControlManager
           include DisposeListener if DisposeListener.class == Module
           

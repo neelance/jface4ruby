@@ -232,16 +232,16 @@ module Org::Eclipse::Jface::Bindings
     # the argument.
     def deletes(binding)
       deletes = true
-      deletes &= (Util == get_context_id)
-      deletes &= (Util == get_trigger_sequence)
+      deletes &= Util.==(get_context_id, binding.get_context_id)
+      deletes &= Util.==(get_trigger_sequence, binding.get_trigger_sequence)
       if (!(get_locale).nil?)
-        deletes &= !(Util == get_locale)
+        deletes &= !Util.==(get_locale, binding.get_locale)
       end
       if (!(get_platform).nil?)
-        deletes &= !(Util == get_platform)
+        deletes &= !Util.==(get_platform, binding.get_platform)
       end
       deletes &= ((binding.get_type).equal?(SYSTEM))
-      deletes &= (Util == get_parameterized_command)
+      deletes &= Util.==(get_parameterized_command, nil)
       return deletes
     end
     
@@ -261,22 +261,22 @@ module Org::Eclipse::Jface::Bindings
         return false
       end
       binding = object
-      if (!(Util == get_parameterized_command))
+      if (!Util.==(get_parameterized_command, binding.get_parameterized_command))
         return false
       end
-      if (!(Util == get_context_id))
+      if (!Util.==(get_context_id, binding.get_context_id))
         return false
       end
-      if (!(Util == get_trigger_sequence))
+      if (!Util.==(get_trigger_sequence, binding.get_trigger_sequence))
         return false
       end
-      if (!(Util == get_locale))
+      if (!Util.==(get_locale, binding.get_locale))
         return false
       end
-      if (!(Util == get_platform))
+      if (!Util.==(get_platform, binding.get_platform))
         return false
       end
-      if (!(Util == get_scheme_id))
+      if (!Util.==(get_scheme_id, binding.get_scheme_id))
         return false
       end
       return ((get_type).equal?(binding.get_type))

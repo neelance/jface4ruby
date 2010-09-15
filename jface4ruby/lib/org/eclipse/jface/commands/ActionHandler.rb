@@ -82,7 +82,7 @@ module Org::Eclipse::Jface::Commands
     def attach_listener
       if ((@property_change_listener).nil?)
         @property_change_listener = Class.new(IPropertyChangeListener.class == Class ? IPropertyChangeListener : Object) do
-          extend LocalClass
+          local_class_in ActionHandler
           include_class_members ActionHandler
           include IPropertyChangeListener if IPropertyChangeListener.class == Module
           

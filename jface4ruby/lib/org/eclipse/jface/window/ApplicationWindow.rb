@@ -135,7 +135,7 @@ module Org::Eclipse::Jface::Window
       # 
       # package
       const_set_lazy(:ApplicationWindowLayout) { Class.new(Layout) do
-        extend LocalClass
+        local_class_in ApplicationWindow
         include_class_members ApplicationWindow
         
         class_module.module_eval {
@@ -762,7 +762,7 @@ module Org::Eclipse::Jface::Window
           mgr.set_cancel_enabled(cancelable)
           holder = Array.typed(JavaException).new(1) { nil }
           BusyIndicator.show_while(display, Class.new(Runnable.class == Class ? Runnable : Object) do
-            extend LocalClass
+            local_class_in ApplicationWindow
             include_class_members ApplicationWindow
             include Runnable if Runnable.class == Module
             

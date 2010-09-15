@@ -361,7 +361,7 @@ module Org::Eclipse::Jface::Preference
         case (@validate_strategy)
         when VALIDATE_ON_KEY_STROKE
           @text_field.add_key_listener(Class.new(KeyAdapter.class == Class ? KeyAdapter : Object) do
-            extend LocalClass
+            local_class_in StringFieldEditor
             include_class_members StringFieldEditor
             include KeyAdapter if KeyAdapter.class == Module
             
@@ -381,7 +381,7 @@ module Org::Eclipse::Jface::Preference
             alias_method :initialize_anonymous, :initialize
           end.new_local(self))
           @text_field.add_focus_listener(Class.new(FocusAdapter.class == Class ? FocusAdapter : Object) do
-            extend LocalClass
+            local_class_in StringFieldEditor
             include_class_members StringFieldEditor
             include FocusAdapter if FocusAdapter.class == Module
             
@@ -403,7 +403,7 @@ module Org::Eclipse::Jface::Preference
           end.new_local(self))
         when VALIDATE_ON_FOCUS_LOST
           @text_field.add_key_listener(Class.new(KeyAdapter.class == Class ? KeyAdapter : Object) do
-            extend LocalClass
+            local_class_in StringFieldEditor
             include_class_members StringFieldEditor
             include KeyAdapter if KeyAdapter.class == Module
             
@@ -421,7 +421,7 @@ module Org::Eclipse::Jface::Preference
             alias_method :initialize_anonymous, :initialize
           end.new_local(self))
           @text_field.add_focus_listener(Class.new(FocusAdapter.class == Class ? FocusAdapter : Object) do
-            extend LocalClass
+            local_class_in StringFieldEditor
             include_class_members StringFieldEditor
             include FocusAdapter if FocusAdapter.class == Module
             
@@ -448,7 +448,7 @@ module Org::Eclipse::Jface::Preference
           Assert.is_true(false, "Unknown validate strategy")
         end # $NON-NLS-1$
         @text_field.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-          extend LocalClass
+          local_class_in StringFieldEditor
           include_class_members StringFieldEditor
           include DisposeListener if DisposeListener.class == Module
           

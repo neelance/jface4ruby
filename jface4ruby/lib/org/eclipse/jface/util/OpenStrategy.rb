@@ -304,7 +304,7 @@ module Org::Eclipse::Jface::Util
     # Initialize event handler.
     def initialize_handler(display)
       @event_handler = Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in OpenStrategy
         include_class_members OpenStrategy
         include Listener if Listener.class == Module
         
@@ -411,7 +411,7 @@ module Org::Eclipse::Jface::Util
             runnable = Array.typed(self.class::Runnable).new(1) { nil }
             listener_class = self.class
             runnable[0] = Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-              extend LocalClass
+              local_class_in listener_class
               include_class_members listener_class
               include class_self::Runnable if class_self::Runnable.class == Module
               
@@ -489,7 +489,7 @@ module Org::Eclipse::Jface::Util
             # We only want to open an editor for the last selected item.
             listener_class = self.class
             display.async_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-              extend LocalClass
+              local_class_in listener_class
               include_class_members listener_class
               include class_self::Runnable if class_self::Runnable.class == Module
               
@@ -498,7 +498,7 @@ module Org::Eclipse::Jface::Util
                 if (self.attr_arrow_key_down)
                   runnable_class = self.class
                   display.timer_exec(self.attr_time, Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-                    extend LocalClass
+                    local_class_in runnable_class
                     include_class_members runnable_class
                     include class_self::Runnable if class_self::Runnable.class == Module
                     

@@ -122,7 +122,7 @@ module Org::Eclipse::Jface::Preference
         @change_button.set_text(@change_button_text)
         @change_button.set_font(parent.get_font)
         @change_button.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-          extend LocalClass
+          local_class_in StringButtonFieldEditor
           include_class_members StringButtonFieldEditor
           include SelectionAdapter if SelectionAdapter.class == Module
           
@@ -143,7 +143,7 @@ module Org::Eclipse::Jface::Preference
           alias_method :initialize_anonymous, :initialize
         end.new_local(self))
         @change_button.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-          extend LocalClass
+          local_class_in StringButtonFieldEditor
           include_class_members StringButtonFieldEditor
           include DisposeListener if DisposeListener.class == Module
           

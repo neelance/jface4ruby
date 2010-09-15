@@ -138,7 +138,7 @@ module Org::Eclipse::Jface::Resource
       @string_to_color = HashMap.new(7)
       @string_to_rgb = HashMap.new(7)
       @display_runnable = Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in ColorRegistry
         include_class_members ColorRegistry
         include Runnable if Runnable.class == Module
         

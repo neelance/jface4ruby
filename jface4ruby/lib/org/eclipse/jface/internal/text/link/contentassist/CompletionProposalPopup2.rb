@@ -237,7 +237,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
       @f_last_proposal = nil
       @f_is_colored_labels_support_enabled = false
       @f_focus_editing_support = Class.new(IEditingSupport.class == Class ? IEditingSupport : Object) do
-        extend LocalClass
+        local_class_in CompletionProposalPopup2
         include_class_members CompletionProposalPopup2
         include IEditingSupport if IEditingSupport.class == Module
         
@@ -260,7 +260,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
         alias_method :initialize_anonymous, :initialize
       end.new_local(self)
       @f_modification_editing_support = Class.new(IEditingSupport.class == Class ? IEditingSupport : Object) do
-        extend LocalClass
+        local_class_in CompletionProposalPopup2
         include_class_members CompletionProposalPopup2
         include IEditingSupport if IEditingSupport.class == Module
         
@@ -300,7 +300,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
     def show_proposals(auto_activated)
       if ((@f_key_listener).nil?)
         @f_key_listener = Class.new(KeyListener.class == Class ? KeyListener : Object) do
-          extend LocalClass
+          local_class_in CompletionProposalPopup2
           include_class_members CompletionProposalPopup2
           include KeyListener if KeyListener.class == Module
           
@@ -426,7 +426,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
       end
       if (!(@f_additional_info_controller).nil?)
         @f_proposal_shell.add_control_listener(Class.new(ControlListener.class == Class ? ControlListener : Object) do
-          extend LocalClass
+          local_class_in CompletionProposalPopup2
           include_class_members CompletionProposalPopup2
           include ControlListener if ControlListener.class == Module
           
@@ -455,7 +455,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
       c = control.get_display.get_system_color(SWT::COLOR_INFO_FOREGROUND)
       @f_proposal_table.set_foreground(c)
       @f_proposal_table.add_selection_listener(Class.new(SelectionListener.class == Class ? SelectionListener : Object) do
-        extend LocalClass
+        local_class_in CompletionProposalPopup2
         include_class_members CompletionProposalPopup2
         include SelectionListener if SelectionListener.class == Module
         
@@ -478,7 +478,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
       end.new_local(self))
       @f_popup_closer.install(@f_content_assistant, @f_proposal_table)
       @f_proposal_shell.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in CompletionProposalPopup2
         include_class_members CompletionProposalPopup2
         include DisposeListener if DisposeListener.class == Module
         
@@ -799,7 +799,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
       if (@f_content_assistant.add_content_assist_listener(self, ContentAssistant2::PROPOSAL_SELECTOR))
         if ((@f_document_listener).nil?)
           @f_document_listener = Class.new(IDocumentListener.class == Class ? IDocumentListener : Object) do
-            extend LocalClass
+            local_class_in CompletionProposalPopup2
             include_class_members CompletionProposalPopup2
             include IDocumentListener if IDocumentListener.class == Module
             
@@ -992,7 +992,7 @@ module Org::Eclipse::Jface::Internal::Text::Link::Contentassist
       (@f_invocation_counter += 1)
       control = @f_viewer.get_text_widget
       control.get_display.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in CompletionProposalPopup2
         include_class_members CompletionProposalPopup2
         include Runnable if Runnable.class == Module
         

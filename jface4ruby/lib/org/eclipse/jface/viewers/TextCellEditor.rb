@@ -176,7 +176,7 @@ module Org::Eclipse::Jface::Viewers
     def create_control(parent)
       @text = Text.new(parent, get_style)
       @text.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-        extend LocalClass
+        local_class_in TextCellEditor
         include_class_members TextCellEditor
         include SelectionAdapter if SelectionAdapter.class == Module
         
@@ -194,7 +194,7 @@ module Org::Eclipse::Jface::Viewers
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @text.add_key_listener(Class.new(KeyAdapter.class == Class ? KeyAdapter : Object) do
-        extend LocalClass
+        local_class_in TextCellEditor
         include_class_members TextCellEditor
         include KeyAdapter if KeyAdapter.class == Module
         
@@ -221,7 +221,7 @@ module Org::Eclipse::Jface::Viewers
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @text.add_traverse_listener(Class.new(TraverseListener.class == Class ? TraverseListener : Object) do
-        extend LocalClass
+        local_class_in TextCellEditor
         include_class_members TextCellEditor
         include TraverseListener if TraverseListener.class == Module
         
@@ -244,7 +244,7 @@ module Org::Eclipse::Jface::Viewers
       # use a key listener and a mouse listener to know when selection changes
       # may have occurred
       Class.new(MouseAdapter.class == Class ? MouseAdapter : Object) do
-        extend LocalClass
+        local_class_in TextCellEditor
         include_class_members TextCellEditor
         include MouseAdapter if MouseAdapter.class == Module
         
@@ -264,7 +264,7 @@ module Org::Eclipse::Jface::Viewers
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @text.add_focus_listener(Class.new(FocusAdapter.class == Class ? FocusAdapter : Object) do
-        extend LocalClass
+        local_class_in TextCellEditor
         include_class_members TextCellEditor
         include FocusAdapter if FocusAdapter.class == Module
         
@@ -362,7 +362,7 @@ module Org::Eclipse::Jface::Viewers
     def get_modify_listener
       if ((@modify_listener).nil?)
         @modify_listener = Class.new(ModifyListener.class == Class ? ModifyListener : Object) do
-          extend LocalClass
+          local_class_in TextCellEditor
           include_class_members TextCellEditor
           include ModifyListener if ModifyListener.class == Module
           

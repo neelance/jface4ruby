@@ -55,7 +55,7 @@ module Org::Eclipse::Jface::Bindings::Keys
       # A key listener that traps incoming events and displays them in the
       # wrapped text field. It has no effect on traversal operations.
       const_set_lazy(:KeyTrapListener) { Class.new do
-        extend LocalClass
+        local_class_in KeySequenceText
         include_class_members KeySequenceText
         include Listener
         
@@ -297,7 +297,7 @@ module Org::Eclipse::Jface::Bindings::Keys
       # A traversal listener that blocks all traversal except for tabs and arrow
       # keys.
       const_set_lazy(:TraversalFilter) { Class.new do
-        extend LocalClass
+        local_class_in KeySequenceText
         include_class_members KeySequenceText
         include Listener
         
@@ -365,7 +365,7 @@ module Org::Eclipse::Jface::Bindings::Keys
       # The manager resposible for installing and removing the traversal filter
       # when the key sequence entry widget gains and loses focus.
       const_set_lazy(:TraversalFilterManager) { Class.new do
-        extend LocalClass
+        local_class_in KeySequenceText
         include_class_members KeySequenceText
         include FocusListener
         
@@ -424,7 +424,7 @@ module Org::Eclipse::Jface::Bindings::Keys
       # class (i.e., direct modification of the underlying text) do not break
       # this class' view of the world.
       const_set_lazy(:UpdateSequenceListener) { Class.new do
-        extend LocalClass
+        local_class_in KeySequenceText
         include_class_members KeySequenceText
         include ModifyListener
         
@@ -552,7 +552,7 @@ module Org::Eclipse::Jface::Bindings::Keys
         font = Font.new(@text.get_display, "Lucida Grande", 13, SWT::NORMAL) # $NON-NLS-1$
         @text.set_font(font)
         @text.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-          extend LocalClass
+          local_class_in KeySequenceText
           include_class_members KeySequenceText
           include DisposeListener if DisposeListener.class == Module
           
@@ -576,7 +576,7 @@ module Org::Eclipse::Jface::Bindings::Keys
       traversal_filter_manager = TraversalFilterManager.new_local(self)
       @text.add_focus_listener(traversal_filter_manager)
       @text.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in KeySequenceText
         include_class_members KeySequenceText
         include DisposeListener if DisposeListener.class == Module
         

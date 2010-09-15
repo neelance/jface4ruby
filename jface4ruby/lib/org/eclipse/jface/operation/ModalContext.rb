@@ -185,7 +185,7 @@ module Org::Eclipse::Jface::Operation
             @display.sync_exec(# Make sure that all events in the asynchronous event queue
             # are dispatched.
             Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-              extend LocalClass
+              local_class_in ModalContextThread
               include_class_members ModalContextThread
               include class_self::Runnable if class_self::Runnable.class == Module
               

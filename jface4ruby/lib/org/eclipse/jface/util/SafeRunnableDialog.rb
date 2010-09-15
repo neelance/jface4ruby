@@ -158,7 +158,7 @@ module Org::Eclipse::Jface::Util
       @status_list_viewer.set_content_provider(get_status_content_provider)
       @status_list_viewer.set_label_provider(get_status_list_label_provider)
       @status_list_viewer.add_selection_changed_listener(Class.new(ISelectionChangedListener.class == Class ? ISelectionChangedListener : Object) do
-        extend LocalClass
+        local_class_in SafeRunnableDialog
         include_class_members SafeRunnableDialog
         include ISelectionChangedListener if ISelectionChangedListener.class == Module
         
@@ -185,7 +185,7 @@ module Org::Eclipse::Jface::Util
     # @return CellLabelProvider
     def get_status_list_label_provider
       return Class.new(CellLabelProvider.class == Class ? CellLabelProvider : Object) do
-        extend LocalClass
+        local_class_in SafeRunnableDialog
         include_class_members SafeRunnableDialog
         include CellLabelProvider if CellLabelProvider.class == Module
         
@@ -213,7 +213,7 @@ module Org::Eclipse::Jface::Util
     # @return IStructuredContentProvider
     def get_status_content_provider
       return Class.new(IStructuredContentProvider.class == Class ? IStructuredContentProvider : Object) do
-        extend LocalClass
+        local_class_in SafeRunnableDialog
         include_class_members SafeRunnableDialog
         include IStructuredContentProvider if IStructuredContentProvider.class == Module
         
@@ -262,7 +262,7 @@ module Org::Eclipse::Jface::Util
     # @return ViewerSorter
     def get_viewer_comparator
       return Class.new(ViewerComparator.class == Class ? ViewerComparator : Object) do
-        extend LocalClass
+        local_class_in SafeRunnableDialog
         include_class_members SafeRunnableDialog
         include ViewerComparator if ViewerComparator.class == Module
         

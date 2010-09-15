@@ -126,7 +126,7 @@ module Org::Eclipse::Jface::Text::Link
       # Encapsulates the edition triggered by a change to a linking position. Can
       # be applied to a document as a whole.
       const_set_lazy(:Replace) { Class.new do
-        extend LocalClass
+        local_class_in LinkedModeModel
         include_class_members LinkedModeModel
         include IReplace
         
@@ -170,7 +170,7 @@ module Org::Eclipse::Jface::Text::Link
       # The document listener triggering the linked updating of positions
       # managed by this model.
       const_set_lazy(:DocumentListener) { Class.new do
-        extend LocalClass
+        local_class_in LinkedModeModel
         include_class_members LinkedModeModel
         include IDocumentListener
         

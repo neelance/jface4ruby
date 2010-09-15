@@ -67,7 +67,7 @@ module Org::Eclipse::Jface::Text::Presentation
       # 
       # Internal listener class.
       const_set_lazy(:InternalListener) { Class.new do
-        extend LocalClass
+        local_class_in PresentationReconciler
         include_class_members PresentationReconciler
         include ITextInputListener
         include IDocumentListener

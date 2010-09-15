@@ -155,7 +155,7 @@ module Org::Eclipse::Jface::Viewers::Deferred
       @filter = AcceptAllFilter.get_instance
       @change_queue = ChangeQueue.new
       @listener = Class.new(IConcurrentModelListener.class == Class ? IConcurrentModelListener : Object) do
-        extend LocalClass
+        local_class_in BackgroundContentProvider
         include_class_members BackgroundContentProvider
         include IConcurrentModelListener if IConcurrentModelListener.class == Module
         
@@ -483,7 +483,7 @@ module Org::Eclipse::Jface::Viewers::Deferred
     
     class_module.module_eval {
       const_set_lazy(:SortThread) { Class.new(JavaThread) do
-        extend LocalClass
+        local_class_in BackgroundContentProvider
         include_class_members BackgroundContentProvider
         
         typesig { [String] }

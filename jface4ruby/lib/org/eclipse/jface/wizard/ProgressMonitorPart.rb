@@ -129,7 +129,7 @@ module Org::Eclipse::Jface::Wizard
       @f_cancel_listener = nil
       super(parent, SWT::NONE)
       @f_cancel_listener = Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in ProgressMonitorPart
         include_class_members ProgressMonitorPart
         include Listener if Listener.class == Module
         

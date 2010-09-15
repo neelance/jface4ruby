@@ -151,7 +151,7 @@ module Org::Eclipse::Jface::Viewers
         return false
       end
       other = o
-      return (@base == other.attr_base) && (Arrays == @overlays)
+      return (@base == other.attr_base) && Arrays.==(@overlays, other.attr_overlays)
     end
     
     typesig { [] }

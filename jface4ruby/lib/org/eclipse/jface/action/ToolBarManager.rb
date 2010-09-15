@@ -142,7 +142,7 @@ module Org::Eclipse::Jface::Action
     # @since 3.1
     def get_accessible_listener
       return Class.new(AccessibleAdapter.class == Class ? AccessibleAdapter : Object) do
-        extend LocalClass
+        local_class_in ToolBarManager
         include_class_members ToolBarManager
         include AccessibleAdapter if AccessibleAdapter.class == Module
         

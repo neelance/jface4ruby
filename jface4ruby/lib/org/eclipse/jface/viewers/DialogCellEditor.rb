@@ -116,7 +116,7 @@ module Org::Eclipse::Jface::Viewers
       
       # Internal class for laying out the dialog.
       const_set_lazy(:DialogCellLayout) { Class.new(Layout) do
-        extend LocalClass
+        local_class_in DialogCellEditor
         include_class_members DialogCellEditor
         
         typesig { [class_self::Composite, ::Java::Boolean] }
@@ -252,7 +252,7 @@ module Org::Eclipse::Jface::Viewers
       @button = create_button(@editor)
       @button.set_font(font)
       @button.add_key_listener(Class.new(KeyAdapter.class == Class ? KeyAdapter : Object) do
-        extend LocalClass
+        local_class_in DialogCellEditor
         include_class_members DialogCellEditor
         include KeyAdapter if KeyAdapter.class == Module
         
@@ -276,7 +276,7 @@ module Org::Eclipse::Jface::Viewers
       end.new_local(self))
       @button.add_focus_listener(get_button_focus_listener)
       @button.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-        extend LocalClass
+        local_class_in DialogCellEditor
         include_class_members DialogCellEditor
         include SelectionAdapter if SelectionAdapter.class == Module
         
@@ -352,7 +352,7 @@ module Org::Eclipse::Jface::Viewers
     def get_button_focus_listener
       if ((@button_focus_listener).nil?)
         @button_focus_listener = Class.new(FocusListener.class == Class ? FocusListener : Object) do
-          extend LocalClass
+          local_class_in DialogCellEditor
           include_class_members DialogCellEditor
           include FocusListener if FocusListener.class == Module
           

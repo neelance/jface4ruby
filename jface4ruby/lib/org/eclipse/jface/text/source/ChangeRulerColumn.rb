@@ -65,7 +65,7 @@ module Org::Eclipse::Jface::Text::Source
     class_module.module_eval {
       # Handles all the mouse interaction in this line number ruler column.
       const_set_lazy(:MouseHandler) { Class.new do
-        extend LocalClass
+        local_class_in ChangeRulerColumn
         include_class_members ChangeRulerColumn
         include MouseListener
         include MouseMoveListener
@@ -103,7 +103,7 @@ module Org::Eclipse::Jface::Text::Source
       
       # Internal listener class.
       const_set_lazy(:InternalListener) { Class.new do
-        extend LocalClass
+        local_class_in ChangeRulerColumn
         include_class_members ChangeRulerColumn
         include IViewportListener
         include ITextListener
@@ -305,7 +305,7 @@ module Org::Eclipse::Jface::Text::Source
       @f_canvas = Canvas.new(parent_control, SWT::NONE)
       @f_canvas.set_background(get_background)
       @f_canvas.add_paint_listener(Class.new(PaintListener.class == Class ? PaintListener : Object) do
-        extend LocalClass
+        local_class_in ChangeRulerColumn
         include_class_members ChangeRulerColumn
         include PaintListener if PaintListener.class == Module
         
@@ -325,7 +325,7 @@ module Org::Eclipse::Jface::Text::Source
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @f_canvas.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in ChangeRulerColumn
         include_class_members ChangeRulerColumn
         include DisposeListener if DisposeListener.class == Module
         
@@ -563,7 +563,7 @@ module Org::Eclipse::Jface::Text::Source
         d = @f_canvas.get_display
         if (!(d).nil?)
           d.async_exec(Class.new(Runnable.class == Class ? Runnable : Object) do
-            extend LocalClass
+            local_class_in ChangeRulerColumn
             include_class_members ChangeRulerColumn
             include Runnable if Runnable.class == Module
             

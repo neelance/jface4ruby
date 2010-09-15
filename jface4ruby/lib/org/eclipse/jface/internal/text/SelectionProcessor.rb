@@ -225,7 +225,7 @@ module Org::Eclipse::Jface::Internal::Text
     def initialize(document, tab_width)
       @null_implementation = Implementation.new
       @range_implementation = Class.new(Implementation.class == Class ? Implementation : Object) do
-        extend LocalClass
+        local_class_in SelectionProcessor
         include_class_members SelectionProcessor
         include Implementation if Implementation.class == Module
         
@@ -304,7 +304,7 @@ module Org::Eclipse::Jface::Internal::Text
         alias_method :initialize_anonymous, :initialize
       end.new_local(self)
       @column_implementation = Class.new(Implementation.class == Class ? Implementation : Object) do
-        extend LocalClass
+        local_class_in SelectionProcessor
         include_class_members SelectionProcessor
         include Implementation if Implementation.class == Module
         

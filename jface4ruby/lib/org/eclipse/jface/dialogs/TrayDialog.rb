@@ -62,7 +62,7 @@ module Org::Eclipse::Jface::Dialogs
     
     class_module.module_eval {
       const_set_lazy(:ResizeListener) { Class.new(ControlAdapter) do
-        extend LocalClass
+        local_class_in TrayDialog
         include_class_members TrayDialog
         
         attr_accessor :data
@@ -314,7 +314,7 @@ module Org::Eclipse::Jface::Dialogs
       cursor = Cursor.new(parent.get_display, SWT::CURSOR_HAND)
       tool_bar.set_cursor(cursor)
       tool_bar.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in TrayDialog
         include_class_members TrayDialog
         include DisposeListener if DisposeListener.class == Module
         
@@ -335,7 +335,7 @@ module Org::Eclipse::Jface::Dialogs
       item.set_image(image)
       item.set_tool_tip_text(JFaceResources.get_string("helpToolTip")) # $NON-NLS-1$
       item.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-        extend LocalClass
+        local_class_in TrayDialog
         include_class_members TrayDialog
         include SelectionAdapter if SelectionAdapter.class == Module
         
@@ -365,7 +365,7 @@ module Org::Eclipse::Jface::Dialogs
       link.set_text("<a>" + RJava.cast_to_string(IDialogConstants::HELP_LABEL) + "</a>") # $NON-NLS-1$ //$NON-NLS-2$
       link.set_tool_tip_text(IDialogConstants::HELP_LABEL)
       link.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-        extend LocalClass
+        local_class_in TrayDialog
         include_class_members TrayDialog
         include SelectionAdapter if SelectionAdapter.class == Module
         
@@ -485,7 +485,7 @@ module Org::Eclipse::Jface::Dialogs
       bounds = shell.get_bounds
       shell.set_bounds(bounds.attr_x - (((get_default_orientation).equal?(SWT::RIGHT_TO_LEFT)) ? tray_width : 0), bounds.attr_y, bounds.attr_width + tray_width, bounds.attr_height)
       @sash.add_listener(SWT::Selection, Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in TrayDialog
         include_class_members TrayDialog
         include Listener if Listener.class == Module
         

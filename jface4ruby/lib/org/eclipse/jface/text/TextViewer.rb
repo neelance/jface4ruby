@@ -157,7 +157,7 @@ module Org::Eclipse::Jface::Text
       # back in synchronization with text viewer's document after the document
       # has been changed.
       const_set_lazy(:WidgetCommand) { Class.new do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         
         # The document event encapsulated by this command.
@@ -243,7 +243,7 @@ module Org::Eclipse::Jface::Text
       # Calls the double click strategies when the mouse has
       # been clicked inside the text editor.
       const_set_lazy(:TextDoubleClickStrategyConnector) { Class.new(MouseAdapter) do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         overload_protected {
           include MovementListener
@@ -340,7 +340,7 @@ module Org::Eclipse::Jface::Text
       # potential change and its origin. The origin is internally used for optimization
       # purposes.
       const_set_lazy(:ViewportGuard) { Class.new(MouseAdapter) do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         overload_protected {
           include ControlListener
@@ -452,7 +452,7 @@ module Org::Eclipse::Jface::Text
       
       # Internal document listener on the visible document.
       const_set_lazy(:VisibleDocumentListener) { Class.new do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         include IDocumentListener
         
@@ -485,7 +485,7 @@ module Org::Eclipse::Jface::Text
       
       # Internal verify listener.
       const_set_lazy(:TextVerifyListener) { Class.new do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         include VerifyListener
         
@@ -532,14 +532,14 @@ module Org::Eclipse::Jface::Text
       # </p>
       # @since 2.0
       const_set_lazy(:VerifyKeyListenersManager) { Class.new do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         include VerifyKeyListener
         
         class_module.module_eval {
           # Represents a batched addListener/removeListener command.
           const_set_lazy(:Batch) { Class.new do
-            extend LocalClass
+            local_class_in VerifyKeyListenersManager
             include_class_members VerifyKeyListenersManager
             
             # The index at which to insert the listener.
@@ -742,7 +742,7 @@ module Org::Eclipse::Jface::Text
       # 
       # @since 2.0
       const_set_lazy(:FindReplaceRange) { Class.new do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         include LineBackgroundListener
         include ITextListener
@@ -911,7 +911,7 @@ module Org::Eclipse::Jface::Text
       
       # This viewer's find/replace target.
       const_set_lazy(:FindReplaceTarget) { Class.new do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         include IFindReplaceTarget
         include IFindReplaceTargetExtension
@@ -1162,7 +1162,7 @@ module Org::Eclipse::Jface::Text
       # The viewer's rewrite target.
       # @since 2.0
       const_set_lazy(:RewriteTarget) { Class.new do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         include IRewriteTarget
         
@@ -1208,7 +1208,7 @@ module Org::Eclipse::Jface::Text
       # 
       # @since 2.1
       const_set_lazy(:TextHoverKey) { Class.new do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         
         # The content type this key belongs to
@@ -1307,7 +1307,7 @@ module Org::Eclipse::Jface::Text
       # 
       # @since 3.3
       const_set_lazy(:ViewerState) { Class.new do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         
         # The position tracking the selection.
@@ -1593,7 +1593,7 @@ module Org::Eclipse::Jface::Text
       # 
       # @since 3.0
       const_set_lazy(:CursorListener) { Class.new do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         include KeyListener
         include MouseListener
@@ -1659,7 +1659,7 @@ module Org::Eclipse::Jface::Text
       # Internal listener to document rewrite session state changes.
       # @since 3.1
       const_set_lazy(:DocumentRewriteSessionListener) { Class.new do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         include IDocumentRewriteSessionListener
         
@@ -2343,7 +2343,7 @@ module Org::Eclipse::Jface::Text
       @f_text_widget = create_text_widget(parent, styles)
       @f_text_widget.add_listener(SWT::MouseWheel, # Support scroll page upon MOD1+MouseWheel
       Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         include Listener if Listener.class == Module
         
@@ -2371,7 +2371,7 @@ module Org::Eclipse::Jface::Text
         alias_method :initialize_anonymous, :initialize
       end.new_local(self))
       @f_text_widget.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         include DisposeListener if DisposeListener.class == Module
         
@@ -2393,7 +2393,7 @@ module Org::Eclipse::Jface::Text
       @f_text_widget.add_traverse_listener(# Disable SWT Shift+TAB traversal in this viewer
       # 1GIYQ9K: ITPUI:WINNT - StyledText swallows Shift+TAB
       Class.new(TraverseListener.class == Class ? TraverseListener : Object) do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         include TraverseListener if TraverseListener.class == Module
         
@@ -2417,7 +2417,7 @@ module Org::Eclipse::Jface::Text
       @f_verify_listener.forward(true)
       @f_text_widget.add_verify_listener(@f_verify_listener)
       @f_text_widget.add_selection_listener(Class.new(SelectionListener.class == Class ? SelectionListener : Object) do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         include SelectionListener if SelectionListener.class == Module
         
@@ -3190,7 +3190,7 @@ module Org::Eclipse::Jface::Text
       end
       @f_number_of_post_selection_changed_events[0] += 1
       display.timer_exec(get_empty_selection_changed_event_delay, Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in TextViewer
         include_class_members TextViewer
         include Runnable if Runnable.class == Module
         
@@ -4265,7 +4265,7 @@ module Org::Eclipse::Jface::Text
       @f_last_event_time = e.attr_time
       if (is_first)
         wrap_compound_change(Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in TextViewer
           include_class_members TextViewer
           include Runnable if Runnable.class == Module
           
@@ -4378,7 +4378,7 @@ module Org::Eclipse::Jface::Text
           copy_marked_region(true)
         else
           wrap_compound_change(Class.new(Runnable.class == Class ? Runnable : Object) do
-            extend LocalClass
+            local_class_in TextViewer
             include_class_members TextViewer
             include Runnable if Runnable.class == Module
             
@@ -4437,7 +4437,7 @@ module Org::Eclipse::Jface::Text
         @f_text_widget.invoke_action(ST::DELETE_NEXT)
       else
         wrap_compound_change(Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in TextViewer
           include_class_members TextViewer
           include Runnable if Runnable.class == Module
           
@@ -4472,7 +4472,7 @@ module Org::Eclipse::Jface::Text
         @f_text_widget.paste
       else
         wrap_compound_change(Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in TextViewer
           include_class_members TextViewer
           include Runnable if Runnable.class == Module
           
@@ -4618,7 +4618,7 @@ module Org::Eclipse::Jface::Text
       end
       if (delete_)
         wrap_compound_change(Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in TextViewer
           include_class_members TextViewer
           include Runnable if Runnable.class == Module
           
@@ -4946,7 +4946,7 @@ module Org::Eclipse::Jface::Text
         printer = Printer.new(data)
         styled_text_printer = @f_text_widget.print(printer, options)
         printing_thread = Class.new(JavaThread.class == Class ? JavaThread : Object) do
-          extend LocalClass
+          local_class_in TextViewer
           include_class_members TextViewer
           include JavaThread if JavaThread.class == Module
           

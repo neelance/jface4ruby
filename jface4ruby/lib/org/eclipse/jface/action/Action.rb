@@ -34,7 +34,7 @@ module Org::Eclipse::Jface::Action
     
     class_module.module_eval {
       const_set_lazy(:VAL_DROP_DOWN_MENU) { Class.new(IMenuCreator.class == Class ? IMenuCreator : Object) do
-        extend LocalClass
+        local_class_in Action
         include_class_members Action
         include IMenuCreator if IMenuCreator.class == Module
         

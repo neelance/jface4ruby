@@ -69,7 +69,7 @@ module Org::Eclipse::Jface::Fieldassist
       # proposal will result in the information being displayed in a secondary
       # popup.
       const_set_lazy(:ContentProposalPopup) { Class.new(PopupDialog) do
-        extend LocalClass
+        local_class_in ContentProposalAdapter
         include_class_members ContentProposalAdapter
         
         class_module.module_eval {
@@ -79,7 +79,7 @@ module Org::Eclipse::Jface::Fieldassist
           # because one of the registered listeners received them. Other events
           # depend on additional circumstances.
           const_set_lazy(:PopupCloserListener) { Class.new do
-            extend LocalClass
+            local_class_in ContentProposalPopup
             include_class_members ContentProposalPopup
             include class_self::Listener
             
@@ -100,7 +100,7 @@ module Org::Eclipse::Jface::Fieldassist
                 # scrollbar. Do this in an async since the focus is not
                 # actually switched when this event is received.
                 Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-                  extend LocalClass
+                  local_class_in PopupCloserListener
                   include_class_members PopupCloserListener
                   include class_self::Runnable if class_self::Runnable.class == Module
                   
@@ -204,7 +204,7 @@ module Org::Eclipse::Jface::Fieldassist
           
           # The listener we will install on the target control.
           const_set_lazy(:TargetControlListener) { Class.new do
-            extend LocalClass
+            local_class_in ContentProposalPopup
             include_class_members ContentProposalPopup
             include class_self::Listener
             
@@ -400,7 +400,7 @@ module Org::Eclipse::Jface::Fieldassist
           
           # Internal class used to implement the secondary popup.
           const_set_lazy(:InfoPopupDialog) { Class.new(class_self::PopupDialog) do
-            extend LocalClass
+            local_class_in ContentProposalPopup
             include_class_members ContentProposalPopup
             
             # The text control that displays the text.
@@ -438,7 +438,7 @@ module Org::Eclipse::Jface::Fieldassist
               @text.set_text(@contents)
               @text.add_focus_listener(# since SWT.NO_FOCUS is only a hint...
               Class.new(self.class::FocusAdapter.class == Class ? self.class::FocusAdapter : Object) do
-                extend LocalClass
+                local_class_in InfoPopupDialog
                 include_class_members InfoPopupDialog
                 include class_self::FocusAdapter if class_self::FocusAdapter.class == Module
                 
@@ -637,7 +637,7 @@ module Org::Eclipse::Jface::Fieldassist
           if (USE_VIRTUAL)
             @proposal_table = self.class::Table.new(parent, SWT::H_SCROLL | SWT::V_SCROLL | SWT::VIRTUAL)
             listener = Class.new(self.class::Listener.class == Class ? self.class::Listener : Object) do
-              extend LocalClass
+              local_class_in ContentProposalPopup
               include_class_members ContentProposalPopup
               include class_self::Listener if class_self::Listener.class == Module
               
@@ -662,7 +662,7 @@ module Org::Eclipse::Jface::Fieldassist
           set_proposals(filter_proposals(@proposals, @filter_text))
           @proposal_table.set_header_visible(false)
           @proposal_table.add_selection_listener(Class.new(self.class::SelectionListener.class == Class ? self.class::SelectionListener : Object) do
-            extend LocalClass
+            local_class_in ContentProposalPopup
             include_class_members ContentProposalPopup
             include class_self::SelectionListener if class_self::SelectionListener.class == Module
             
@@ -725,7 +725,7 @@ module Org::Eclipse::Jface::Fieldassist
           get_shell.set_bounds(initial_x, initial_y, self.attr_popup_size.attr_x, self.attr_popup_size.attr_y)
           get_shell.add_listener(SWT::Resize, # Now set up a listener to monitor any changes in size.
           Class.new(self.class::Listener.class == Class ? self.class::Listener : Object) do
-            extend LocalClass
+            local_class_in ContentProposalPopup
             include_class_members ContentProposalPopup
             include class_self::Listener if class_self::Listener.class == Module
             
@@ -934,7 +934,7 @@ module Org::Eclipse::Jface::Fieldassist
             # code must be able to run independently of the Eclipse
             # runtime.
             Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-              extend LocalClass
+              local_class_in ContentProposalPopup
               include_class_members ContentProposalPopup
               include class_self::Runnable if class_self::Runnable.class == Module
               
@@ -950,7 +950,7 @@ module Org::Eclipse::Jface::Fieldassist
                 end
                 runnable_class = self.class
                 get_shell.get_display.sync_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-                  extend LocalClass
+                  local_class_in runnable_class
                   include_class_members runnable_class
                   include class_self::Runnable if class_self::Runnable.class == Module
                   
@@ -967,7 +967,7 @@ module Org::Eclipse::Jface::Fieldassist
                           self.attr_info_popup.open
                           runnable_class = self.class
                           self.attr_info_popup.get_shell.add_dispose_listener(Class.new(self.class::DisposeListener.class == Class ? self.class::DisposeListener : Object) do
-                            extend LocalClass
+                            local_class_in runnable_class
                             include_class_members runnable_class
                             include class_self::DisposeListener if class_self::DisposeListener.class == Module
                             
@@ -1055,7 +1055,7 @@ module Org::Eclipse::Jface::Fieldassist
         def async_recompute_proposals(filter_text)
           if (is_valid)
             self.attr_control.get_display.async_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-              extend LocalClass
+              local_class_in ContentProposalPopup
               include_class_members ContentProposalPopup
               include class_self::Runnable if class_self::Runnable.class == Module
               
@@ -1741,7 +1741,7 @@ module Org::Eclipse::Jface::Fieldassist
         return
       end
       @control_listener = Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in ContentProposalAdapter
         include_class_members ContentProposalAdapter
         include Listener if Listener.class == Module
         
@@ -1940,7 +1940,7 @@ module Org::Eclipse::Jface::Fieldassist
             @popup = ContentProposalPopup.new_local(self, nil, proposals)
             @popup.open
             @popup.get_shell.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-              extend LocalClass
+              local_class_in ContentProposalAdapter
               include_class_members ContentProposalAdapter
               include DisposeListener if DisposeListener.class == Module
               
@@ -2088,7 +2088,7 @@ module Org::Eclipse::Jface::Fieldassist
     def auto_activate
       if (@auto_activation_delay > 0)
         runnable = Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in ContentProposalAdapter
           include_class_members ContentProposalAdapter
           include Runnable if Runnable.class == Module
           
@@ -2104,7 +2104,7 @@ module Org::Eclipse::Jface::Fieldassist
             end
             runnable_class = self.class
             get_control.get_display.sync_exec(Class.new(self.class::Runnable.class == Class ? self.class::Runnable : Object) do
-              extend LocalClass
+              local_class_in runnable_class
               include_class_members runnable_class
               include class_self::Runnable if class_self::Runnable.class == Module
               
@@ -2141,7 +2141,7 @@ module Org::Eclipse::Jface::Fieldassist
         # other important info to change as a result of this
         # event occurring.
         Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in ContentProposalAdapter
           include_class_members ContentProposalAdapter
           include Runnable if Runnable.class == Module
           

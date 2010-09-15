@@ -91,7 +91,7 @@ module Org::Eclipse::Jface::Viewers
       end }
       
       const_set_lazy(:HashEnumerator) { Class.new do
-        extend LocalClass
+        local_class_in CustomHashtable
         include_class_members CustomHashtable
         include Enumeration
         
@@ -368,7 +368,7 @@ module Org::Eclipse::Jface::Viewers
       if ((@comparer).nil?)
         return (a == b)
       else
-        return (@comparer == a)
+        return @comparer.==(a, b)
       end
     end
     

@@ -174,7 +174,7 @@ module Org::Eclipse::Jface::Util
       # followed by a dragOperationChanged with the exact same event.
       if (!(new_listener).nil? && (new_listener).equal?(old_listener))
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in DelegatingDropAdapter
           include_class_members DelegatingDropAdapter
           include SafeRunnable if SafeRunnable.class == Module
           
@@ -211,7 +211,7 @@ module Org::Eclipse::Jface::Util
       # followed by a dragOver with the exact same event.
       if (!(new_listener).nil? && (new_listener).equal?(old_listener))
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in DelegatingDropAdapter
           include_class_members DelegatingDropAdapter
           include SafeRunnable if SafeRunnable.class == Module
           
@@ -243,7 +243,7 @@ module Org::Eclipse::Jface::Util
       update_current_listener(event)
       if (!(get_current_listener).nil?)
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in DelegatingDropAdapter
           include_class_members DelegatingDropAdapter
           include SafeRunnable if SafeRunnable.class == Module
           
@@ -274,7 +274,7 @@ module Org::Eclipse::Jface::Util
       # System.out.println("Drop Accept: " + toString()); //$NON-NLS-1$
       if (!(get_current_listener).nil?)
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in DelegatingDropAdapter
           include_class_members DelegatingDropAdapter
           include SafeRunnable if SafeRunnable.class == Module
           
@@ -373,7 +373,7 @@ module Org::Eclipse::Jface::Util
       end
       if (!(@current_listener).nil?)
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in DelegatingDropAdapter
           include_class_members DelegatingDropAdapter
           include SafeRunnable if SafeRunnable.class == Module
           
@@ -396,7 +396,7 @@ module Org::Eclipse::Jface::Util
       # System.out.println("Current drop listener: " + listener); //$NON-NLS-1$
       if (!(@current_listener).nil?)
         SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-          extend LocalClass
+          local_class_in DelegatingDropAdapter
           include_class_members DelegatingDropAdapter
           include SafeRunnable if SafeRunnable.class == Module
           

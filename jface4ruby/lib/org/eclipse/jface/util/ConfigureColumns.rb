@@ -117,7 +117,7 @@ module Org::Eclipse::Jface::Util
         
         class_module.module_eval {
           const_set_lazy(:ColumnObject) { Class.new do
-            extend LocalClass
+            local_class_in ConfigureColumnsDialog
             include_class_members ConfigureColumnsDialog
             
             attr_accessor :column
@@ -348,7 +348,7 @@ module Org::Eclipse::Jface::Util
             @up_button = self.class::Button.new(composite, SWT::PUSH)
             @up_button.set_text(JFaceResources.get_string("ConfigureColumnsDialog_up")) # $NON-NLS-1$
             @up_button.add_listener(SWT::Selection, Class.new(self.class::Listener.class == Class ? self.class::Listener : Object) do
-              extend LocalClass
+              local_class_in ConfigureColumnsDialog
               include_class_members ConfigureColumnsDialog
               include class_self::Listener if class_self::Listener.class == Module
               
@@ -369,7 +369,7 @@ module Org::Eclipse::Jface::Util
             @down_button = self.class::Button.new(composite, SWT::PUSH)
             @down_button.set_text(JFaceResources.get_string("ConfigureColumnsDialog_down")) # $NON-NLS-1$
             @down_button.add_listener(SWT::Selection, Class.new(self.class::Listener.class == Class ? self.class::Listener : Object) do
-              extend LocalClass
+              local_class_in ConfigureColumnsDialog
               include_class_members ConfigureColumnsDialog
               include class_self::Listener if class_self::Listener.class == Module
               
@@ -400,7 +400,7 @@ module Org::Eclipse::Jface::Util
           GridDataFactory.defaults_for(width_composite).grab(false, false).span(num_columns, 1).apply_to(width_composite)
           GridLayoutFactory.swt_defaults.num_columns(num_columns).apply_to(composite)
           @table.add_listener(SWT::Selection, Class.new(self.class::Listener.class == Class ? self.class::Listener : Object) do
-            extend LocalClass
+            local_class_in ConfigureColumnsDialog
             include_class_members ConfigureColumnsDialog
             include class_self::Listener if class_self::Listener.class == Module
             
@@ -418,7 +418,7 @@ module Org::Eclipse::Jface::Util
             alias_method :initialize_anonymous, :initialize
           end.new_local(self))
           @text.add_listener(SWT::Modify, Class.new(self.class::Listener.class == Class ? self.class::Listener : Object) do
-            extend LocalClass
+            local_class_in ConfigureColumnsDialog
             include_class_members ConfigureColumnsDialog
             include class_self::Listener if class_self::Listener.class == Module
             

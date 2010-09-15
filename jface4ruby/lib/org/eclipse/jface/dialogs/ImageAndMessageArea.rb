@@ -103,7 +103,7 @@ module Org::Eclipse::Jface::Dialogs
       end
       @message_field.get_layout_control.set_layout_data(gd)
       add_paint_listener(Class.new(PaintListener.class == Class ? PaintListener : Object) do
-        extend LocalClass
+        local_class_in ImageAndMessageArea
         include_class_members ImageAndMessageArea
         include PaintListener if PaintListener.class == Module
         
@@ -126,7 +126,7 @@ module Org::Eclipse::Jface::Dialogs
       set_layout(# sets the layout and size to account for the BORDER_MARGIN between
       # the border drawn around the container and the decorated field.
       Class.new(Layout.class == Class ? Layout : Object) do
-        extend LocalClass
+        local_class_in ImageAndMessageArea
         include_class_members ImageAndMessageArea
         include Layout if Layout.class == Module
         

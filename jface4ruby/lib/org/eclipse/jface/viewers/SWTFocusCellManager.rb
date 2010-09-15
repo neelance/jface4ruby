@@ -76,7 +76,7 @@ module Org::Eclipse::Jface::Viewers
       @focus_cell = nil
       @cell_highlighter = nil
       @item_deletion_listener = Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in SWTFocusCellManager
         include_class_members SWTFocusCellManager
         include DisposeListener if DisposeListener.class == Module
         
@@ -173,7 +173,7 @@ module Org::Eclipse::Jface::Viewers
     typesig { [ColumnViewer] }
     def hook_listener(viewer)
       listener = Class.new(Listener.class == Class ? Listener : Object) do
-        extend LocalClass
+        local_class_in SWTFocusCellManager
         include_class_members SWTFocusCellManager
         include Listener if Listener.class == Module
         
@@ -203,7 +203,7 @@ module Org::Eclipse::Jface::Viewers
       viewer.get_control.add_listener(SWT::KeyDown, listener)
       viewer.get_control.add_listener(SWT::Selection, listener)
       viewer.add_selection_changed_listener(Class.new(ISelectionChangedListener.class == Class ? ISelectionChangedListener : Object) do
-        extend LocalClass
+        local_class_in SWTFocusCellManager
         include_class_members SWTFocusCellManager
         include ISelectionChangedListener if ISelectionChangedListener.class == Module
         
@@ -224,7 +224,7 @@ module Org::Eclipse::Jface::Viewers
       end.new_local(self))
       viewer.get_control.add_listener(SWT::FocusIn, listener)
       viewer.get_control.get_accessible.add_accessible_listener(Class.new(AccessibleAdapter.class == Class ? AccessibleAdapter : Object) do
-        extend LocalClass
+        local_class_in SWTFocusCellManager
         include_class_members SWTFocusCellManager
         include AccessibleAdapter if AccessibleAdapter.class == Module
         

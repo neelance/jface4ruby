@@ -443,7 +443,7 @@ module Org::Eclipse::Jface::Text
     # @since 3.4
     def get_information_presenter_control_creator
       return Class.new(IInformationControlCreator.class == Class ? IInformationControlCreator : Object) do
-        extend LocalClass
+        local_class_in DefaultInformationControl
         include_class_members DefaultInformationControl
         include IInformationControlCreator if IInformationControlCreator.class == Module
         

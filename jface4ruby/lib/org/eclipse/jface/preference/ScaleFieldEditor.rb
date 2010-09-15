@@ -245,7 +245,7 @@ module Org::Eclipse::Jface::Preference
         @scale = Scale.new(parent, SWT::HORIZONTAL)
         @scale.set_font(parent.get_font)
         @scale.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-          extend LocalClass
+          local_class_in ScaleFieldEditor
           include_class_members ScaleFieldEditor
           include SelectionAdapter if SelectionAdapter.class == Module
           
@@ -263,7 +263,7 @@ module Org::Eclipse::Jface::Preference
           alias_method :initialize_anonymous, :initialize
         end.new_local(self))
         @scale.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-          extend LocalClass
+          local_class_in ScaleFieldEditor
           include_class_members ScaleFieldEditor
           include DisposeListener if DisposeListener.class == Module
           

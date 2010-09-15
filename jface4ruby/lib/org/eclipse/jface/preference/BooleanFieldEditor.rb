@@ -216,7 +216,7 @@ module Org::Eclipse::Jface::Preference
         @check_box = Button.new(parent, SWT::CHECK | SWT::LEFT)
         @check_box.set_font(parent.get_font)
         @check_box.add_selection_listener(Class.new(SelectionAdapter.class == Class ? SelectionAdapter : Object) do
-          extend LocalClass
+          local_class_in BooleanFieldEditor
           include_class_members BooleanFieldEditor
           include SelectionAdapter if SelectionAdapter.class == Module
           
@@ -236,7 +236,7 @@ module Org::Eclipse::Jface::Preference
           alias_method :initialize_anonymous, :initialize
         end.new_local(self))
         @check_box.add_dispose_listener(Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-          extend LocalClass
+          local_class_in BooleanFieldEditor
           include_class_members BooleanFieldEditor
           include DisposeListener if DisposeListener.class == Module
           

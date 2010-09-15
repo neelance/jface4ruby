@@ -40,7 +40,7 @@ module Org::Eclipse::Jface::Text::Source::Projection
     
     class_module.module_eval {
       const_set_lazy(:Summarizer) { Class.new(JavaThread) do
-        extend LocalClass
+        local_class_in ProjectionSummary
         include_class_members ProjectionSummary
         
         attr_accessor :f_reset

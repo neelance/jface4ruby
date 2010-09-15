@@ -144,7 +144,7 @@ module Org::Eclipse::Jface::Text::Templates::Persistence
     def start_listening_for_preference_changes
       if ((@f_property_listener).nil?)
         @f_property_listener = Class.new(IPropertyChangeListener.class == Class ? IPropertyChangeListener : Object) do
-          extend LocalClass
+          local_class_in TemplateStore
           include_class_members TemplateStore
           include IPropertyChangeListener if IPropertyChangeListener.class == Module
           

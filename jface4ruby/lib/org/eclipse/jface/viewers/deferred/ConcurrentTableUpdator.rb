@@ -161,7 +161,7 @@ module Org::Eclipse::Jface::Viewers::Deferred
       @update_scheduled = false
       @disposed = false
       @ui_runnable = Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in ConcurrentTableUpdator
         include_class_members ConcurrentTableUpdator
         include Runnable if Runnable.class == Module
         

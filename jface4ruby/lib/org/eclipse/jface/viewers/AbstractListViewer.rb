@@ -459,7 +459,7 @@ module Org::Eclipse::Jface::Viewers
         return
       end
       preserving_selection(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in AbstractListViewer
         include_class_members AbstractListViewer
         include Runnable if Runnable.class == Module
         
@@ -550,7 +550,7 @@ module Org::Eclipse::Jface::Viewers
       size_ = @list_map.size
       i = 0
       while i < size_
-        if ((comparer == element))
+        if (comparer.==(element, @list_map.get(i)))
           return i
         end
         i += 1

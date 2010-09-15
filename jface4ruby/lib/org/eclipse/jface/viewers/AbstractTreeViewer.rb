@@ -95,7 +95,7 @@ module Org::Eclipse::Jface::Viewers
     class_module.module_eval {
       # Safe runnable used to update an item.
       const_set_lazy(:UpdateItemSafeRunnable) { Class.new(SafeRunnable) do
-        extend LocalClass
+        local_class_in AbstractTreeViewer
         include_class_members AbstractTreeViewer
         
         attr_accessor :element
@@ -778,7 +778,7 @@ module Org::Eclipse::Jface::Viewers
           end
         end
         BusyIndicator.show_while(widget.get_display, Class.new(Runnable.class == Class ? Runnable : Object) do
-          extend LocalClass
+          local_class_in AbstractTreeViewer
           include_class_members AbstractTreeViewer
           include Runnable if Runnable.class == Module
           
@@ -1075,7 +1075,7 @@ module Org::Eclipse::Jface::Viewers
         while i < listeners.attr_length
           l = listeners[i]
           SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-            extend LocalClass
+            local_class_in AbstractTreeViewer
             include_class_members AbstractTreeViewer
             include SafeRunnable if SafeRunnable.class == Module
             
@@ -1115,7 +1115,7 @@ module Org::Eclipse::Jface::Viewers
         while i < listeners.attr_length
           l = listeners[i]
           SafeRunnable.run(Class.new(SafeRunnable.class == Class ? SafeRunnable : Object) do
-            extend LocalClass
+            local_class_in AbstractTreeViewer
             include_class_members AbstractTreeViewer
             include SafeRunnable if SafeRunnable.class == Module
             
@@ -1485,7 +1485,7 @@ module Org::Eclipse::Jface::Viewers
     def hook_control(control)
       super(control)
       add_tree_listener(control, Class.new(TreeListener.class == Class ? TreeListener : Object) do
-        extend LocalClass
+        local_class_in AbstractTreeViewer
         include_class_members AbstractTreeViewer
         include TreeListener if TreeListener.class == Module
         
@@ -1514,7 +1514,7 @@ module Org::Eclipse::Jface::Viewers
     # tree and handles the automatic expand feature.
     def input_changed(input, old_input)
       preserving_selection(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in AbstractTreeViewer
         include_class_members AbstractTreeViewer
         include Runnable if Runnable.class == Module
         
@@ -1733,7 +1733,7 @@ module Org::Eclipse::Jface::Viewers
             i += 1
             next
           end
-          if ((tree_path == get_tree_path_from_item(candidate)))
+          if (tree_path.==(get_tree_path_from_item(candidate), get_comparer))
             return candidate
           end
           i += 1
@@ -2215,7 +2215,7 @@ module Org::Eclipse::Jface::Viewers
         return
       end
       preserving_selection(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in AbstractTreeViewer
         include_class_members AbstractTreeViewer
         include Runnable if Runnable.class == Module
         
@@ -2260,7 +2260,7 @@ module Org::Eclipse::Jface::Viewers
         return
       end
       preserving_selection(Class.new(Runnable.class == Class ? Runnable : Object) do
-        extend LocalClass
+        local_class_in AbstractTreeViewer
         include_class_members AbstractTreeViewer
         include Runnable if Runnable.class == Module
         
@@ -2472,13 +2472,13 @@ module Org::Eclipse::Jface::Viewers
       end
       comparer = get_comparer
       tree_path_comparer = Class.new(IElementComparer.class == Class ? IElementComparer : Object) do
-        extend LocalClass
+        local_class_in AbstractTreeViewer
         include_class_members AbstractTreeViewer
         include IElementComparer if IElementComparer.class == Module
         
         typesig { [Object, Object] }
         define_method :== do |a, b|
-          return ((a) == (b))
+          return (a).==((b), comparer)
         end
         
         typesig { [Object] }

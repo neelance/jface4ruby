@@ -112,7 +112,7 @@ module Org::Eclipse::Jface::Bindings
         return false
       end
       trigger_sequence = object
-      return (Util == @triggers)
+      return Util.==(@triggers, trigger_sequence.attr_triggers)
     end
     
     typesig { [] }

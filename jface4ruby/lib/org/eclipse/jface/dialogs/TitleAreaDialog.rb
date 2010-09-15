@@ -280,7 +280,7 @@ module Org::Eclipse::Jface::Dialogs
     def create_title_area(parent)
       parent.add_dispose_listener(# add a dispose listener
       Class.new(DisposeListener.class == Class ? DisposeListener : Object) do
-        extend LocalClass
+        local_class_in TitleAreaDialog
         include_class_members TitleAreaDialog
         include DisposeListener if DisposeListener.class == Module
         
